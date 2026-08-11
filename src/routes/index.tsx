@@ -128,17 +128,17 @@ function Hero() {
     <section
       id="top"
       ref={ref}
-      className="grain-overlay relative flex min-h-[100svh] items-end overflow-hidden pb-16"
+      className="grain-overlay relative flex min-h-[100svh] items-center overflow-hidden"
     >
       <motion.div
-        className="glow-orb absolute top-1/4 left-1/2 h-[70vw] w-[70vw] -translate-x-1/2 opacity-60"
+        className="glow-orb absolute top-1/4 right-0 h-[70vw] w-[70vw] opacity-60"
         style={{ x: pointer.x * -40, y: pointer.y * -40 }}
       />
       <motion.img
         src={splash}
         alt=""
         aria-hidden
-        className="absolute top-1/3 left-1/2 w-[80vw] max-w-3xl -translate-x-1/2 opacity-40 mix-blend-screen"
+        className="absolute top-1/4 right-0 w-[70vw] max-w-2xl opacity-35 mix-blend-screen"
         style={{ x: pointer.x * 30, y: pointer.y * 20, scale }}
       />
       <motion.img
@@ -146,29 +146,30 @@ function Hero() {
         alt="Aiel studio mascot wearing branded streetwear"
         width={1024}
         height={1280}
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[76svh] w-auto -translate-x-1/2 drop-shadow-[0_40px_80px_rgba(255,45,155,0.25)] md:h-[86svh]"
+        className="pointer-events-none absolute right-[-6%] bottom-0 h-[62svh] w-auto opacity-45 drop-shadow-[0_40px_80px_rgba(255,45,155,0.25)] md:right-[2%] md:h-[88svh] md:opacity-100"
         style={{ y: yMascot, x: pointer.x * -18 }}
       />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
       <motion.div
         style={{ opacity: fade }}
-        className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-6 text-center"
+        className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 md:px-12"
       >
         <motion.h1
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-gradient gradient-pan font-display text-[18vw] leading-[0.8] font-extrabold tracking-tighter md:text-[13rem]"
+          className="text-gradient gradient-pan font-display text-[24vw] leading-[0.8] font-extrabold tracking-tighter md:text-[11rem]"
         >
           Aiel
         </motion.h1>
         <p className="mt-4 font-display text-[0.7rem] tracking-[0.5em] text-muted-foreground uppercase md:text-xs">
           Design &amp; Printing Studio
         </p>
-        <p className="mt-6 max-w-xl text-balance text-muted-foreground">
+        <p className="mt-6 max-w-sm text-balance text-muted-foreground">
           Custom apparel, corporate gifts &amp; merch — designed and printed to move.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-10 flex flex-wrap items-center gap-4">
           <MagneticButton href={WHATSAPP}>Start Your Design</MagneticButton>
           <MagneticButton href="#products" variant="ghost">
             Explore Products
@@ -176,6 +177,7 @@ function Hero() {
         </div>
       </motion.div>
     </section>
+
   );
 }
 
