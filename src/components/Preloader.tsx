@@ -6,25 +6,22 @@ export function Preloader({ onDone }: { onDone: () => void }) {
   const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    let raf = 0;
     const start = performance.now();
     const duration = 2200;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setProgress(eased * 100);
-      if (t < 1) {
-        raf = requestAnimationFrame(tick);
-      } else {
+    const id = window.setInterval(() => {
+      const t = Math.min(1, (performance.now() - start) / duration);
+      setProgress((1 - Math.pow(1 - t, 3)) * 100);
+      if (t >= 1) {
+        window.clearInterval(id);
         window.setTimeout(() => {
           setGone(true);
           onDone();
         }, 350);
       }
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    }, 40);
+    return () => window.clearInterval(id);
   }, [onDone]);
+
 
 
   return (
