@@ -7,23 +7,25 @@ export function Preloader({ onDone }: { onDone: () => void }) {
 
   useEffect(() => {
     let raf = 0;
-    let value = 0;
-    const tick = () => {
-      value += Math.max(0.4, (100 - value) * 0.025);
-      const next = Math.min(100, value);
-      setProgress(next);
-      if (next < 100) {
+    const start = performance.now();
+    const duration = 2200;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setProgress(eased * 100);
+      if (t < 1) {
         raf = requestAnimationFrame(tick);
       } else {
         window.setTimeout(() => {
           setGone(true);
           onDone();
-        }, 500);
+        }, 350);
       }
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [onDone]);
+
 
   return (
     <AnimatePresence>
