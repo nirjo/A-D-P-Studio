@@ -146,7 +146,7 @@ function Hero() {
         alt="Aiel studio mascot wearing branded streetwear"
         width={1024}
         height={1280}
-        className="pointer-events-none absolute right-[-6%] bottom-0 h-[62svh] w-auto opacity-45 drop-shadow-[0_40px_80px_rgba(255,45,155,0.25)] md:right-[2%] md:h-[88svh] md:opacity-100"
+        className="pointer-events-none absolute right-[-14%] bottom-0 h-[60svh] w-auto opacity-40 drop-shadow-[0_40px_80px_rgba(255,45,155,0.25)] md:right-[-10%] md:h-[92svh] md:opacity-100"
         style={{ y: yMascot, x: pointer.x * -18 }}
       />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
