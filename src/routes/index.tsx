@@ -16,6 +16,10 @@ import {
 } from "@/components/ui-kit";
 import type { ProductKey } from "@/components/ProductScene";
 import mascot from "@/assets/mascot.png";
+import heroVideo from "@/assets/dancing-boy.mp4";
+// To enable Hero music, place an MP3 at src/assets/hero-music.mp3 and uncomment:
+import heroMusicFile from "@/assets/hero-music.mp3";
+const heroMusicSrc: string | null = heroMusicFile;
 import splash from "@/assets/splash.jpg";
 import workTee from "@/assets/work-tee.jpg";
 import workMug from "@/assets/work-mug.jpg";
@@ -108,7 +112,7 @@ function Nav() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const yMascot = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const yVideo = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
@@ -141,14 +145,19 @@ function Hero() {
         className="absolute top-1/4 right-0 w-[70vw] max-w-2xl opacity-35 mix-blend-screen"
         style={{ x: pointer.x * 30, y: pointer.y * 20, scale }}
       />
-      <motion.img
-        src={mascot}
-        alt="Aiel studio mascot wearing branded streetwear"
-        width={1024}
-        height={1280}
-        className="pointer-events-none absolute right-[-14%] bottom-0 h-[60svh] w-auto opacity-40 drop-shadow-[0_40px_80px_rgba(255,45,155,0.25)] md:right-[-10%] md:h-[92svh] md:opacity-100"
-        style={{ y: yMascot, x: pointer.x * -18 }}
-      />
+      <motion.div
+        className="pointer-events-none absolute right-[-14%] bottom-0 z-20 h-[60svh] w-auto md:right-[-10%] md:h-[92svh]"
+        style={{ y: yVideo, x: pointer.x * -18 }}
+      >
+        <video
+          src={heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-character relative block h-full w-auto object-contain drop-shadow-[0_40px_80px_rgba(255,45,155,0.25)]"
+        />
+      </motion.div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
       <motion.div
@@ -201,13 +210,13 @@ function About() {
         </div>
         <Reveal delay={0.2} className="relative">
           <div className="glow-orb absolute inset-0 opacity-50" />
-          <img
-            src={mascot}
-            alt="Aiel mascot"
-            loading="lazy"
-            width={1024}
-            height={1280}
-            className="animate-float relative mx-auto h-[420px] w-auto"
+          <video
+            src={heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="hero-character animate-float relative mx-auto h-[420px] w-auto object-contain"
           />
         </Reveal>
       </div>
@@ -562,6 +571,65 @@ function FloatingWhatsApp() {
   );
 }
 
+/* ─── Music toggle (provide MP3 to activate) ─────────────────────── */
+function MusicToggle() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const fadeRef = useRef<number>();
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = useCallback(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    if (fadeRef.current) window.clearInterval(fadeRef.current);
+    if (playing) {
+      fadeRef.current = window.setInterval(() => {
+        if (a.volume > 0.01) {
+          a.volume = Math.max(0, a.volume - 0.01);
+        } else {
+          window.clearInterval(fadeRef.current);
+          a.pause();
+        }
+      }, 25);
+    } else {
+      a.volume = 0;
+      a.play()
+        .then(() => {
+          fadeRef.current = window.setInterval(() => {
+            if (a.volume < 0.14) {
+              a.volume = Math.min(0.15, a.volume + 0.01);
+            } else {
+              window.clearInterval(fadeRef.current);
+            }
+          }, 25);
+        })
+        .catch(() => {});
+    }
+    setPlaying((p) => !p);
+  }, [playing]);
+
+  if (!heroMusicSrc) return null;
+
+  return (
+    <>
+      <audio ref={audioRef} src={heroMusicSrc} loop preload="auto" />
+      <button
+        onClick={toggle}
+        data-cursor="splash"
+        aria-label={playing ? "Mute music" : "Play music"}
+        className="fixed left-6 bottom-6 z-50 grid h-11 w-11 place-items-center rounded-full border border-border/60 bg-card/70 text-foreground/80 backdrop-blur-md transition-all hover:border-foreground/30 hover:text-foreground"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
+          {playing ? (
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.14v7.72A4.49 4.49 0 0 0 16.5 12ZM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77Z" />
+          ) : (
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8.14v7.72A4.49 4.49 0 0 0 16.5 12Z" />
+          )}
+        </svg>
+      </button>
+    </>
+  );
+}
+
 function Index() {
   const [ready, setReady] = useState(false);
   useSmoothScroll(ready);
@@ -584,6 +652,7 @@ function Index() {
       <Contact />
       <Footer />
       <FloatingWhatsApp />
+      <MusicToggle />
     </main>
   );
 }
