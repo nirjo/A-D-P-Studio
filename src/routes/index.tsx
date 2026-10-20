@@ -24,37 +24,88 @@ import workBag from "@/assets/work-bag.jpg";
 import workJersey from "@/assets/work-jersey.jpg";
 import workCorporate from "@/assets/work-corporate.jpg";
 
+// New e-commerce components
+import { TopBar } from "@/components/TopBar";
+import { Header } from "@/components/Header";
+import { Footer as SiteFooter } from "@/components/Footer";
+import { CategoryRow } from "@/components/CategoryRow";
+import { CombosSection } from "@/components/CombosSection";
+import { WhyAielStrip } from "@/components/WhyAielStrip";
+import { ClientLogoRow } from "@/components/ClientLogoRow";
+import { CustomerReviews } from "@/components/CustomerReviews";
+import { ProductCard } from "@/components/ProductCard";
+import { PRODUCTS, CATEGORIES_META, getProductsByCategory } from "@/data/products";
+import { Link } from "@tanstack/react-router";
+
 const ProductScene = lazy(() => import("@/components/ProductScene"));
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/")(({
   head: () => ({
     meta: [
-      { title: "Aiel Design & Printing Studio — Custom Apparel & Merch" },
+      { title: "Aiel Design & Printing Studio — Custom Apparel & Merch, Puducherry" },
       {
         name: "description",
         content:
-          "Custom t-shirts, jerseys, mugs, caps, bags and corporate gifts — designed and printed by Aiel Design & Printing Studio. Explore our interactive 3D product universe.",
+          "Custom t-shirts, mugs, keychains, tote bags and phone cases — designed and printed by Aiel Design & Printing Studio, Puducherry. 48h rush turnaround. Shipping across India.",
       },
       { property: "og:title", content: "Aiel Design & Printing Studio" },
       {
         property: "og:description",
         content:
-          "Custom apparel, corporate gifts & merch — designed and printed to move. Interactive 3D showcase by Aiel Design & Printing Studio.",
+          "Custom apparel, corporate gifts & merch — designed and printed to move. Interactive 3D showcase by Aiel Design & Printing Studio, Puducherry.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Aiel Design & Printing Studio",
+          image: "https://aiel-studio-canvas.vercel.app/og.jpg",
+          "@id": "https://aiel-studio-canvas.vercel.app",
+          url: "https://aiel-studio-canvas.vercel.app",
+          telephone: "+919150234277",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "42 Mission Street, Heritage Town",
+            addressLocality: "Puducherry",
+            postalCode: "605001",
+            addressCountry: "IN",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: 11.9416, longitude: 79.8083 },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              opens: "09:00",
+              closes: "20:00",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Sunday"],
+              opens: "10:00",
+              closes: "14:00",
+            },
+          ],
+          sameAs: ["https://instagram.com/aieldesignstudio"],
+        }),
+      },
+    ],
   }),
   component: Index,
-});
+} as Parameters<typeof createFileRoute<"/">>[0]));
 
-const CATEGORIES: { key: ProductKey; label: string; blurb: string }[] = [
+// ─── 3D Viewer pill categories ──────────────────────────────────────────────
+const VIEWER_CATEGORIES: { key: ProductKey; label: string; blurb: string }[] = [
   { key: "tshirt", label: "T-Shirts", blurb: "Soft-hand DTF & screen prints on premium cotton." },
-  { key: "gifts", label: "Customized Gifts", blurb: "Personal moments, printed with precision." },
+  { key: "gifts", label: "Gift Boxes", blurb: "Personal moments, printed with precision." },
   { key: "mug", label: "Mugs", blurb: "Sublimation mugs with edge-to-edge colour." },
   { key: "cap", label: "Caps", blurb: "Embroidered and printed headwear." },
   { key: "keychain", label: "Keychains", blurb: "Acrylic & metal, full-colour finish." },
-  { key: "bag", label: "Bags", blurb: "Totes and drawstrings built to be carried." },
+  { key: "bag", label: "Tote Bags", blurb: "Totes and drawstrings built to be carried." },
   { key: "corporate", label: "Corporate Gifts", blurb: "Bulk kits with brand-perfect colour." },
 ];
 
@@ -74,37 +125,13 @@ const STEPS = [
   { n: "04", t: "Delivered", d: "Packed, quality checked and shipped anywhere in India." },
 ];
 
-const TESTIMONIALS = [
+const TESTIMONIALS_HERO = [
   { q: "The jerseys came out sharper than the mockup. Whole team was stunned.", a: "Arun K. — Club Captain" },
   { q: "Our onboarding kits finally look like the brand deck. Zero colour drift.", a: "Divya S. — HR Lead" },
   { q: "Ordered 200 mugs in 4 days. Packaging alone made it feel premium.", a: "Rahul M. — Founder" },
 ];
 
-function Nav() {
-  return (
-    <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 mix-blend-difference">
-      <a href="#top" className="font-display text-2xl font-extrabold tracking-tight">
-        Aiel
-      </a>
-      <nav className="hidden gap-8 font-display text-[0.7rem] tracking-[0.3em] uppercase md:flex">
-        {["Studio", "Products", "Process", "Work", "Contact"].map((l) => (
-          <a key={l} href={`#${l.toLowerCase()}`} className="hover:opacity-60">
-            {l}
-          </a>
-        ))}
-      </nav>
-      <a
-        href={INSTAGRAM}
-        target="_blank"
-        rel="noreferrer"
-        className="font-display text-[0.7rem] tracking-[0.3em] uppercase hover:opacity-60"
-      >
-        @aieldesignstudio
-      </a>
-    </header>
-  );
-}
-
+// ─── Hero ────────────────────────────────────────────────────────────────────
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -164,79 +191,121 @@ function Hero() {
           Aiel
         </motion.h1>
         <p className="mt-4 font-display text-[0.7rem] tracking-[0.5em] text-muted-foreground uppercase md:text-xs">
-          Design &amp; Printing Studio
+          Design &amp; Printing Studio — Puducherry
         </p>
         <p className="mt-6 max-w-sm text-balance text-muted-foreground">
-          Custom apparel, corporate gifts &amp; merch — designed and printed to move.
+          Custom Prints, Designed &amp; Delivered. T-shirts, mugs, keychains, tote bags &amp; more.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <MagneticButton href={WHATSAPP}>Start Your Design</MagneticButton>
-          <MagneticButton href="#products" variant="ghost">
-            Explore Products
+          <MagneticButton href="#shop-products">Shop Products</MagneticButton>
+          <MagneticButton href={WHATSAPP} variant="ghost">
+            Start Your Design
           </MagneticButton>
+        </div>
+        {/* Trust strip */}
+        <div className="mt-12 flex flex-wrap gap-6 text-[0.65rem] tracking-[0.25em] text-muted-foreground uppercase">
+          {["48h Rush Turnaround", "Shipping Across India", "Free Revisions", "GST Invoice"].map((t) => (
+            <span key={t} className="flex items-center gap-2">
+              <span className="bg-brand-gradient inline-block h-1 w-4 rounded-full" />
+              {t}
+            </span>
+          ))}
         </div>
       </motion.div>
     </section>
-
   );
 }
 
-function About() {
+// ─── Category Grid ────────────────────────────────────────────────────────────
+function CategoryGrid() {
   return (
-    <section id="studio" className="relative mx-auto max-w-7xl px-6 py-32 md:px-12">
-      <SectionLabel index="01" title="Studio" />
-      <div className="grid gap-14 md:grid-cols-[1.2fr_0.8fr]">
-        <div>
-          {[
-            "Aiel is a print studio built around one obsession: colour that survives the press. Every splash, gradient and halftone we lay down is proofed against the fabric it lands on.",
-            "From a single custom gift to a 2,000-piece corporate rollout, the same hands check the first print and the last one.",
-            "We design it, we print it, we stand behind it.",
-          ].map((p, i) => (
-            <Reveal key={p} delay={i * 0.1}>
-              <p className="mb-8 text-2xl leading-snug text-balance md:text-4xl">
-                <span className={i === 0 ? "text-foreground" : "text-muted-foreground"}>{p}</span>
-              </p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.2} className="relative">
-          <div className="glow-orb absolute inset-0 opacity-50" />
-          <img
-            src={mascot}
-            alt="Aiel mascot"
-            loading="lazy"
-            width={1024}
-            height={1280}
-            className="animate-float relative mx-auto h-[420px] w-auto"
-          />
-        </Reveal>
-      </div>
-      <div className="mt-16 grid grid-cols-2 gap-6 border-t border-border pt-10 md:grid-cols-4">
-        {[
-          ["12k+", "Pieces printed"],
-          ["300+", "Brands served"],
-          ["48h", "Rush turnaround"],
-          ["100%", "Colour proofed"],
-        ].map(([v, l], i) => (
-          <Reveal key={l} delay={i * 0.08}>
-            <div className="text-gradient font-display text-4xl font-extrabold">{v}</div>
-            <div className="mt-1 text-xs tracking-[0.2em] text-muted-foreground uppercase">{l}</div>
-          </Reveal>
+    <section id="shop-products" className="mx-auto max-w-7xl px-6 py-20 md:px-12">
+      <SectionLabel index="01" title="Shop by Category" />
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        {CATEGORIES_META.slice(0, 5).map((cat) => (
+          <Link key={cat.slug} to={cat.slug as "/tshirts"}>
+            <motion.div
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card aspect-[3/4] flex flex-col justify-end"
+            >
+              <img
+                src={cat.image}
+                alt={cat.name}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+              <div className="relative p-4">
+                <p className="font-display font-bold text-sm md:text-base">{cat.name}</p>
+                <p className="text-[0.65rem] text-muted-foreground mt-0.5">{cat.count} items</p>
+              </div>
+            </motion.div>
+          </Link>
         ))}
       </div>
     </section>
   );
 }
 
+// ─── Best Sellers ─────────────────────────────────────────────────────────────
+function BestSellers() {
+  const featured = PRODUCTS.filter((p) =>
+    ["Best Seller", "Made to order", "Hot Deal", "Combo Deal", "New"].includes(p.badge ?? "")
+  ).slice(0, 8);
+
+  return (
+    <section className="border-y border-border bg-card/30 py-20">
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <SectionLabel index="02" title="Best Sellers" />
+        <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {featured.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Per-Category rows ────────────────────────────────────────────────────────
+function ShopRows() {
+  const cats: Array<{ slug: string; label: string; viewAll: string }> = [
+    { slug: "tshirts", label: "T-Shirts", viewAll: "/tshirts" },
+    { slug: "mugs", label: "Mugs", viewAll: "/mugs" },
+    { slug: "keychains", label: "Keychains", viewAll: "/keychains" },
+    { slug: "tote-bags", label: "Tote Bags", viewAll: "/tote-bags" },
+    { slug: "phone-cases", label: "Phone Cases", viewAll: "/phone-cases" },
+  ];
+
+  return (
+    <div className="space-y-0">
+      {cats.map((cat, i) => {
+        const products = getProductsByCategory(cat.slug).slice(0, 4);
+        return (
+          <CategoryRow
+            key={cat.slug}
+            sectionIndex={String(i + 3).padStart(2, "0")}
+            label={cat.label}
+            products={products}
+            viewAllHref={cat.viewAll}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── 3D Product Universe (preserved from original) ───────────────────────────
 function ProductUniverse() {
   const [active, setActive] = useState<ProductKey>("tshirt");
   const webgl = useWebGLSupport();
-  const current = CATEGORIES.find((c) => c.key === active)!;
+  const current = VIEWER_CATEGORIES.find((c) => c.key === active)!;
 
   return (
     <section id="products" className="relative border-y border-border bg-card/30 py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <SectionLabel index="02" title="Product Universe" />
+        <SectionLabel index="08" title="Product Universe" />
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <h2 className="font-display text-5xl leading-[0.95] font-extrabold text-balance md:text-7xl">
@@ -258,7 +327,7 @@ function ProductUniverse() {
             </AnimatePresence>
 
             <div className="mt-8 flex flex-wrap gap-2">
-              {CATEGORIES.map((c) => (
+              {VIEWER_CATEGORIES.map((c) => (
                 <button
                   key={c.key}
                   data-cursor="splash"
@@ -314,10 +383,11 @@ function ProductUniverse() {
   );
 }
 
+// ─── Process ──────────────────────────────────────────────────────────────────
 function Process() {
   return (
     <section id="process" className="mx-auto max-w-7xl px-6 py-32 md:px-12">
-      <SectionLabel index="03" title="How it works" />
+      <SectionLabel index="09" title="How it works" />
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {STEPS.map((s, i) => (
           <Reveal key={s.n} delay={i * 0.1}>
@@ -337,6 +407,7 @@ function Process() {
   );
 }
 
+// ─── Gallery / Work ───────────────────────────────────────────────────────────
 function Gallery() {
   const wrap = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
@@ -378,7 +449,7 @@ function Gallery() {
   return (
     <section id="work" ref={wrap} className="relative overflow-hidden border-y border-border py-20">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <SectionLabel index="04" title="Selected work" />
+        <SectionLabel index="10" title="Selected work" />
       </div>
       <div ref={track} className="flex gap-6 px-6 md:px-12">
         {WORKS.map((w, i) => (
@@ -408,10 +479,11 @@ function Gallery() {
   );
 }
 
+// ─── Corporate / Bulk ─────────────────────────────────────────────────────────
 function Corporate() {
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-32 md:px-12">
-      <SectionLabel index="05" title="Corporate & bulk" />
+      <SectionLabel index="11" title="Corporate & bulk" />
       <div className="grid items-center gap-12 md:grid-cols-2">
         <Reveal>
           <h2 className="font-display text-4xl leading-tight font-extrabold text-balance md:text-6xl">
@@ -452,54 +524,7 @@ function Corporate() {
   );
 }
 
-function Testimonials() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = window.setInterval(() => setI((v) => (v + 1) % TESTIMONIALS.length), 5200);
-    return () => window.clearInterval(id);
-  }, []);
-  const t = TESTIMONIALS[i]!;
-
-  return (
-    <section className="border-y border-border bg-card/30 py-28">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <SectionLabel index="06" title="Clients" />
-        <div className="relative h-56 [perspective:1200px]">
-          <AnimatePresence mode="wait">
-            <motion.blockquote
-              key={i}
-              initial={{ opacity: 0, rotateX: 60, y: 40 }}
-              animate={{ opacity: 1, rotateX: 0, y: 0 }}
-              exit={{ opacity: 0, rotateX: -60, y: -40 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 flex flex-col items-center justify-center"
-            >
-              <p className="font-display text-2xl leading-snug text-balance md:text-4xl">
-                “{t.q}”
-              </p>
-              <footer className="mt-6 text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                {t.a}
-              </footer>
-            </motion.blockquote>
-          </AnimatePresence>
-        </div>
-        <div className="mt-4 flex justify-center gap-2">
-          {TESTIMONIALS.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setI(idx)}
-              aria-label={`Testimonial ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                idx === i ? "bg-brand-gradient w-8" : "w-3 bg-border"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
+// ─── Contact / CTA ────────────────────────────────────────────────────────────
 function Contact() {
   return (
     <section id="contact" className="grain-overlay relative overflow-hidden px-6 py-36 text-center">
@@ -507,10 +532,10 @@ function Contact() {
       <div className="relative mx-auto max-w-4xl">
         <Reveal>
           <h2 className="font-display text-[13vw] leading-[0.85] font-extrabold tracking-tighter md:text-[9rem]">
-            Let’s <span className="text-gradient gradient-pan">print</span> it
+            Let's <span className="text-gradient gradient-pan">print</span> it
           </h2>
           <p className="mx-auto mt-8 max-w-lg text-muted-foreground">
-            Send us a sketch, a logo, or just an idea. We’ll come back with a mockup and a price the
+            Send us a sketch, a logo, or just an idea. We'll come back with a mockup and a price the
             same day.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -525,26 +550,7 @@ function Contact() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="px-6 pb-10 md:px-12">
-      <div className="bg-brand-gradient gradient-pan h-px w-full" />
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 pt-8 text-xs tracking-[0.2em] text-muted-foreground uppercase md:flex-row">
-        <span>Aiel Design &amp; Printing Studio</span>
-        <div className="flex gap-6">
-          <a href={INSTAGRAM} target="_blank" rel="noreferrer" className="hover:text-foreground">
-            Instagram
-          </a>
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="hover:text-foreground">
-            WhatsApp
-          </a>
-        </div>
-        <span>© {new Date().getFullYear()} — Printed with colour</span>
-      </div>
-    </footer>
-  );
-}
-
+// ─── Floating WhatsApp FAB ────────────────────────────────────────────────────
 function FloatingWhatsApp() {
   return (
     <a
@@ -562,6 +568,7 @@ function FloatingWhatsApp() {
   );
 }
 
+// ─── Root Page ────────────────────────────────────────────────────────────────
 function Index() {
   const [ready, setReady] = useState(false);
   useSmoothScroll(ready);
@@ -573,16 +580,44 @@ function Index() {
         <Preloader onDone={onDone} />
         <SplashCursor />
       </ClientOnly>
-      <Nav />
+
+      {/* ── Site-wide header (TopBar + Header with cart/search) ── */}
+      <TopBar />
+      <Header />
+
+      {/* ── Hero ── */}
       <Hero />
-      <About />
+
+      {/* ── E-commerce sections ── */}
+      <CategoryGrid />
+      <BestSellers />
+      <ShopRows />
+      <CombosSection />
+      <WhyAielStrip />
+
+      {/* ── 3D Product Universe (original, preserved) ── */}
       <ProductUniverse />
+
+      {/* ── Process ── */}
       <Process />
+
+      {/* ── Gallery ── */}
       <Gallery />
+
+      {/* ── Corporate / Bulk ── */}
       <Corporate />
-      <Testimonials />
+
+      {/* ── Client logos & reviews ── */}
+      <ClientLogoRow />
+      <CustomerReviews />
+
+      {/* ── Final CTA ── */}
       <Contact />
-      <Footer />
+
+      {/* ── Footer ── */}
+      <SiteFooter />
+
+      {/* ── Floating WhatsApp ── */}
       <FloatingWhatsApp />
     </main>
   );

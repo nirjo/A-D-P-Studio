@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CombosRouteImport } from './routes/combos'
+import { Route as KeychainsRouteImport } from './routes/keychains'
+import { Route as MugsRouteImport } from './routes/mugs'
+import { Route as PhoneCasesRouteImport } from './routes/phone-cases'
+import { Route as ToteBagsRouteImport } from './routes/tote-bags'
+import { Route as TshirtsRouteImport } from './routes/tshirts'
+import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CombosRoute = CombosRouteImport.update({
+  id: '/combos',
+  path: '/combos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KeychainsRoute = KeychainsRouteImport.update({
+  id: '/keychains',
+  path: '/keychains',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MugsRoute = MugsRouteImport.update({
+  id: '/mugs',
+  path: '/mugs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhoneCasesRoute = PhoneCasesRouteImport.update({
+  id: '/phone-cases',
+  path: '/phone-cases',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToteBagsRoute = ToteBagsRouteImport.update({
+  id: '/tote-bags',
+  path: '/tote-bags',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TshirtsRoute = TshirtsRouteImport.update({
+  id: '/tshirts',
+  path: '/tshirts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductSlugRoute = ProductSlugRouteImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/combos': typeof CombosRoute
+  '/keychains': typeof KeychainsRoute
+  '/mugs': typeof MugsRoute
+  '/phone-cases': typeof PhoneCasesRoute
+  '/tote-bags': typeof ToteBagsRoute
+  '/tshirts': typeof TshirtsRoute
+  '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/combos': typeof CombosRoute
+  '/keychains': typeof KeychainsRoute
+  '/mugs': typeof MugsRoute
+  '/phone-cases': typeof PhoneCasesRoute
+  '/tote-bags': typeof ToteBagsRoute
+  '/tshirts': typeof TshirtsRoute
+  '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/combos': typeof CombosRoute
+  '/keychains': typeof KeychainsRoute
+  '/mugs': typeof MugsRoute
+  '/phone-cases': typeof PhoneCasesRoute
+  '/tote-bags': typeof ToteBagsRoute
+  '/tshirts': typeof TshirtsRoute
+  '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/combos'
+    | '/keychains'
+    | '/mugs'
+    | '/phone-cases'
+    | '/tote-bags'
+    | '/tshirts'
+    | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/combos'
+    | '/keychains'
+    | '/mugs'
+    | '/phone-cases'
+    | '/tote-bags'
+    | '/tshirts'
+    | '/product/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/combos'
+    | '/keychains'
+    | '/mugs'
+    | '/phone-cases'
+    | '/tote-bags'
+    | '/tshirts'
+    | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CombosRoute: typeof CombosRoute
+  KeychainsRoute: typeof KeychainsRoute
+  MugsRoute: typeof MugsRoute
+  PhoneCasesRoute: typeof PhoneCasesRoute
+  ToteBagsRoute: typeof ToteBagsRoute
+  TshirtsRoute: typeof TshirtsRoute
+  ProductSlugRoute: typeof ProductSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +143,78 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/combos': {
+      id: '/combos'
+      path: '/combos'
+      fullPath: '/combos'
+      preLoaderRoute: typeof CombosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/keychains': {
+      id: '/keychains'
+      path: '/keychains'
+      fullPath: '/keychains'
+      preLoaderRoute: typeof KeychainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mugs': {
+      id: '/mugs'
+      path: '/mugs'
+      fullPath: '/mugs'
+      preLoaderRoute: typeof MugsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/phone-cases': {
+      id: '/phone-cases'
+      path: '/phone-cases'
+      fullPath: '/phone-cases'
+      preLoaderRoute: typeof PhoneCasesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tote-bags': {
+      id: '/tote-bags'
+      path: '/tote-bags'
+      fullPath: '/tote-bags'
+      preLoaderRoute: typeof ToteBagsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tshirts': {
+      id: '/tshirts'
+      path: '/tshirts'
+      fullPath: '/tshirts'
+      preLoaderRoute: typeof TshirtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CombosRoute: CombosRoute,
+  KeychainsRoute: KeychainsRoute,
+  MugsRoute: MugsRoute,
+  PhoneCasesRoute: PhoneCasesRoute,
+  ToteBagsRoute: ToteBagsRoute,
+  TshirtsRoute: TshirtsRoute,
+  ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
