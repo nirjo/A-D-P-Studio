@@ -16,6 +16,9 @@ import {
 } from "@/components/ui-kit";
 import type { ProductKey } from "@/components/ProductScene";
 import mascot from "@/assets/mascot.png";
+import heroVideo from "@/assets/dancing-boy.mp4";
+import heroMusicFile from "@/assets/hero-music.mp3";
+const heroMusicSrc: string | null = heroMusicFile;
 import splash from "@/assets/splash.jpg";
 import workTee from "@/assets/work-tee.jpg";
 import workMug from "@/assets/work-mug.jpg";
