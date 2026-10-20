@@ -14,6 +14,7 @@ import { Route as CombosRouteImport } from './routes/combos'
 import { Route as KeychainsRouteImport } from './routes/keychains'
 import { Route as MugsRouteImport } from './routes/mugs'
 import { Route as PhoneCasesRouteImport } from './routes/phone-cases'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ToteBagsRouteImport } from './routes/tote-bags'
 import { Route as TshirtsRouteImport } from './routes/tshirts'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
@@ -43,6 +44,11 @@ const PhoneCasesRoute = PhoneCasesRouteImport.update({
   path: '/phone-cases',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToteBagsRoute = ToteBagsRouteImport.update({
   id: '/tote-bags',
   path: '/tote-bags',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/keychains': typeof KeychainsRoute
   '/mugs': typeof MugsRoute
   '/phone-cases': typeof PhoneCasesRoute
+  '/shop': typeof ShopRoute
   '/tote-bags': typeof ToteBagsRoute
   '/tshirts': typeof TshirtsRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/keychains': typeof KeychainsRoute
   '/mugs': typeof MugsRoute
   '/phone-cases': typeof PhoneCasesRoute
+  '/shop': typeof ShopRoute
   '/tote-bags': typeof ToteBagsRoute
   '/tshirts': typeof TshirtsRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/keychains': typeof KeychainsRoute
   '/mugs': typeof MugsRoute
   '/phone-cases': typeof PhoneCasesRoute
+  '/shop': typeof ShopRoute
   '/tote-bags': typeof ToteBagsRoute
   '/tshirts': typeof TshirtsRoute
   '/product/$slug': typeof ProductSlugRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/keychains'
     | '/mugs'
     | '/phone-cases'
+    | '/shop'
     | '/tote-bags'
     | '/tshirts'
     | '/product/$slug'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/keychains'
     | '/mugs'
     | '/phone-cases'
+    | '/shop'
     | '/tote-bags'
     | '/tshirts'
     | '/product/$slug'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/keychains'
     | '/mugs'
     | '/phone-cases'
+    | '/shop'
     | '/tote-bags'
     | '/tshirts'
     | '/product/$slug'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   KeychainsRoute: typeof KeychainsRoute
   MugsRoute: typeof MugsRoute
   PhoneCasesRoute: typeof PhoneCasesRoute
+  ShopRoute: typeof ShopRoute
   ToteBagsRoute: typeof ToteBagsRoute
   TshirtsRoute: typeof TshirtsRoute
   ProductSlugRoute: typeof ProductSlugRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PhoneCasesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tote-bags': {
       id: '/tote-bags'
       path: '/tote-bags'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   KeychainsRoute: KeychainsRoute,
   MugsRoute: MugsRoute,
   PhoneCasesRoute: PhoneCasesRoute,
+  ShopRoute: ShopRoute,
   ToteBagsRoute: ToteBagsRoute,
   TshirtsRoute: TshirtsRoute,
   ProductSlugRoute: ProductSlugRoute,
