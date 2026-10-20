@@ -142,6 +142,14 @@
   }
 }
 
+/* Isolated dancing character — screen blend makes dark video bg transparent */
+.hero-character {
+  mix-blend-mode: screen;
+  filter: contrast(1.2) brightness(1.05) saturate(1.15);
+  -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+}
+
 @keyframes aiel-float {
   0%,
   100% {
