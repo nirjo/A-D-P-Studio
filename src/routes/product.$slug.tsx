@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
   Star,
@@ -50,18 +50,21 @@ function ProductDetailPage() {
   const related = getRelatedProducts(product.id, product.category, 4);
   const { addItem } = useCart();
 
-  const [selectedColor, setSelectedColor] = useState<ProductColor>(() => {
+  const [selectedColor, setSelectedColor] = useState<ProductColor>(
+    () => product.colors[0] || { name: "Standard", hex: "#18181B" }
+  );
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
       const param = new URLSearchParams(window.location.search).get("color");
       if (param) {
         const found = product.colors.find(
           (c) => c.name.toLowerCase() === param.toLowerCase()
         );
-        if (found) return found;
+        if (found) setSelectedColor(found);
       }
     }
-    return product.colors[0] || { name: "Standard", hex: "#18181B" };
-  });
+  }, [product.colors]);
 
   const [activeImage, setActiveImage] = useState(product.gallery[0] || product.image);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "Standard");

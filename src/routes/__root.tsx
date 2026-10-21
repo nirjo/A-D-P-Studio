@@ -115,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
         {/* Synchronous Theme Initialization before first paint */}
@@ -145,6 +145,14 @@ function RootShell({ children }: { children: ReactNode }) {
               html.loader-locked, body.loader-locked {
                 overflow: hidden !important;
                 height: 100% !important;
+              }
+              html.loader-dismissed #initial-loader,
+              body.loader-dismissed #initial-loader,
+              #initial-loader.dismissed {
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+                display: none !important;
               }
               #initial-loader {
                 position: fixed;
@@ -221,7 +229,7 @@ function RootShell({ children }: { children: ReactNode }) {
           }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {/* Root Loader HTML (rendered immediately from root shell before hydration) */}
         <div
           id="initial-loader"
@@ -229,29 +237,21 @@ function RootShell({ children }: { children: ReactNode }) {
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={100}
-        >
-          <div
-            style={{
-              position: "absolute",
-              width: "45vw",
-              height: "45vw",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%)",
-              filter: "blur(40px)",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ position: "relative", overflow: "hidden", textAlign: "center" }}>
-            <span className="loader-brand">Aiel</span>
-          </div>
-          <p className="loader-sub">Design &amp; Printing Studio</p>
-          <div className="loader-track">
-            <div id="loader-progress-bar" className="loader-fill" />
-          </div>
-          <div id="loader-progress-text" className="loader-count">
-            0%
-          </div>
-        </div>
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `
+              <div style="position: absolute; width: 45vw; height: 45vw; border-radius: 50%; background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%); filter: blur(40px); pointer-events: none;"></div>
+              <div style="position: relative; overflow: hidden; text-align: center;">
+                <span class="loader-brand">Aiel</span>
+              </div>
+              <p class="loader-sub">Design &amp; Printing Studio</p>
+              <div class="loader-track">
+                <div id="loader-progress-bar" class="loader-fill"></div>
+              </div>
+              <div id="loader-progress-text" class="loader-count">0%</div>
+            `,
+          }}
+        />
 
         {/* Loader Lifecycle Script */}
         <script
@@ -288,12 +288,18 @@ function RootShell({ children }: { children: ReactNode }) {
                   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                   var fade = reduced ? 0 : 300;
                   setTimeout(function() {
+                    document.documentElement.classList.add('loader-dismissed');
+                    document.body.classList.add('loader-dismissed');
                     if (loader) {
+                      loader.classList.add('dismissed');
                       loader.style.opacity = '0';
                       loader.style.pointerEvents = 'none';
                     }
                     setTimeout(function() {
-                      if (loader) loader.style.display = 'none';
+                      if (loader) {
+                        loader.style.display = 'none';
+                        try { loader.parentNode && loader.parentNode.removeChild(loader); } catch(e){}
+                      }
                       document.documentElement.classList.remove('loader-locked');
                       document.body.classList.remove('loader-locked');
                       try { sessionStorage.setItem('aiel_visited', '1'); } catch(e){}
@@ -385,6 +391,36 @@ function NavigationProgressBar() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const ensureDismissed = () => {
+      const loader = document.getElementById("initial-loader");
+      if (loader) {
+        loader.style.display = "none";
+        loader.remove?.();
+      }
+      document.documentElement.classList.remove("loader-locked");
+      document.documentElement.classList.add("loader-dismissed");
+      document.body.classList.remove("loader-locked");
+      document.body.classList.add("loader-dismissed");
+    };
+
+    if (typeof window !== "undefined" && (window as any).__AIEL_LOADER_DONE) {
+      ensureDismissed();
+      return undefined;
+    } else {
+      window.addEventListener("aiel:loader-done", ensureDismissed);
+      const timer = setTimeout(() => {
+        (window as any).__AIEL_LOADER_DONE = true;
+        window.dispatchEvent(new CustomEvent("aiel:loader-done"));
+        ensureDismissed();
+      }, 4200);
+      return () => {
+        window.removeEventListener("aiel:loader-done", ensureDismissed);
+        clearTimeout(timer);
+      };
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
