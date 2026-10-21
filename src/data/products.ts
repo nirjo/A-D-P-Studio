@@ -6,6 +6,11 @@ import workJersey from "@/assets/work-jersey.jpg";
 import workCorporate from "@/assets/work-corporate.jpg";
 import splash from "@/assets/splash.jpg";
 import mascot from "@/assets/mascot.png";
+import caseArmor from "@/assets/case-impact-armor.svg";
+import caseClear from "@/assets/case-clear-hybrid.svg";
+import caseMagsafe from "@/assets/case-magsafe-slim.svg";
+import caseLeather from "@/assets/case-vegan-leather.svg";
+
 
 export interface BulkPriceTier {
   qty: string;
@@ -39,6 +44,50 @@ export interface Product {
   rating: number;
   reviewsCount: number;
 }
+
+export const CATEGORY_DEFAULT_COLORS: Record<"tshirts" | "mugs" | "keychains" | "tote-bags" | "phone-cases" | "combos", ProductColor[]> = {
+  tshirts: [
+    { name: "White", hex: "#FFFFFF" },
+    { name: "Black", hex: "#18181B" },
+    { name: "Navy", hex: "#1E293B" },
+    { name: "Red", hex: "#DC2626" },
+    { name: "Olive", hex: "#4D5640" },
+    { name: "Sand", hex: "#D7C4A5" },
+  ],
+  mugs: [
+    { name: "White", hex: "#FFFFFF" },
+    { name: "Black", hex: "#18181B" },
+    { name: "Blue", hex: "#2563EB" },
+    { name: "Red", hex: "#DC2626" },
+    { name: "Green", hex: "#16A34A" },
+  ],
+  keychains: [
+    { name: "Clear", hex: "#E0F2FE" },
+    { name: "Black", hex: "#18181B" },
+    { name: "Gold", hex: "#EAB308" },
+    { name: "Silver", hex: "#CBD5E1" },
+  ],
+  "tote-bags": [
+    { name: "Natural", hex: "#F3E8D0" },
+    { name: "Black", hex: "#18181B" },
+    { name: "Navy", hex: "#1E293B" },
+    { name: "Mustard", hex: "#CA8A04" },
+  ],
+  "phone-cases": [
+    { name: "Midnight Black", hex: "#121316" },
+    { name: "Clear", hex: "#E2E8F0" },
+    { name: "Navy", hex: "#1E3A8A" },
+    { name: "Rose", hex: "#FDA4AF" },
+    { name: "Sage", hex: "#84A98C" },
+    { name: "Lavender", hex: "#C4B5FD" },
+  ],
+  combos: [
+    { name: "Midnight Black", hex: "#18181B" },
+    { name: "Classic Navy", hex: "#1E293B" },
+    { name: "Slate Grey", hex: "#475569" },
+    { name: "Crisp White", hex: "#FFFFFF" },
+  ],
+};
 
 export const CATEGORIES_META = [
   {
@@ -112,12 +161,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workTee, splash, mascot],
     description: "Our signature drop-shoulder street silhouette crafted from 240 GSM French terry combed cotton. Pre-shrunk, bio-washed, and optimized for high-density DTF and puff prints.",
     sizes: ["XS (36\")", "S (38\")", "M (40\")", "L (42\")", "XL (44\")", "2XL (46\")"],
-    colors: [
-      { name: "Obsidian Black", hex: "#0e0e11" },
-      { name: "Chalk White", hex: "#f4f4f4" },
-      { name: "Dusty Sage", hex: "#7a8a7a" },
-      { name: "Washed Lilac", hex: "#9b8da9" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tshirts"],
     printTypes: ["DTF (Direct to Film)", "High-Density Puff Print", "Screen Print", "Left Chest Embroidery"],
     bulkPricing: [
       { qty: "1 pc", price: 599 },
@@ -143,12 +187,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workTee, workJersey],
     description: "Timeless regular-fit daily essential made of 100% super-combed cotton. Ultra-smooth surface for razor-sharp colour reproduction and zero ink bleed.",
     sizes: ["S (38\")", "M (40\")", "L (42\")", "XL (44\")", "2XL (46\")", "3XL (48\")"],
-    colors: [
-      { name: "Jet Black", hex: "#111111" },
-      { name: "Pure White", hex: "#ffffff" },
-      { name: "Navy Blue", hex: "#152238" },
-      { name: "Crimson Red", hex: "#8b0000" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tshirts"],
     printTypes: ["DTF Colour Print", "Plastisol Screen Print", "Discharge Print"],
     bulkPricing: [
       { qty: "1 pc", price: 449 },
@@ -174,12 +213,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workJersey, splash],
     description: "Breathable moisture-wicking honeycomb jacquard polyester. 360-degree all-over sublimation printing with custom player names, squad numbers, and sponsor logos.",
     sizes: ["S (38\")", "M (40\")", "L (42\")", "XL (44\")", "2XL (46\")"],
-    colors: [
-      { name: "Neon Cyber", hex: "#00f0ff" },
-      { name: "Solar Orange", hex: "#ff5500" },
-      { name: "Midnight Purple", hex: "#2b0938" },
-      { name: "Carbon Slate", hex: "#1a1a1a" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tshirts"],
     printTypes: ["All-Over Sublimation", "Vinyl Heat Seal Name/No", "Silicone Crest Badge"],
     bulkPricing: [
       { qty: "1 pc", price: 549 },
@@ -205,12 +239,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workCorporate, workTee],
     description: "Tailored collar corporate polo with mother-of-pearl buttons. Crafted for software teams, hospitality staff, and conference delegates with high-precision Japanese embroidery.",
     sizes: ["S", "M", "L", "XL", "2XL", "3XL"],
-    colors: [
-      { name: "Pitch Black", hex: "#0a0a0c" },
-      { name: "Corporate Navy", hex: "#0f1c3f" },
-      { name: "Heather Grey", hex: "#888888" },
-      { name: "Forest Green", hex: "#1b382b" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tshirts"],
     printTypes: ["Precision Embroidery (Up to 12K stitches)", "Metallic Thread Crest", "Minimalist DTF Pocket Print"],
     bulkPricing: [
       { qty: "1 pc", price: 649 },
@@ -238,12 +267,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workMug, splash],
     description: "A-grade dishwasher and microwave safe ceramic mug. Edge-to-edge full-wrap sublimation printing with ultra-glossy finish that never fades or peels.",
     sizes: ["11 oz Standard (325 ml)", "15 oz Jumbo (440 ml)"],
-    colors: [
-      { name: "Gloss White", hex: "#ffffff" },
-      { name: "Dual-Tone Red Handle", hex: "#ff2244" },
-      { name: "Dual-Tone Teal Handle", hex: "#00a896" },
-      { name: "Dual-Tone Yellow Inner", hex: "#ffd166" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["mugs"],
     printTypes: ["Edge-to-Edge Sublimation Wrap", "Panoramic Photo Print", "Typography Monogram"],
     bulkPricing: [
       { qty: "1 pc", price: 199 },
@@ -269,10 +293,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workMug, splash],
     description: "Matte black exterior when cold. Pour in hot coffee or tea, and the heat-activated thermochromic coating disappears to reveal your full-colour custom artwork beneath.",
     sizes: ["11 oz Standard (325 ml)"],
-    colors: [
-      { name: "Matte Black to White Reveal", hex: "#1c1c1e" },
-      { name: "Midnight Blue to White Reveal", hex: "#0a1931" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["mugs"],
     printTypes: ["Thermochromic Sublimation Wrap"],
     bulkPricing: [
       { qty: "1 pc", price: 349 },
@@ -298,9 +319,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workMug, workCorporate],
     description: "Substantial 470ml heavy-base frosted glass stein. Renders illustrations and bold logos with a sophisticated translucent frosted sheen.",
     sizes: ["16 oz Stein (470 ml)"],
-    colors: [
-      { name: "Frosted Ice Glass", hex: "#e5ecf0" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["mugs"],
     printTypes: ["Translucent Sublimation", "Solid Silhouette Print"],
     bulkPricing: [
       { qty: "1 pc", price: 299 },
@@ -326,11 +345,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workCorporate, workMug],
     description: "Double-walled vacuum insulated 18/8 food-grade stainless steel with flip sip lid. Keeps beverages iced for 12 hours or piping hot for 6 hours. Laser engraved or full UV printed.",
     sizes: ["350 ml Compact", "500 ml Tall"],
-    colors: [
-      { name: "Stealth Black", hex: "#111111" },
-      { name: "Brushed Steel", hex: "#cccccc" },
-      { name: "Pearl White", hex: "#f9f9f9" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["mugs"],
     printTypes: ["Fiber Laser Engraving", "360-Degree UV Rotary Print"],
     bulkPricing: [
       { qty: "1 pc", price: 599 },
@@ -358,11 +373,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workCap, mascot, splash],
     description: "Laser cut to the exact perimeter of your character, logo, or artwork. Double-sided acrylic sandwich with scratch-resistant high-gloss epoxy coating and chrome swivel ring.",
     sizes: ["2.0 Inch", "2.5 Inch", "3.0 Inch"],
-    colors: [
-      { name: "Clear Diamond Acrylic", hex: "#e0f7fa" },
-      { name: "Holographic Rainbow Foil", hex: "#ff99bb" },
-      { name: "Glitter Sparkle Acrylic", hex: "#ffd166" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["keychains"],
     printTypes: ["Double-Sided UV Print with White Base", "Epoxy Dome Resin Coating"],
     bulkPricing: [
       { qty: "1 pc", price: 99 },
@@ -388,11 +399,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workCorporate, workCap],
     description: "Heavyweight zinc-alloy metal plate mounted on handcrafted vegan leather loop. Precision fiber laser etched with vehicle number plates, brand marks, or personal coordinates.",
     sizes: ["Standard Key Fob (9 x 2.2 cm)"],
-    colors: [
-      { name: "Matte Black & Gunmetal", hex: "#1f1f1f" },
-      { name: "Cognac Brown & Antique Brass", hex: "#8b5a2b" },
-      { name: "Tan & Polished Chrome", hex: "#c4a482" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["keychains"],
     printTypes: ["Fiber Laser Deep Engraving", "Embossed Leather"],
     bulkPricing: [
       { qty: "1 pc", price: 189 },
@@ -418,10 +425,7 @@ export const PRODUCTS: Product[] = [
     gallery: [mascot, splash],
     description: "Interactive multi-layered 6mm acrylic shaker charm filled with 3 free-moving micro charms inside. Popular for anime, gaming logos, and creative studio drops.",
     sizes: ["2.75 Inch Shaker Frame"],
-    colors: [
-      { name: "Holo Prism Glow", hex: "#ff80df" },
-      { name: "Aqua Marine Shimmer", hex: "#00e5ff" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["keychains"],
     printTypes: ["Multi-layer Laser Acrylic Sandwich", "Liquid-free Dry Shaker"],
     bulkPricing: [
       { qty: "1 pc", price: 199 },
@@ -447,12 +451,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workCap, workTee],
     description: "Classic American motel-style diamond polymer tag with vintage gold or silver metallic foil hot-stamp imprint. Highly aesthetic for café merchandise and studio branding.",
     sizes: ["90 x 45 mm Diamond"],
-    colors: [
-      { name: "Retro Turquoise", hex: "#00b4d8" },
-      { name: "Oxblood Burgundy", hex: "#720026" },
-      { name: "Midnight Black", hex: "#111111" },
-      { name: "Mustard Gold", hex: "#ffd600" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["keychains"],
     printTypes: ["Metallic Foil Hot Stamping", "White Screen Print"],
     bulkPricing: [
       { qty: "1 pc", price: 129 },
@@ -480,11 +479,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workBag, splash, workTee],
     description: "100% natural unbleached 12oz cotton duck canvas with cross-stitched 26-inch shoulder handles. Holds up to 15 kg comfortably. Crisp vibrant DTF and screen printing.",
     sizes: ["Standard 15\" x 16\" Flat", "Gusseted 16\" x 15\" x 4\""],
-    colors: [
-      { name: "Raw Natural Beige", hex: "#ece5d8" },
-      { name: "Jet Black Washed", hex: "#18181b" },
-      { name: "Indigo Denim", hex: "#263859" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tote-bags"],
     printTypes: ["Large Format DTF Print (Up to 12\" x 14\")", "Eco Water-base Screen Print", "Embroidery"],
     bulkPricing: [
       { qty: "1 pc", price: 249 },
@@ -510,11 +505,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workBag, workCorporate],
     description: "Heavy 16oz canvas tote upgraded with a premium YKK brass zipper main enclosure, interior mobile/card sleeve pocket, and boxed 5-inch bottom gusset.",
     sizes: ["17\" x 14\" x 5\" Gusseted"],
-    colors: [
-      { name: "Pitch Black", hex: "#0f0f10" },
-      { name: "Olive Khaki", hex: "#556b2f" },
-      { name: "Canvas Cream", hex: "#f0ece1" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tote-bags"],
     printTypes: ["High-Contrast Screen Print", "DTF Full-Colour Artwork", "Monogram Patch"],
     bulkPricing: [
       { qty: "1 pc", price: 399 },
@@ -540,11 +531,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workBag, workJersey],
     description: "Durable 10oz canvas backpack with heavy 8mm cotton braided drawcords and reinforced bottom metal eyelets. Lightweight carry for sports clubs, cyclers, and college fests.",
     sizes: ["14\" x 18\" Cinch Sack"],
-    colors: [
-      { name: "All Black", hex: "#121212" },
-      { name: "Natural Ecru", hex: "#e8e1d5" },
-      { name: "Royal Blue", hex: "#1d3557" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tote-bags"],
     printTypes: ["Front Center Screen Print", "Full Colour DTF Graphic"],
     bulkPricing: [
       { qty: "1 pc", price: 219 },
@@ -570,10 +557,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workBag, mascot],
     description: "Compact 8\" x 6\" canvas pouch designed for cables, cosmetics, stationery, and small everyday carry essentials with custom edge-to-edge printing.",
     sizes: ["8\" x 6\" (20 x 15 cm)"],
-    colors: [
-      { name: "Natural Canvas", hex: "#eae2cf" },
-      { name: "Midnight Black", hex: "#1c1b1f" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["tote-bags"],
     printTypes: ["Double-Sided DTF Print", "Direct Screen Print"],
     bulkPricing: [
       { qty: "1 pc", price: 149 },
@@ -597,14 +581,11 @@ export const PRODUCTS: Product[] = [
     price: 399,
     originalPrice: 599,
     badge: "Best Seller",
-    image: splash,
-    gallery: [splash, mascot, workTee],
+    image: caseArmor,
+    gallery: [caseArmor, caseClear, caseMagsafe],
     description: "Shock-absorbing flexible TPU interior shell paired with a scratch-resistant polycarbonate hard outer armor. Drop-tested to 8 feet with raised camera bump protection.",
     sizes: ["iPhone 16 / 15 / 14 / 13 Series", "Samsung Galaxy S24 / S23 / Ultra", "OnePlus 12 / 11 / Nord Series", "Pixel 9 / 8 Series"],
-    colors: [
-      { name: "Matte Anti-Fingerprint Finish", hex: "#141416" },
-      { name: "High-Gloss Glass Finish", hex: "#ffffff" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["phone-cases"],
     printTypes: ["3D Sublimation Full Wrap (Sides Included)", "Precision UV Embossed Texture"],
     bulkPricing: [
       { qty: "1 pc", price: 399 },
@@ -626,14 +607,11 @@ export const PRODUCTS: Product[] = [
     price: 349,
     originalPrice: 499,
     badge: "48h Rush",
-    image: splash,
-    gallery: [splash, mascot],
+    image: caseClear,
+    gallery: [caseClear, caseArmor, caseMagsafe],
     description: "Crystal clear Bayer polymer with UV anti-yellowing stabilizers. Lets your phone's original chassis color shine through with your custom graphic layered seamlessly on top.",
     sizes: ["iPhone 16 / 15 / 14 / 13 Pro / Max", "Samsung S24 Series", "OnePlus 12"],
-    colors: [
-      { name: "Optically Clear Transparent", hex: "#d9ecf2" },
-      { name: "Smoky Black Transparent", hex: "#2c2c2e" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["phone-cases"],
     printTypes: ["High-Definition UV Spot Print", "Frosted Back Print with Clear Sides"],
     bulkPricing: [
       { qty: "1 pc", price: 349 },
@@ -655,15 +633,11 @@ export const PRODUCTS: Product[] = [
     price: 499,
     originalPrice: 699,
     badge: "New",
-    image: splash,
-    gallery: [splash, workMug],
+    image: caseMagsafe,
+    gallery: [caseMagsafe, caseArmor, caseClear],
     description: "Built-in N52 strong neodymium magnetic ring array for effortless MagSafe wireless charging, car mounts, and magnetic wallets. Sleek 1.5mm featherlight profile.",
     sizes: ["iPhone 16 / 15 / 14 Pro / Pro Max", "Samsung S24 Ultra (MagSafe)"],
-    colors: [
-      { name: "Matte Midnight", hex: "#0b0c10" },
-      { name: "Frost White", hex: "#f5f5f7" },
-      { name: "Deep Titanium Grey", hex: "#3a3b3c" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["phone-cases"],
     printTypes: ["UV Hard Coat Print", "Subtle Metallic Foil Accents"],
     bulkPricing: [
       { qty: "1 pc", price: 499 },
@@ -685,15 +659,11 @@ export const PRODUCTS: Product[] = [
     price: 549,
     originalPrice: 749,
     badge: "Made to order",
-    image: workCorporate,
-    gallery: [workCorporate, splash],
+    image: caseLeather,
+    gallery: [caseLeather, caseArmor, caseMagsafe],
     description: "Hand-stitched cross-grain vegan leather backplate over an internal protective shock cage. Monogrammed with gold or silver foil initials.",
     sizes: ["iPhone 16 / 15 / 14 Series", "Samsung S24 Ultra"],
-    colors: [
-      { name: "Classic Black Saffiano", hex: "#111111" },
-      { name: "Caramel Tan", hex: "#9a6136" },
-      { name: "Hunter Green", hex: "#1e382b" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["phone-cases"],
     printTypes: ["Gold Foil Monogram Stamping", "Blind Debossing", "Laser Engraved Logo"],
     bulkPricing: [
       { qty: "1 pc", price: 549 },
@@ -721,10 +691,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workTee, workMug, splash],
     description: "The ultimate desk & street match: 1 Heavyweight 240 GSM Oversized Cotton Tee + 1 High-Gloss 11oz Ceramic Studio Mug. Print the same visual identity or complementary graphics across both.",
     sizes: ["Tee: XS-2XL | Mug: 11oz"],
-    colors: [
-      { name: "Obsidian Black Kit", hex: "#0e0e11" },
-      { name: "Chalk White Kit", hex: "#f4f4f4" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["combos"],
     printTypes: ["DTF Tee Print + Sublimation Mug Wrap"],
     bulkPricing: [
       { qty: "1 Kit", price: 699 },
@@ -750,9 +717,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workBag, workMug, workCap],
     description: "Designed for content creators, indie artists, and gift boxes. Includes 1 Organic Canvas Tote Bag + 1 Gloss Ceramic Mug + 1 Custom Die-Cut Acrylic Keychain. Save 23% over buying individually.",
     sizes: ["Standard Combo"],
-    colors: [
-      { name: "Studio Signature Palette", hex: "#ff2d9b" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["combos"],
     printTypes: ["Matched CMYK Suite: Screen/DTF + Sublimation + UV Acrylic"],
     bulkPricing: [
       { qty: "1 Kit", price: 499 },
@@ -778,10 +743,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workJersey, workTee, splash],
     description: "Instant outfit for your 10-person project crew, startup sprint, hackathon squad, or event staff. 10 Premium Bio-Wash Tees with front & back customized prints. Save ₹1,991 instantly.",
     sizes: ["Custom mix of S, M, L, XL, 2XL across 10 pcs"],
-    colors: [
-      { name: "Single Uniform Colour", hex: "#111111" },
-      { name: "Custom Mixed Colours", hex: "#333333" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["combos"],
     printTypes: ["High-Volume DTF / Screen Print Suite"],
     bulkPricing: [
       { qty: "1 Pack (10 pcs)", price: 3999 },
@@ -806,10 +768,7 @@ export const PRODUCTS: Product[] = [
     gallery: [workCorporate, workTee, workMug],
     description: "Turn employee day-one into a celebration: 1 Pique Embroidered Polo + 1 Insulated Steel Tumbler + 1 Leather Key Fob + Custom Branded Gift Box with personalized welcome card.",
     sizes: ["Polo: S-3XL | Box: 32 x 24 x 10 cm"],
-    colors: [
-      { name: "Corporate Midnight", hex: "#0f172a" },
-      { name: "Executive Charcoal", hex: "#222224" },
-    ],
+    colors: CATEGORY_DEFAULT_COLORS["combos"],
     printTypes: ["Embroidery + Laser Etch + Metallic Stamping"],
     bulkPricing: [
       { qty: "1 Box", price: 1299 },

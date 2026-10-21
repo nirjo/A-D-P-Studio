@@ -5,12 +5,12 @@ export interface CartItem {
   id: string; // unique item id (e.g. product.id + size + color)
   product: Product;
   quantity: number;
-  selectedSize?: string;
-  selectedColor?: string;
-  selectedPrintType?: string;
-  customText?: string;
-  notes?: string;
-  artworkName?: string;
+  selectedSize?: string | undefined;
+  selectedColor?: string | undefined;
+  selectedPrintType?: string | undefined;
+  customText?: string | undefined;
+  notes?: string | undefined;
+  artworkName?: string | undefined;
 }
 
 export const WHATSAPP_PHONE = "919150234277";
@@ -68,9 +68,12 @@ export const cart = {
     const existingIndex = cartState.items.findIndex((i) => i.id === id);
 
     if (existingIndex > -1) {
-      cartState.items[existingIndex].quantity += item.quantity;
-      if (item.customText) cartState.items[existingIndex].customText = item.customText;
-      if (item.notes) cartState.items[existingIndex].notes = item.notes;
+      const existing = cartState.items[existingIndex];
+      if (existing) {
+        existing.quantity += item.quantity;
+        if (item.customText) existing.customText = item.customText;
+        if (item.notes) existing.notes = item.notes;
+      }
     } else {
       cartState.items.push({ ...item, id });
     }

@@ -1,24 +1,23 @@
 import { useState } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import {
-  ArrowLeft,
+  Star,
+  Check,
+  Upload,
+  Sparkles,
   ShoppingBag,
   MessageCircle,
   ShieldCheck,
   Zap,
-  Star,
-  Check,
-  Upload,
-  FileText,
-  Sparkles,
-  Info,
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { WhyAielStrip } from "@/components/WhyAielStrip";
-import { getProductBySlug, getRelatedProducts, PRODUCTS } from "@/data/products";
+import { ProductImageWithColor } from "@/components/ProductImageWithColor";
+import { ProductColorSwatches } from "@/components/ProductColorSwatches";
+import { getProductBySlug, getRelatedProducts, type ProductColor } from "@/data/products";
 import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
 
 export const Route = createFileRoute("/product/$slug")({
@@ -51,9 +50,21 @@ function ProductDetailPage() {
   const related = getRelatedProducts(product.id, product.category, 4);
   const { addItem } = useCart();
 
+  const [selectedColor, setSelectedColor] = useState<ProductColor>(() => {
+    if (typeof window !== "undefined") {
+      const param = new URLSearchParams(window.location.search).get("color");
+      if (param) {
+        const found = product.colors.find(
+          (c) => c.name.toLowerCase() === param.toLowerCase()
+        );
+        if (found) return found;
+      }
+    }
+    return product.colors[0] || { name: "Standard", hex: "#18181B" };
+  });
+
   const [activeImage, setActiveImage] = useState(product.gallery[0] || product.image);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "Standard");
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]?.name || "Standard");
   const [selectedPrintType, setSelectedPrintType] = useState(product.printTypes[0] || "Standard");
   const [qty, setQty] = useState(1);
   const [customText, setCustomText] = useState("");
@@ -75,7 +86,7 @@ function ProductDetailPage() {
       product,
       quantity: qty,
       selectedSize,
-      selectedColor,
+      selectedColor: selectedColor.name,
       selectedPrintType,
       customText: customText.trim() || undefined,
       notes: notes.trim() || undefined,
@@ -88,10 +99,10 @@ function ProductDetailPage() {
   const generateDirectWhatsApp = () => {
     let msg = `*CUSTOM PRINT INQUIRY — AIEL STUDIO*\n`;
     msg += `---------------------------------\n`;
-    msg += `*Product:* ${product.name}\n`;
+    msg += `Hi, I want the ${product.name} in ${selectedColor.name}\n\n`;
     msg += `*Quantity:* ${qty} units\n`;
     msg += `*Size/Spec:* ${selectedSize}\n`;
-    msg += `*Colour:* ${selectedColor}\n`;
+    msg += `*Colour:* ${selectedColor.name}\n`;
     msg += `*Print Style:* ${selectedPrintType}\n`;
     if (customText.trim()) msg += `*Custom Text:* "${customText.trim()}"\n`;
     if (notes.trim()) msg += `*Notes:* ${notes.trim()}\n`;
@@ -120,25 +131,27 @@ function ProductDetailPage() {
           </div>
         </div>
 
-        {/* Product Customizer Grid */}
+        {/* Product Hero Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 sm:py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            {/* Left: Gallery & Mockup Previews */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="relative aspect-square rounded-3xl overflow-hidden bg-card border border-border shadow-xl">
-                <img
-                  src={activeImage}
+          <div className="grid grid-cols-1 lg:grid-cols-11 gap-10 lg:gap-14">
+            {/* Left: Gallery & Main Image with Color Recoloring */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="relative aspect-square rounded-3xl overflow-hidden bg-card border border-border/80 shadow-2xl flex items-center justify-center p-4">
+                <ProductImageWithColor
+                  image={activeImage}
                   alt={product.name}
-                  className="w-full h-full object-cover transition-all duration-300"
+                  selectedColor={selectedColor}
+                  category={product.category}
+                  priority={true}
                 />
 
                 {product.badge && (
-                  <span className="absolute top-4 left-4 text-xs font-display font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-brand-gradient text-primary-foreground shadow-lg">
+                  <span className="absolute top-4 left-4 text-xs font-display font-bold uppercase tracking-wider px-3 py-1.5 rounded-full bg-brand-gradient text-primary-foreground shadow-lg z-10">
                     {product.badge}
                   </span>
                 )}
 
-                <div className="absolute bottom-4 left-4 bg-background/85 backdrop-blur-md px-3 py-1 rounded-full text-xs font-display text-splash-teal flex items-center gap-1.5 border border-border/60">
+                <div className="absolute bottom-4 left-4 bg-background/85 backdrop-blur-md px-3 py-1 rounded-full text-xs font-display text-splash-teal flex items-center gap-1.5 border border-border/60 z-10">
                   <Zap size={14} className="text-splash-orange" />
                   <span>48h Rush Dispatch from Puducherry</span>
                 </div>
@@ -224,31 +237,20 @@ function ProductDetailPage() {
                 </div>
               </div>
 
-              {/* Option 2: Colour Swatches */}
+              {/* Option 2: Colour Swatches with Ring & Tooltip */}
               <div className="space-y-2.5">
-                <label className="text-xs font-display uppercase tracking-wider text-muted-foreground block">
-                  Select Garment / Product Colour: <strong className="text-foreground">{selectedColor}</strong>
-                </label>
-                <div className="flex flex-wrap gap-2.5">
-                  {product.colors.map((c) => (
-                    <button
-                      key={c.name}
-                      type="button"
-                      onClick={() => setSelectedColor(c.name)}
-                      className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-sans transition-all ${
-                        selectedColor === c.name
-                          ? "bg-secondary border-splash-pink text-foreground font-bold shadow-sm"
-                          : "bg-card border-border text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      <span
-                        className="w-3.5 h-3.5 rounded-full border border-white/20 inline-block shadow-inner"
-                        style={{ backgroundColor: c.hex }}
-                      />
-                      <span>{c.name}</span>
-                    </button>
-                  ))}
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-display uppercase tracking-wider text-muted-foreground block">
+                    Select Colour: <strong className="text-foreground font-bold">{selectedColor.name}</strong>
+                  </label>
                 </div>
+                <ProductColorSwatches
+                  colors={product.colors}
+                  selectedColor={selectedColor}
+                  onSelectColor={setSelectedColor}
+                  size="lg"
+                  className="gap-2"
+                />
               </div>
 
               {/* Option 3: Print Technique */}

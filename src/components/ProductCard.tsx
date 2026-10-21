@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ShoppingBag, Eye, Check, Sparkles } from "lucide-react";
-import type { Product } from "@/data/products";
+import { ShoppingBag, Eye, Check } from "lucide-react";
+import type { Product, ProductColor } from "@/data/products";
 import { useCart } from "@/lib/cart";
+import { ProductImageWithColor } from "@/components/ProductImageWithColor";
+import { ProductColorSwatches } from "@/components/ProductColorSwatches";
 
 interface ProductCardProps {
   product: Product;
@@ -11,6 +13,9 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
+  const [selectedColor, setSelectedColor] = useState<ProductColor>(
+    product.colors[0] || { name: "Standard", hex: "#18181B" }
+  );
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -19,7 +24,7 @@ export function ProductCard({ product }: ProductCardProps) {
       product,
       quantity: 1,
       selectedSize: product.sizes[0],
-      selectedColor: product.colors[0]?.name,
+      selectedColor: selectedColor.name,
       selectedPrintType: product.printTypes[0],
     });
     setAdded(true);
@@ -40,17 +45,20 @@ export function ProductCard({ product }: ProductCardProps) {
     <div className="group relative bg-card border border-border/70 hover:border-splash-pink/50 rounded-3xl p-4 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-splash-pink/10">
       {/* Top Image & Badge */}
       <div>
-        <div className="relative aspect-square rounded-2xl overflow-hidden bg-secondary/50 mb-3.5">
-          <img
-            src={product.image}
+        <div className="relative aspect-square rounded-2xl overflow-hidden bg-secondary/50 mb-3">
+          <ProductImageWithColor
+            image={product.image}
             alt={product.name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
+            selectedColor={selectedColor}
+            category={product.category}
+            className="group-hover:scale-105"
           />
 
           {/* Badge */}
           {product.badge && (
-            <span className={`absolute top-3 left-3 text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md ${badgeColor}`}>
+            <span
+              className={`absolute top-3 left-3 text-[10px] font-display font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md z-10 ${badgeColor}`}
+            >
               {product.badge}
             </span>
           )}
@@ -59,12 +67,25 @@ export function ProductCard({ product }: ProductCardProps) {
           <Link
             to="/product/$slug"
             params={{ slug: product.slug }}
-            className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-foreground hover:text-splash-pink"
+            search={{ color: selectedColor.name }}
+            className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-foreground hover:text-splash-pink z-10"
             aria-label={`Customise ${product.name}`}
           >
             <Eye size={15} />
           </Link>
         </div>
+
+        {/* Colour Swatches Row */}
+        {product.colors && product.colors.length > 0 && (
+          <div className="mb-2">
+            <ProductColorSwatches
+              colors={product.colors}
+              selectedColor={selectedColor}
+              onSelectColor={setSelectedColor}
+              size="sm"
+            />
+          </div>
+        )}
 
         {/* Info */}
         <div className="space-y-1 mb-3">
@@ -73,7 +94,11 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="text-[10px] text-splash-teal font-sans">{product.turnaround}</span>
           </div>
 
-          <Link to="/product/$slug" params={{ slug: product.slug }}>
+          <Link
+            to="/product/$slug"
+            params={{ slug: product.slug }}
+            search={{ color: selectedColor.name }}
+          >
             <h3 className="font-display font-bold text-sm text-foreground hover:text-splash-pink transition-colors leading-snug line-clamp-1">
               {product.name}
             </h3>
@@ -101,6 +126,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <Link
             to="/product/$slug"
             params={{ slug: product.slug }}
+            search={{ color: selectedColor.name }}
             className="flex items-center justify-center gap-1 py-2 px-3 rounded-full text-[11px] font-display font-semibold uppercase tracking-wider bg-secondary border border-border text-foreground hover:border-splash-pink hover:text-splash-pink transition-colors text-center"
           >
             Customise

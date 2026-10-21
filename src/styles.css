@@ -82,6 +82,56 @@
   --shadow-splash: 0 30px 90px -30px color-mix(in oklab, var(--splash-pink) 55%, transparent);
 }
 
+/* ── Daylight (Pale White) Theme ── */
+html.light,
+[data-theme="light"] {
+  --background: #F7F7F4;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: oklch(0.68 0.25 340);
+  --primary-foreground: #FFFFFF;
+  --secondary: #EFEFEA;
+  --secondary-foreground: #1A1A1A;
+  --muted: #EFEFEA;
+  --muted-foreground: #5C5C5C;
+  --accent: oklch(0.6 0.22 265);
+  --accent-foreground: #FFFFFF;
+  --destructive: oklch(0.6 0.24 25);
+  --destructive-foreground: #FFFFFF;
+  --border: #E7E5E0;
+  --input: #E7E5E0;
+  --ring: oklch(0.68 0.25 340);
+
+  --splash-blue: oklch(0.62 0.2 245);
+  --splash-purple: oklch(0.58 0.25 295);
+  --splash-pink: oklch(0.65 0.28 350);
+  --splash-orange: oklch(0.7 0.2 65);
+  --splash-teal: oklch(0.65 0.16 195);
+
+  --gradient-glow: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in srgb, var(--splash-purple) 18%, transparent),
+    transparent 70%
+  );
+  --shadow-splash: 0 20px 60px -20px color-mix(in srgb, var(--splash-pink) 20%, transparent);
+}
+
+html.light .bg-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+html.light .grain-overlay::after {
+  opacity: 0.12;
+}
+
+html.light .mix-blend-screen {
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

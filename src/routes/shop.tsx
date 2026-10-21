@@ -1,12 +1,11 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { Search, ShoppingBag, MessageCircle, ArrowLeft, Check, Zap, Eye, RotateCcw } from "lucide-react";
+import { Search, ArrowLeft, RotateCcw } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { PRODUCTS, type Product } from "@/data/products";
-import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
+import { ProductCard } from "@/components/ProductCard";
+import { PRODUCTS } from "@/data/products";
 
 export const Route = createFileRoute("/shop")({
   head: () => ({
@@ -41,9 +40,6 @@ function ShopPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("featured");
-  const [addedId, setAddedId] = useState<string | null>(null);
-
-  const { addItem, items } = useCart();
 
   const filtered = useMemo(() => {
     return PRODUCTS.filter((p) => {
@@ -68,18 +64,6 @@ function ShopPage() {
     });
   }, [activeCategory, search, sortBy]);
 
-  const handleQuickAdd = (p: Product) => {
-    addItem({
-      product: p,
-      quantity: 1,
-      selectedSize: p.sizes[0],
-      selectedColor: p.colors[0]?.name,
-      selectedPrintType: p.printTypes[0],
-    });
-    setAddedId(p.id);
-    setTimeout(() => setAddedId(null), 1600);
-  };
-
   return (
     <>
       <TopBar />
@@ -98,27 +82,25 @@ function ShopPage() {
           >
             <ArrowLeft size={14} /> Back to Studio
           </Link>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <span className="text-[11px] font-display uppercase tracking-[0.3em] text-splash-pink font-bold">
-                Puducherry Custom Print Atelier
+              <span className="text-xs font-display tracking-[0.3em] uppercase text-splash-pink font-bold">
+                Catalog &amp; Online Ordering
               </span>
-              <h1 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight mt-1">
-                All <span className="text-gradient">Custom Prints</span> &amp; Merch
+              <h1 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight mt-1 text-foreground">
+                All Custom <span className="text-gradient">Prints</span>
               </h1>
             </div>
-            <div className="flex items-center gap-2 text-xs font-display text-muted-foreground bg-secondary/80 border border-border px-4 py-2 rounded-full self-start md:self-auto">
-              <Zap size={14} className="text-splash-orange animate-pulse" />
-              <span>
-                Turnaround: <strong className="text-foreground">48h Rush</strong> across India
-              </span>
-            </div>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-sm">
+              Explore 20+ custom printable products. Select colours, configure print techniques &amp; order direct on WhatsApp.
+            </p>
           </div>
         </div>
 
-        {/* Search & Sort Controls */}
-        <div className="space-y-4 mb-8">
+        {/* Search & Filter Bar */}
+        <div className="bg-card/70 border border-border/80 backdrop-blur-xl rounded-3xl p-4 sm:p-6 mb-10 space-y-4 shadow-xl">
           <div className="flex flex-col sm:flex-row gap-3">
+            {/* Search Input */}
             <div className="relative flex-1">
               <Search
                 size={16}
@@ -126,72 +108,83 @@ function ShopPage() {
               />
               <input
                 type="text"
-                placeholder="Search t-shirts, mugs, keychains, totes, cases..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-card border border-border rounded-full pl-11 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-splash-pink transition-colors"
+                placeholder="Search products, materials, styles (e.g. DTF, hoodie, mug, MagSafe)..."
+                className="w-full bg-secondary/60 border border-border rounded-full pl-11 pr-4 py-3 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-splash-pink transition-colors font-sans"
               />
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-muted-foreground hover:text-foreground"
+                >
+                  ✕
+                </button>
+              )}
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground font-display uppercase tracking-wider hidden sm:inline">
-                Sort:
-              </span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-card border border-border text-foreground text-xs font-display rounded-full px-4 py-3 focus:outline-none focus:border-splash-pink cursor-pointer"
-              >
-                <option value="featured">Featured Catalog</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="rating">Highest Rated</option>
-              </select>
-            </div>
+
+            {/* Sort Select */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="bg-secondary/60 border border-border rounded-full px-5 py-3 text-xs font-display tracking-wider uppercase text-foreground focus:outline-none focus:border-splash-pink transition-colors cursor-pointer"
+            >
+              <option value="featured">Featured First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
           </div>
 
-          {/* Category Filter Pills */}
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-display tracking-wider uppercase whitespace-nowrap transition-all ${
-                  activeCategory === cat
-                    ? "bg-brand-gradient text-primary-foreground font-bold shadow-lg shadow-splash-pink/20"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Category Chips */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none pt-1">
+            {CATEGORIES.map((cat) => {
+              const active = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-display tracking-wider uppercase transition-all ${
+                    active
+                      ? "bg-brand-gradient text-primary-foreground font-bold shadow-md shadow-splash-pink/20"
+                      : "bg-secondary/50 border border-border text-muted-foreground hover:text-foreground hover:border-border/80"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Filter Results Info */}
-        <div className="flex items-center justify-between text-xs text-muted-foreground font-display tracking-wider mb-6">
-          <span>Showing {filtered.length} custom products</span>
-          {(activeCategory !== "All" || search !== "") && (
+        {/* Results Counter & Reset */}
+        <div className="flex items-center justify-between text-xs font-display uppercase tracking-widest text-muted-foreground mb-6">
+          <span>
+            Showing <strong className="text-foreground">{filtered.length}</strong> Products
+          </span>
+          {(activeCategory !== "All" || search) && (
             <button
               type="button"
               onClick={() => {
                 setActiveCategory("All");
                 setSearch("");
               }}
-              className="text-splash-pink hover:underline flex items-center gap-1 cursor-pointer"
+              className="flex items-center gap-1.5 text-splash-pink hover:underline"
             >
-              <RotateCcw size={12} /> Reset filters
+              <RotateCcw size={12} /> Clear all filters
             </button>
           )}
         </div>
 
-        {/* Product Grid or Empty State */}
+        {/* Products Grid */}
         {filtered.length === 0 ? (
-          <div className="text-center py-20 bg-card rounded-3xl border border-border">
-            <span className="text-5xl mb-4 block">🎨</span>
-            <h3 className="font-display text-xl font-bold mb-2">No products found</h3>
-            <p className="text-muted-foreground text-sm mb-6">
-              Try searching for something else or clear your filters.
+          <div className="text-center py-24 bg-card/40 border border-border rounded-3xl p-8">
+            <span className="text-5xl mb-4 block">🔍</span>
+            <h3 className="font-display font-bold text-xl mb-2 text-foreground">No matches found</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto mb-6">
+              Try searching for something else or reset the category filters to browse all custom products.
             </p>
             <button
               type="button"
@@ -206,119 +199,9 @@ function ShopPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {filtered.map((p, idx) => {
-              const inCart = items.find((ci) => ci.product.id === p.id);
-              const waText = encodeURIComponent(
-                `Hello Aiel Studio, I want to order/customise ${p.name} (₹${p.price})`
-              );
-
-              return (
-                <motion.div
-                  key={p.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.03 }}
-                  className="group relative bg-card border border-border/70 hover:border-splash-pink/50 rounded-3xl p-4 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-splash-pink/10"
-                >
-                  <div>
-                    {/* Image Box */}
-                    <div className="relative aspect-square rounded-2xl overflow-hidden bg-secondary/50 mb-3">
-                      <img
-                        src={p.image}
-                        alt={p.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-
-                      {/* Badge */}
-                      {p.badge && (
-                        <span className="absolute top-3 left-3 bg-splash-pink text-primary-foreground font-display font-bold text-[10px] tracking-widest uppercase px-2.5 py-1 rounded-full shadow-md">
-                          {p.badge}
-                        </span>
-                      )}
-
-                      {/* Rating pill */}
-                      <span className="absolute bottom-3 right-3 bg-background/85 backdrop-blur-md text-foreground/90 font-display text-[10px] px-2 py-0.5 rounded-md flex items-center gap-1 font-bold">
-                        ★ {p.rating}
-                      </span>
-
-                      {/* Quick detail link */}
-                      <Link
-                        to="/product/$slug"
-                        params={{ slug: p.slug }}
-                        className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 rounded-full bg-background/80 backdrop-blur-md flex items-center justify-center text-foreground hover:text-splash-pink"
-                        aria-label={`View ${p.name}`}
-                      >
-                        <Eye size={15} />
-                      </Link>
-                    </div>
-
-                    {/* Metadata */}
-                    <div className="space-y-1 mb-3">
-                      <div className="flex items-center justify-between text-[11px] text-muted-foreground font-display uppercase tracking-widest">
-                        <span>{p.categoryLabel}</span>
-                        <span className="text-[10px] text-splash-teal">{p.turnaround}</span>
-                      </div>
-
-                      <Link to="/product/$slug" params={{ slug: p.slug }}>
-                        <h3 className="font-display font-bold text-base text-foreground hover:text-splash-pink transition-colors leading-snug line-clamp-1">
-                          {p.name}
-                        </h3>
-                      </Link>
-
-                      <p className="text-xs text-muted-foreground line-clamp-1">
-                        {p.printTypes.slice(0, 3).join(" • ")}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Pricing and Action Buttons */}
-                  <div className="pt-3 border-t border-border/50">
-                    <div className="flex items-baseline gap-2 mb-3">
-                      <span className="font-display text-xl font-extrabold text-gradient">
-                        ₹{p.price}
-                      </span>
-                      {p.originalPrice && (
-                        <span className="text-xs text-muted-foreground line-through">
-                          ₹{p.originalPrice}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2">
-                      <button
-                        type="button"
-                        onClick={() => handleQuickAdd(p)}
-                        className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full text-xs font-display font-bold uppercase tracking-wider transition-all ${
-                          addedId === p.id
-                            ? "bg-splash-orange text-primary-foreground"
-                            : "bg-brand-gradient text-primary-foreground hover:opacity-95 shadow-md shadow-splash-pink/20"
-                        }`}
-                      >
-                        {addedId === p.id ? (
-                          <>
-                            <Check size={14} /> Added!
-                          </>
-                        ) : (
-                          <>
-                            <ShoppingBag size={14} /> {inCart ? `Add (${inCart.quantity})` : "Add"}
-                          </>
-                        )}
-                      </button>
-
-                      <a
-                        href={`https://wa.me/${WHATSAPP_PHONE}?text=${waText}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-secondary border border-border text-foreground hover:border-splash-pink hover:text-splash-pink transition-colors"
-                      >
-                        <MessageCircle size={14} /> WhatsApp
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {filtered.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
           </div>
         )}
       </main>

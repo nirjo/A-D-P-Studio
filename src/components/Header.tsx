@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Search, ShoppingBag, Menu, X, MessageCircle, Sparkles } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon } from "lucide-react";
 import mascot from "@/assets/mascot.png";
 import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
+import { useTheme } from "@/lib/theme";
 import { SearchModal } from "@/components/SearchModal";
 import { CartDrawer } from "@/components/CartDrawer";
 
@@ -19,6 +20,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { totalItems, toggleDrawer } = useCart();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   return (
@@ -64,8 +66,8 @@ export function Header() {
             })}
           </nav>
 
-          {/* Actions: Search, Cart, WhatsApp */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Actions: Search, Theme Toggle, Cart, WhatsApp */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
             {/* Search Trigger */}
             <button
               type="button"
@@ -74,6 +76,17 @@ export function Header() {
               className="w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center text-foreground/80 hover:text-splash-pink hover:border-splash-pink/40 transition-colors"
             >
               <Search size={16} />
+            </button>
+
+            {/* Theme Toggle (Sun/Moon) */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === "light" ? "Switch to dark theme" : "Switch to daylight pale white theme"}
+              title={theme === "light" ? "Switch to dark theme" : "Switch to daylight theme"}
+              className="w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center text-foreground/80 hover:text-splash-pink hover:border-splash-pink/40 transition-colors"
+            >
+              {theme === "light" ? <Moon size={16} className="text-splash-purple" /> : <Sun size={16} className="text-splash-orange" />}
             </button>
 
             {/* Cart Trigger */}
@@ -132,6 +145,15 @@ export function Header() {
             ))}
 
             <div className="pt-3 border-t border-border flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="flex items-center justify-center gap-2 bg-secondary border border-border text-foreground font-display font-bold text-xs uppercase tracking-wider py-2.5 rounded-full"
+              >
+                {theme === "light" ? <Moon size={15} className="text-splash-purple" /> : <Sun size={15} className="text-splash-orange" />}
+                <span>{theme === "light" ? "Switch to Dark Theme" : "Switch to Daylight Theme"}</span>
+              </button>
+
               <a
                 href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Hello Aiel Studio, I want to place a custom order!")}`}
                 target="_blank"

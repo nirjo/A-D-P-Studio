@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="100%" height="100%">
+  <defs>
+    <filter id="case-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.45" />
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+    <linearGradient id="armor-gloss" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.05" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.35" />
+    </linearGradient>
+    <linearGradient id="armor-bumper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a2e" />
+      <stop offset="100%" stop-color="#141416" />
+    </linearGradient>
+    <linearGradient id="lens-glare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#ff2d9b" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#case-shadow)">
+    <!-- Shockproof Corner Bumpers (TPU Outer Shell) -->
+    <rect x="76" y="36" width="248" height="528" rx="46" fill="url(#armor-bumper)" stroke="#3a3a40" stroke-width="2.5" />
+    
+    <!-- Reinforced Corner Ridges -->
+    <path d="M 80 82 A 46 46 0 0 1 126 36" stroke="#4a4a52" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M 274 36 A 46 46 0 0 1 320 82" stroke="#4a4a52" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M 80 518 A 46 46 0 0 0 126 564" stroke="#4a4a52" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M 274 564 A 46 46 0 0 0 320 518" stroke="#4a4a52" stroke-width="6" fill="none" stroke-linecap="round" />
+
+    <!-- Recolor Polycarbonate Armor Plate -->
+    <rect id="armor-color-body" x="84" y="44" width="232" height="512" rx="40" fill="#18181b" />
+    <!-- Armor Plate Gloss & Gradient Overlay -->
+    <rect x="84" y="44" width="232" height="512" rx="40" fill="url(#armor-gloss)" />
+
+    <!-- Dual-Layer Impact Sculpted Inset Grooves -->
+    <rect x="96" y="56" width="208" height="488" rx="32" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.12" />
+    <line x1="96" y1="210" x2="96" y2="390" stroke="#000000" stroke-width="3" stroke-opacity="0.4" />
+    <line x1="304" y1="210" x2="304" y2="390" stroke="#000000" stroke-width="3" stroke-opacity="0.4" />
+
+    <!-- Pro Camera Island (Tough Bezel) -->
+    <rect x="100" y="62" width="102" height="110" rx="26" fill="#161618" stroke="#333338" stroke-width="2" />
+    <rect x="102" y="64" width="98" height="106" rx="24" fill="none" stroke="#ffffff" stroke-width="0.75" stroke-opacity="0.15" />
+
+    <!-- Camera Lens 1 -->
+    <circle cx="132" cy="94" r="20" fill="#09090b" stroke="#27272a" stroke-width="2.5" />
+    <circle cx="132" cy="94" r="14" fill="#000000" />
+    <circle cx="132" cy="94" r="10" fill="url(#lens-glare)" opacity="0.7" />
+    <circle cx="130" cy="91" r="3" fill="#ffffff" opacity="0.6" />
+
+    <!-- Camera Lens 2 -->
+    <circle cx="132" cy="142" r="20" fill="#09090b" stroke="#27272a" stroke-width="2.5" />
+    <circle cx="132" cy="142" r="14" fill="#000000" />
+    <circle cx="132" cy="142" r="10" fill="url(#lens-glare)" opacity="0.7" />
+    <circle cx="130" cy="139" r="3" fill="#ffffff" opacity="0.6" />
+
+    <!-- Camera Lens 3 -->
+    <circle cx="174" cy="118" r="18" fill="#09090b" stroke="#27272a" stroke-width="2.5" />
+    <circle cx="174" cy="118" r="12" fill="#000000" />
+    <circle cx="174" cy="118" r="8" fill="url(#lens-glare)" opacity="0.7" />
+    <circle cx="172" cy="116" r="2.5" fill="#ffffff" opacity="0.6" />
+
+    <!-- Flash & LiDAR -->
+    <circle cx="174" cy="80" r="6" fill="#fffbeb" stroke="#78716c" stroke-width="1.5" />
+    <circle cx="174" cy="154" r="4.5" fill="#09090b" stroke="#27272a" stroke-width="1" />
+
+    <!-- Impact Armor Badge / Logo Inset -->
+    <rect x="170" y="520" width="60" height="14" rx="7" fill="#09090b" stroke="#27272a" stroke-width="1" />
+    <text x="200" y="530" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#71717a" text-anchor="middle" letter-spacing="1.5">AIEL ARMOR</text>
+  </g>
+</svg>

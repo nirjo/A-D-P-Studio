@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ClientOnly } from "@tanstack/react-router";
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { Preloader } from "@/components/Preloader";
 import { SplashCursor } from "@/components/SplashCursor";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import {
@@ -38,24 +37,25 @@ import { ClientLogoRow } from "@/components/ClientLogoRow";
 import { CustomerReviews } from "@/components/CustomerReviews";
 import { ProductCard } from "@/components/ProductCard";
 import { PRODUCTS, CATEGORIES_META, getProductsByCategory } from "@/data/products";
+import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
 import { Link } from "@tanstack/react-router";
 
 const ProductScene = lazy(() => import("@/components/ProductScene"));
 
-export const Route = createFileRoute("/")(({
+export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aiel Design & Printing Studio — Custom Apparel & Merch, Puducherry" },
+      { title: "Aiel Design & Printing Studio Ã¢â‚¬â€ Custom Apparel & Merch, Puducherry" },
       {
         name: "description",
         content:
-          "Custom t-shirts, mugs, keychains, tote bags and phone cases — designed and printed by Aiel Design & Printing Studio, Puducherry. 48h rush turnaround. Shipping across India.",
+          "Custom t-shirts, mugs, keychains, tote bags and phone cases Ã¢â‚¬â€ designed and printed by Aiel Design & Printing Studio, Puducherry. 48h rush turnaround. Shipping across India.",
       },
       { property: "og:title", content: "Aiel Design & Printing Studio" },
       {
         property: "og:description",
         content:
-          "Custom apparel, corporate gifts & merch — designed and printed to move. Interactive 3D showcase by Aiel Design & Printing Studio, Puducherry.",
+          "Custom apparel, corporate gifts & merch Ã¢â‚¬â€ designed and printed to move. Interactive 3D showcase by Aiel Design & Printing Studio, Puducherry.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -99,9 +99,9 @@ export const Route = createFileRoute("/")(({
     ],
   }),
   component: Index,
-} as Parameters<typeof createFileRoute<"/">>[0]));
+});
 
-// ─── 3D Viewer pill categories ──────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 3D Viewer pill categories Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 const VIEWER_CATEGORIES: { key: ProductKey; label: string; blurb: string }[] = [
   { key: "tshirt", label: "T-Shirts", blurb: "Soft-hand DTF & screen prints on premium cotton." },
   { key: "gifts", label: "Gift Boxes", blurb: "Personal moments, printed with precision." },
@@ -114,7 +114,7 @@ const VIEWER_CATEGORIES: { key: ProductKey; label: string; blurb: string }[] = [
 
 const WORKS = [
   { src: workTee, title: "Splash Tee Drop" },
-  { src: workJersey, title: "Team Jersey — Kit 13" },
+  { src: workJersey, title: "Team Jersey Ã¢â‚¬â€ Kit 13" },
   { src: workMug, title: "Studio Mug Series" },
   { src: workCap, title: "Snapback Embroidery" },
   { src: workBag, title: "Canvas Tote Edition" },
@@ -122,19 +122,19 @@ const WORKS = [
 ];
 
 const STEPS = [
-  { n: "01", t: "Upload your design", d: "Send artwork or a rough idea on WhatsApp — we take it from there." },
+  { n: "01", t: "Upload your design", d: "Send artwork or a rough idea on WhatsApp Ã¢â‚¬â€ we take it from there." },
   { n: "02", t: "We print & preview", d: "Colour-matched proof and a digital mockup before anything runs." },
   { n: "03", t: "You approve", d: "One tap approval. Revisions are free until the colour is right." },
   { n: "04", t: "Delivered", d: "Packed, quality checked and shipped anywhere in India." },
 ];
 
 const TESTIMONIALS_HERO = [
-  { q: "The jerseys came out sharper than the mockup. Whole team was stunned.", a: "Arun K. — Club Captain" },
-  { q: "Our onboarding kits finally look like the brand deck. Zero colour drift.", a: "Divya S. — HR Lead" },
-  { q: "Ordered 200 mugs in 4 days. Packaging alone made it feel premium.", a: "Rahul M. — Founder" },
+  { q: "The jerseys came out sharper than the mockup. Whole team was stunned.", a: "Arun K. Ã¢â‚¬â€ Club Captain" },
+  { q: "Our onboarding kits finally look like the brand deck. Zero colour drift.", a: "Divya S. Ã¢â‚¬â€ HR Lead" },
+  { q: "Ordered 200 mugs in 4 days. Packaging alone made it feel premium.", a: "Rahul M. Ã¢â‚¬â€ Founder" },
 ];
 
-// ─── Hero ────────────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Hero Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -194,7 +194,7 @@ function Hero() {
           Aiel
         </motion.h1>
         <p className="mt-4 font-display text-[0.7rem] tracking-[0.5em] text-muted-foreground uppercase md:text-xs">
-          Design &amp; Printing Studio — Puducherry
+          Design &amp; Printing Studio Ã¢â‚¬â€ Puducherry
         </p>
         <p className="mt-6 max-w-sm text-balance text-muted-foreground">
           Custom Prints, Designed &amp; Delivered. T-shirts, mugs, keychains, tote bags &amp; more.
@@ -219,7 +219,7 @@ function Hero() {
   );
 }
 
-// ─── Category Grid ────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Category Grid Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function CategoryGrid() {
   return (
     <section id="shop-products" className="mx-auto max-w-7xl px-6 py-20 md:px-12">
@@ -233,7 +233,7 @@ function CategoryGrid() {
               className="group relative overflow-hidden rounded-2xl border border-border bg-card aspect-[3/4] flex flex-col justify-end"
             >
               <img
-                src={cat.image}
+                src={cat.heroImage}
                 alt={cat.name}
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -241,7 +241,7 @@ function CategoryGrid() {
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
               <div className="relative p-4">
                 <p className="font-display font-bold text-sm md:text-base">{cat.name}</p>
-                <p className="text-[0.65rem] text-muted-foreground mt-0.5">{cat.count} items</p>
+                <p className="text-[0.65rem] text-muted-foreground mt-0.5">{cat.itemCount}</p>
               </div>
             </motion.div>
           </Link>
@@ -251,7 +251,7 @@ function CategoryGrid() {
   );
 }
 
-// ─── Best Sellers ─────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Best Sellers Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function BestSellers() {
   const featured = PRODUCTS.filter((p) =>
     ["Best Seller", "Made to order", "Hot Deal", "Combo Deal", "New"].includes(p.badge ?? "")
@@ -271,14 +271,14 @@ function BestSellers() {
   );
 }
 
-// ─── Per-Category rows ────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Per-Category rows Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function ShopRows() {
-  const cats: Array<{ slug: string; label: string; viewAll: string }> = [
-    { slug: "tshirts", label: "T-Shirts", viewAll: "/tshirts" },
-    { slug: "mugs", label: "Mugs", viewAll: "/mugs" },
-    { slug: "keychains", label: "Keychains", viewAll: "/keychains" },
-    { slug: "tote-bags", label: "Tote Bags", viewAll: "/tote-bags" },
-    { slug: "phone-cases", label: "Phone Cases", viewAll: "/phone-cases" },
+  const cats: Array<{ slug: string; label: string; subtitle: string }> = [
+    { slug: "tshirts", label: "T-Shirts", subtitle: "Soft-hand DTF & screen prints on premium cotton." },
+    { slug: "mugs", label: "Mugs", subtitle: "Sublimation mugs with edge-to-edge colour." },
+    { slug: "keychains", label: "Keychains", subtitle: "Acrylic & metal, full-colour finish." },
+    { slug: "tote-bags", label: "Tote Bags", subtitle: "Totes and drawstrings built to be carried." },
+    { slug: "phone-cases", label: "Phone Cases", subtitle: "Premium cases with custom print options." },
   ];
 
   return (
@@ -288,10 +288,11 @@ function ShopRows() {
         return (
           <CategoryRow
             key={cat.slug}
-            sectionIndex={String(i + 3).padStart(2, "0")}
-            label={cat.label}
+            index={String(i + 3).padStart(2, "0")}
+            title={cat.label}
+            subtitle={cat.subtitle}
+            categorySlug={cat.slug}
             products={products}
-            viewAllHref={cat.viewAll}
           />
         );
       })}
@@ -299,11 +300,74 @@ function ShopRows() {
   );
 }
 
-// ─── 3D Product Universe (preserved from original) ───────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 3D Product Universe (preserved from original) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
+const VIEWER_COLORS: Record<ProductKey, { name: string; hex: string }[]> = {
+  tshirt: [
+    { name: "Black", hex: "#18181B" },
+    { name: "White", hex: "#FFFFFF" },
+    { name: "Navy", hex: "#1E293B" },
+    { name: "Red", hex: "#DC2626" },
+    { name: "Olive", hex: "#4D5640" },
+    { name: "Sand", hex: "#D7C4A5" },
+  ],
+  mug: [
+    { name: "Black", hex: "#18181B" },
+    { name: "White", hex: "#FFFFFF" },
+    { name: "Blue", hex: "#2563EB" },
+    { name: "Red", hex: "#DC2626" },
+    { name: "Green", hex: "#16A34A" },
+  ],
+  cap: [
+    { name: "Black", hex: "#18181B" },
+    { name: "White", hex: "#FFFFFF" },
+    { name: "Navy", hex: "#1E293B" },
+    { name: "Red", hex: "#DC2626" },
+    { name: "Olive", hex: "#4D5640" },
+  ],
+  gifts: [
+    { name: "Pink", hex: "#FF2D9B" },
+    { name: "Blue", hex: "#38BDF8" },
+    { name: "Purple", hex: "#A855F7" },
+    { name: "Orange", hex: "#F97316" },
+    { name: "Teal", hex: "#14B8A6" },
+  ],
+  keychain: [
+    { name: "Silver", hex: "#CBD5E1" },
+    { name: "Clear", hex: "#E0F2FE" },
+    { name: "Black", hex: "#18181B" },
+    { name: "Gold", hex: "#EAB308" },
+  ],
+  bag: [
+    { name: "Natural", hex: "#F3E8D0" },
+    { name: "Black", hex: "#18181B" },
+    { name: "Navy", hex: "#1E293B" },
+    { name: "Mustard", hex: "#CA8A04" },
+  ],
+  corporate: [
+    { name: "Black", hex: "#18181B" },
+    { name: "Navy", hex: "#1E293B" },
+    { name: "Slate Grey", hex: "#475569" },
+    { name: "White", hex: "#FFFFFF" },
+  ],
+};
+
 function ProductUniverse() {
   const [active, setActive] = useState<ProductKey>("tshirt");
+  const [chosenColor, setChosenColor] = useState<{ name: string; hex: string }>(
+    VIEWER_COLORS.tshirt[0]!
+  );
   const webgl = useWebGLSupport();
   const current = VIEWER_CATEGORIES.find((c) => c.key === active)!;
+
+  const handleCategoryChange = (key: ProductKey) => {
+    setActive(key);
+    const available = VIEWER_COLORS[key] || VIEWER_COLORS.tshirt;
+    setChosenColor(available[0]!);
+  };
+
+  const whatsappLink = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(
+    `Hi, I want the 3D ${current.label} in ${chosenColor.name}`
+  )}`;
 
   return (
     <section id="products" className="relative border-y border-border bg-card/30 py-28">
@@ -334,7 +398,7 @@ function ProductUniverse() {
                 <button
                   key={c.key}
                   data-cursor="splash"
-                  onClick={() => setActive(c.key)}
+                  onClick={() => handleCategoryChange(c.key)}
                   className={`rounded-full border px-5 py-2.5 font-display text-xs tracking-widest uppercase transition-all ${
                     active === c.key
                       ? "bg-brand-gradient border-transparent text-primary-foreground"
@@ -345,25 +409,75 @@ function ProductUniverse() {
                 </button>
               ))}
             </div>
-            <div className="mt-10">
-              <MagneticButton href={WHATSAPP}>Customise {current.label}</MagneticButton>
+
+            {/* 3D Color Swatches */}
+            <div className="mt-6 flex flex-col gap-2">
+              <div className="flex items-center gap-2 text-xs font-display uppercase tracking-widest text-muted-foreground">
+                <span>Model Colour:</span>
+                <span className="text-foreground font-bold">{chosenColor.name}</span>
+              </div>
+              <div
+                className="flex items-center flex-wrap gap-1.5"
+                role="radiogroup"
+                aria-label="3D model colour choices"
+              >
+                {(VIEWER_COLORS[active] || VIEWER_COLORS.tshirt).map((c) => {
+                  const isSelected = chosenColor.name === c.name;
+                  const isWhite = c.hex.toLowerCase() === "#ffffff";
+                  return (
+                    <button
+                      key={c.name}
+                      type="button"
+                      role="radio"
+                      aria-checked={isSelected}
+                      aria-label={c.name}
+                      title={c.name}
+                      onClick={() => setChosenColor(c)}
+                      className="group/swatch relative min-w-[32px] min-h-[32px] w-8 h-8 flex items-center justify-center rounded-full transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-splash-pink"
+                    >
+                      <span
+                        className={`w-5 h-5 rounded-full border transition-all duration-200 ${
+                          isSelected
+                            ? "ring-2 ring-splash-pink ring-offset-2 ring-offset-card scale-110 shadow-sm"
+                            : "hover:scale-110 opacity-90 group-hover/swatch:opacity-100"
+                        } ${isWhite ? "border-black/30" : "border-black/15"}`}
+                        style={{ backgroundColor: c.hex }}
+                      />
+                      <span
+                        role="tooltip"
+                        className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-popover px-2 py-0.5 text-[10px] font-medium text-popover-foreground shadow-md opacity-0 group-hover/swatch:opacity-100 group-focus-visible/swatch:opacity-100 transition-opacity duration-150 z-30 border border-border"
+                      >
+                        {c.name}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <MagneticButton href={whatsappLink}>Customise {current.label}</MagneticButton>
             </div>
           </div>
 
           <div className="relative h-[440px] overflow-hidden rounded-3xl border border-border bg-background md:h-[560px]">
             <div className="glow-orb absolute inset-x-10 top-1/4 h-1/2 opacity-60" />
             <ClientOnly
-              fallback={<div className="absolute inset-0 grid place-items-center text-xs text-muted-foreground">Loading studio…</div>}
+              fallback={
+                <div className="absolute inset-0 grid place-items-center font-display text-xs tracking-[0.3em] text-muted-foreground uppercase bg-background">
+                  Preparing 3D PreviewÃ¢â‚¬Â¦
+                </div>
+              }
             >
               {webgl ? (
                 <Suspense
                   fallback={
                     <div className="absolute inset-0 grid place-items-center font-display text-xs tracking-[0.3em] text-muted-foreground uppercase">
-                      Rendering…
+                      RenderingÃ¢â‚¬Â¦
                     </div>
                   }
                 >
-                  <ProductScene product={active} />
+                  <ProductScene product={active} color={chosenColor.hex} />
                 </Suspense>
               ) : (
                 <div className="absolute inset-0 grid place-items-center p-8 text-center">
@@ -386,7 +500,7 @@ function ProductUniverse() {
   );
 }
 
-// ─── Process ──────────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Process Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function Process() {
   return (
     <section id="process" className="mx-auto max-w-7xl px-6 py-32 md:px-12">
@@ -410,7 +524,7 @@ function Process() {
   );
 }
 
-// ─── Gallery / Work ───────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Gallery / Work Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function Gallery() {
   const wrap = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
@@ -482,7 +596,7 @@ function Gallery() {
   );
 }
 
-// ─── Corporate / Bulk ─────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Corporate / Bulk Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function Corporate() {
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-32 md:px-12">
@@ -493,7 +607,7 @@ function Corporate() {
             Kitting out a team of <span className="text-gradient">50 or 5,000?</span>
           </h2>
           <p className="mt-6 max-w-md text-muted-foreground">
-            Jerseys, onboarding kits, event merch and client gifting — one colour standard across
+            Jerseys, onboarding kits, event merch and client gifting Ã¢â‚¬â€ one colour standard across
             every unit, delivered on a schedule you can plan around.
           </p>
           <ul className="mt-8 space-y-3 text-sm text-muted-foreground">
@@ -527,7 +641,7 @@ function Corporate() {
   );
 }
 
-// ─── Contact / CTA ────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Contact / CTA Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function Contact() {
   return (
     <section id="contact" className="grain-overlay relative overflow-hidden px-6 py-36 text-center">
@@ -553,7 +667,7 @@ function Contact() {
   );
 }
 
-// ─── Floating WhatsApp FAB ────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Floating WhatsApp FAB Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function FloatingWhatsApp() {
   return (
     <a
@@ -571,10 +685,10 @@ function FloatingWhatsApp() {
   );
 }
 
-// ─── Root Page ────────────────────────────────────────────────────────────────
+// Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Root Page Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬
 function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const fadeRef = useRef<number>();
+  const fadeRef = useRef<number>(undefined);
   const [playing, setPlaying] = useState(false);
 
   const toggle = useCallback(() => {
@@ -632,53 +746,67 @@ function MusicToggle() {
 
 function Index() {
   const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if ((window as any).__AIEL_LOADER_DONE) {
+        setReady(true);
+      } else {
+        const handler = () => setReady(true);
+        window.addEventListener("aiel:loader-done", handler);
+        return () => {
+          window.removeEventListener("aiel:loader-done", handler);
+        };
+      }
+    }
+    return undefined;
+  }, []);
+
   useSmoothScroll(ready);
-  const onDone = useCallback(() => setReady(true), []);
 
   return (
     <main className="relative">
       <ClientOnly fallback={null}>
-        <Preloader onDone={onDone} />
         <SplashCursor />
       </ClientOnly>
 
-      {/* ── Site-wide header (TopBar + Header with cart/search) ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Site-wide header (TopBar + Header with cart/search) Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <TopBar />
       <Header />
 
-      {/* ── Hero ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <Hero />
 
-      {/* ── E-commerce sections ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ E-commerce sections Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <CategoryGrid />
       <BestSellers />
       <ShopRows />
       <CombosSection />
       <WhyAielStrip />
 
-      {/* ── 3D Product Universe (original, preserved) ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ 3D Product Universe (original, preserved) Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <ProductUniverse />
 
-      {/* ── Process ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Process Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <Process />
 
-      {/* ── Gallery ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Gallery Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <Gallery />
 
-      {/* ── Corporate / Bulk ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Corporate / Bulk Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <Corporate />
 
-      {/* ── Client logos & reviews ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Client logos & reviews Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <ClientLogoRow />
       <CustomerReviews />
 
-      {/* ── Final CTA ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Final CTA Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <Contact />
 
-      {/* ── Footer ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Footer Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <SiteFooter />
 
-      {/* ── Floating WhatsApp ── */}
+      {/* Ã¢â€â‚¬Ã¢â€â‚¬ Floating WhatsApp Ã¢â€â‚¬Ã¢â€â‚¬ */}
       <FloatingWhatsApp />
       <MusicToggle />
     </main>
