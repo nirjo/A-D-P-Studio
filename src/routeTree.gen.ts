@@ -10,13 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AcrylicGiftsRouteImport } from './routes/acrylic-gifts'
 import { Route as CombosRouteImport } from './routes/combos'
+import { Route as CustomGiftsRouteImport } from './routes/custom-gifts'
+import { Route as FridgeMagnetsRouteImport } from './routes/fridge-magnets'
+import { Route as FusionGiftsRouteImport } from './routes/fusion-gifts'
 import { Route as KeychainsRouteImport } from './routes/keychains'
+import { Route as MdfGiftsRouteImport } from './routes/mdf-gifts'
 import { Route as MugsRouteImport } from './routes/mugs'
 import { Route as PhoneCasesRouteImport } from './routes/phone-cases'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ToteBagsRouteImport } from './routes/tote-bags'
+import { Route as TrendyGiftsRouteImport } from './routes/trendy-gifts'
 import { Route as TshirtsRouteImport } from './routes/tshirts'
+import { Route as UvAcrylicPhotoFrameRouteImport } from './routes/uv-acrylic-photo-frame'
+import { Route as UvAllRouteImport } from './routes/uv-all'
+import { Route as UvTransferStickerRouteImport } from './routes/uv-transfer-sticker'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,14 +34,44 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcrylicGiftsRoute = AcrylicGiftsRouteImport.update({
+  id: '/acrylic-gifts',
+  path: '/acrylic-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CombosRoute = CombosRouteImport.update({
   id: '/combos',
   path: '/combos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomGiftsRoute = CustomGiftsRouteImport.update({
+  id: '/custom-gifts',
+  path: '/custom-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FridgeMagnetsRoute = FridgeMagnetsRouteImport.update({
+  id: '/fridge-magnets',
+  path: '/fridge-magnets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FusionGiftsRoute = FusionGiftsRouteImport.update({
+  id: '/fusion-gifts',
+  path: '/fusion-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KeychainsRoute = KeychainsRouteImport.update({
   id: '/keychains',
   path: '/keychains',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MdfGiftsRoute = MdfGiftsRouteImport.update({
+  id: '/mdf-gifts',
+  path: '/mdf-gifts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MugsRoute = MugsRouteImport.update({
@@ -54,9 +94,29 @@ const ToteBagsRoute = ToteBagsRouteImport.update({
   path: '/tote-bags',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrendyGiftsRoute = TrendyGiftsRouteImport.update({
+  id: '/trendy-gifts',
+  path: '/trendy-gifts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TshirtsRoute = TshirtsRouteImport.update({
   id: '/tshirts',
   path: '/tshirts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UvAcrylicPhotoFrameRoute = UvAcrylicPhotoFrameRouteImport.update({
+  id: '/uv-acrylic-photo-frame',
+  path: '/uv-acrylic-photo-frame',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UvAllRoute = UvAllRouteImport.update({
+  id: '/uv-all',
+  path: '/uv-all',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UvTransferStickerRoute = UvTransferStickerRouteImport.update({
+  id: '/uv-transfer-sticker',
+  path: '/uv-transfer-sticker',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductSlugRoute = ProductSlugRouteImport.update({
@@ -67,83 +127,153 @@ const ProductSlugRoute = ProductSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/acrylic-gifts': typeof AcrylicGiftsRoute
   '/combos': typeof CombosRoute
+  '/custom-gifts': typeof CustomGiftsRoute
+  '/fridge-magnets': typeof FridgeMagnetsRoute
+  '/fusion-gifts': typeof FusionGiftsRoute
   '/keychains': typeof KeychainsRoute
+  '/mdf-gifts': typeof MdfGiftsRoute
   '/mugs': typeof MugsRoute
   '/phone-cases': typeof PhoneCasesRoute
   '/shop': typeof ShopRoute
   '/tote-bags': typeof ToteBagsRoute
+  '/trendy-gifts': typeof TrendyGiftsRoute
   '/tshirts': typeof TshirtsRoute
+  '/uv-acrylic-photo-frame': typeof UvAcrylicPhotoFrameRoute
+  '/uv-all': typeof UvAllRoute
+  '/uv-transfer-sticker': typeof UvTransferStickerRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/acrylic-gifts': typeof AcrylicGiftsRoute
   '/combos': typeof CombosRoute
+  '/custom-gifts': typeof CustomGiftsRoute
+  '/fridge-magnets': typeof FridgeMagnetsRoute
+  '/fusion-gifts': typeof FusionGiftsRoute
   '/keychains': typeof KeychainsRoute
+  '/mdf-gifts': typeof MdfGiftsRoute
   '/mugs': typeof MugsRoute
   '/phone-cases': typeof PhoneCasesRoute
   '/shop': typeof ShopRoute
   '/tote-bags': typeof ToteBagsRoute
+  '/trendy-gifts': typeof TrendyGiftsRoute
   '/tshirts': typeof TshirtsRoute
+  '/uv-acrylic-photo-frame': typeof UvAcrylicPhotoFrameRoute
+  '/uv-all': typeof UvAllRoute
+  '/uv-transfer-sticker': typeof UvTransferStickerRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/acrylic-gifts': typeof AcrylicGiftsRoute
   '/combos': typeof CombosRoute
+  '/custom-gifts': typeof CustomGiftsRoute
+  '/fridge-magnets': typeof FridgeMagnetsRoute
+  '/fusion-gifts': typeof FusionGiftsRoute
   '/keychains': typeof KeychainsRoute
+  '/mdf-gifts': typeof MdfGiftsRoute
   '/mugs': typeof MugsRoute
   '/phone-cases': typeof PhoneCasesRoute
   '/shop': typeof ShopRoute
   '/tote-bags': typeof ToteBagsRoute
+  '/trendy-gifts': typeof TrendyGiftsRoute
   '/tshirts': typeof TshirtsRoute
+  '/uv-acrylic-photo-frame': typeof UvAcrylicPhotoFrameRoute
+  '/uv-all': typeof UvAllRoute
+  '/uv-transfer-sticker': typeof UvTransferStickerRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/acrylic-gifts'
     | '/combos'
+    | '/custom-gifts'
+    | '/fridge-magnets'
+    | '/fusion-gifts'
     | '/keychains'
+    | '/mdf-gifts'
     | '/mugs'
     | '/phone-cases'
     | '/shop'
     | '/tote-bags'
+    | '/trendy-gifts'
     | '/tshirts'
+    | '/uv-acrylic-photo-frame'
+    | '/uv-all'
+    | '/uv-transfer-sticker'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/acrylic-gifts'
     | '/combos'
+    | '/custom-gifts'
+    | '/fridge-magnets'
+    | '/fusion-gifts'
     | '/keychains'
+    | '/mdf-gifts'
     | '/mugs'
     | '/phone-cases'
     | '/shop'
     | '/tote-bags'
+    | '/trendy-gifts'
     | '/tshirts'
+    | '/uv-acrylic-photo-frame'
+    | '/uv-all'
+    | '/uv-transfer-sticker'
     | '/product/$slug'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/acrylic-gifts'
     | '/combos'
+    | '/custom-gifts'
+    | '/fridge-magnets'
+    | '/fusion-gifts'
     | '/keychains'
+    | '/mdf-gifts'
     | '/mugs'
     | '/phone-cases'
     | '/shop'
     | '/tote-bags'
+    | '/trendy-gifts'
     | '/tshirts'
+    | '/uv-acrylic-photo-frame'
+    | '/uv-all'
+    | '/uv-transfer-sticker'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AcrylicGiftsRoute: typeof AcrylicGiftsRoute
   CombosRoute: typeof CombosRoute
+  CustomGiftsRoute: typeof CustomGiftsRoute
+  FridgeMagnetsRoute: typeof FridgeMagnetsRoute
+  FusionGiftsRoute: typeof FusionGiftsRoute
   KeychainsRoute: typeof KeychainsRoute
+  MdfGiftsRoute: typeof MdfGiftsRoute
   MugsRoute: typeof MugsRoute
   PhoneCasesRoute: typeof PhoneCasesRoute
   ShopRoute: typeof ShopRoute
   ToteBagsRoute: typeof ToteBagsRoute
+  TrendyGiftsRoute: typeof TrendyGiftsRoute
   TshirtsRoute: typeof TshirtsRoute
+  UvAcrylicPhotoFrameRoute: typeof UvAcrylicPhotoFrameRoute
+  UvAllRoute: typeof UvAllRoute
+  UvTransferStickerRoute: typeof UvTransferStickerRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
 
@@ -156,6 +286,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acrylic-gifts': {
+      id: '/acrylic-gifts'
+      path: '/acrylic-gifts'
+      fullPath: '/acrylic-gifts'
+      preLoaderRoute: typeof AcrylicGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/combos': {
       id: '/combos'
       path: '/combos'
@@ -163,11 +307,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CombosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/custom-gifts': {
+      id: '/custom-gifts'
+      path: '/custom-gifts'
+      fullPath: '/custom-gifts'
+      preLoaderRoute: typeof CustomGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fridge-magnets': {
+      id: '/fridge-magnets'
+      path: '/fridge-magnets'
+      fullPath: '/fridge-magnets'
+      preLoaderRoute: typeof FridgeMagnetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fusion-gifts': {
+      id: '/fusion-gifts'
+      path: '/fusion-gifts'
+      fullPath: '/fusion-gifts'
+      preLoaderRoute: typeof FusionGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/keychains': {
       id: '/keychains'
       path: '/keychains'
       fullPath: '/keychains'
       preLoaderRoute: typeof KeychainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mdf-gifts': {
+      id: '/mdf-gifts'
+      path: '/mdf-gifts'
+      fullPath: '/mdf-gifts'
+      preLoaderRoute: typeof MdfGiftsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mugs': {
@@ -198,11 +370,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToteBagsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trendy-gifts': {
+      id: '/trendy-gifts'
+      path: '/trendy-gifts'
+      fullPath: '/trendy-gifts'
+      preLoaderRoute: typeof TrendyGiftsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tshirts': {
       id: '/tshirts'
       path: '/tshirts'
       fullPath: '/tshirts'
       preLoaderRoute: typeof TshirtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uv-acrylic-photo-frame': {
+      id: '/uv-acrylic-photo-frame'
+      path: '/uv-acrylic-photo-frame'
+      fullPath: '/uv-acrylic-photo-frame'
+      preLoaderRoute: typeof UvAcrylicPhotoFrameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uv-all': {
+      id: '/uv-all'
+      path: '/uv-all'
+      fullPath: '/uv-all'
+      preLoaderRoute: typeof UvAllRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/uv-transfer-sticker': {
+      id: '/uv-transfer-sticker'
+      path: '/uv-transfer-sticker'
+      fullPath: '/uv-transfer-sticker'
+      preLoaderRoute: typeof UvTransferStickerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/product/$slug': {
@@ -217,13 +417,23 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AcrylicGiftsRoute: AcrylicGiftsRoute,
   CombosRoute: CombosRoute,
+  CustomGiftsRoute: CustomGiftsRoute,
+  FridgeMagnetsRoute: FridgeMagnetsRoute,
+  FusionGiftsRoute: FusionGiftsRoute,
   KeychainsRoute: KeychainsRoute,
+  MdfGiftsRoute: MdfGiftsRoute,
   MugsRoute: MugsRoute,
   PhoneCasesRoute: PhoneCasesRoute,
   ShopRoute: ShopRoute,
   ToteBagsRoute: ToteBagsRoute,
+  TrendyGiftsRoute: TrendyGiftsRoute,
   TshirtsRoute: TshirtsRoute,
+  UvAcrylicPhotoFrameRoute: UvAcrylicPhotoFrameRoute,
+  UvAllRoute: UvAllRoute,
+  UvTransferStickerRoute: UvTransferStickerRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport

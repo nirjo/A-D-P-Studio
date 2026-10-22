@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon, User, LogOut } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon, User, LogOut, ChevronDown } from "lucide-react";
 import mascot from "@/assets/mascot.png";
 import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
 import { useTheme } from "@/lib/theme";
@@ -18,12 +18,26 @@ const NAV_LINKS = [
   { label: "Combos", href: "/combos" },
 ];
 
+const UV_SUB_LINKS = [
+  { label: "Add All UV printings", href: "/uv-all" },
+  { label: "UV Acrylic Photo Frame", href: "/uv-acrylic-photo-frame" },
+  { label: "UV Transfer Sticker", href: "/uv-transfer-sticker" },
+  { label: "Acrylic Gifts", href: "/acrylic-gifts" },
+  { label: "Fridge Magnets", href: "/fridge-magnets" },
+  { label: "MDF Gifts", href: "/mdf-gifts" },
+  { label: "Custom Gifts", href: "/custom-gifts" },
+  { label: "Fusion Gifts", href: "/fusion-gifts" },
+  { label: "Trendy Gifts", href: "/trendy-gifts" },
+  { label: "About", href: "/about" },
+];
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState<"signin" | "signup">("signin");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [uvMenuOpen, setUvMenuOpen] = useState(false);
   const { totalItems, toggleDrawer } = useCart();
   const { theme, toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
@@ -39,6 +53,7 @@ export function Header() {
     <>
       <header className="sticky top-0 inset-x-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/80 transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-3.5 flex items-center justify-between gap-4">
+
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
             <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-br from-splash-purple via-splash-pink to-splash-orange p-[1.5px] shadow-lg shadow-splash-pink/20">
@@ -69,17 +84,47 @@ export function Header() {
                   key={link.href}
                   to={link.href}
                   className={`transition-colors py-1 ${
-                    active ? "text-splash-pink font-bold border-b border-splash-pink" : "text-foreground/75 hover:text-foreground"
+                    active
+                      ? "text-splash-pink font-bold border-b border-splash-pink"
+                      : "text-foreground/75 hover:text-foreground"
                   }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
+
+            {/* UV Printing Dropdown */}
+            <div className="relative" onMouseLeave={() => setUvMenuOpen(false)}>
+              <button
+                type="button"
+                onClick={() => setUvMenuOpen(!uvMenuOpen)}
+                className="flex items-center gap-1 py-1 text-foreground/75 hover:text-foreground transition-colors"
+                aria-haspopup="true"
+                aria-expanded={uvMenuOpen}
+              >
+                UV Printing <ChevronDown size={12} className="stroke-current" />
+              </button>
+              {uvMenuOpen && (
+                <div className="absolute left-0 mt-2 w-56 bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-xl z-50 animate-in fade-in zoom-in-95">
+                  {UV_SUB_LINKS.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-secondary/30 transition-colors"
+                      onClick={() => setUvMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
 
-          {/* Actions: Search, Theme Toggle, Cart, WhatsApp */}
+          {/* Actions: Search, Theme Toggle, Cart, Auth, WhatsApp, Hamburger */}
           <div className="flex items-center gap-2 sm:gap-2.5">
+
             {/* Search Trigger */}
             <button
               type="button"
@@ -90,15 +135,17 @@ export function Header() {
               <Search size={16} />
             </button>
 
-            {/* Theme Toggle (Sun/Moon) */}
+            {/* Theme Toggle */}
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={theme === "light" ? "Switch to dark theme" : "Switch to daylight pale white theme"}
+              aria-label={theme === "light" ? "Switch to dark theme" : "Switch to daylight theme"}
               title={theme === "light" ? "Switch to dark theme" : "Switch to daylight theme"}
               className="w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center text-foreground/80 hover:text-splash-pink hover:border-splash-pink/40 transition-colors"
             >
-              {theme === "light" ? <Moon size={16} className="text-splash-purple" /> : <Sun size={16} className="text-splash-orange" />}
+              {theme === "light"
+                ? <Moon size={16} className="text-splash-purple" />
+                : <Sun size={16} className="text-splash-orange" />}
             </button>
 
             {/* Cart Trigger */}
@@ -116,7 +163,7 @@ export function Header() {
               )}
             </button>
 
-            {/* User Auth: Sign In & Sign Up or Profile Dropdown */}
+            {/* User Auth */}
             {!user ? (
               <div className="flex items-center gap-1 sm:gap-1.5">
                 <button
@@ -134,7 +181,7 @@ export function Header() {
                 >
                   Sign Up
                 </button>
-                {/* Mobile Icon Button */}
+                {/* Mobile icon only */}
                 <button
                   type="button"
                   onClick={() => openAuth("signin")}
@@ -154,7 +201,9 @@ export function Header() {
                   className="flex items-center gap-2 bg-secondary border border-border hover:border-splash-pink/40 rounded-full pl-1.5 pr-2.5 py-1 transition-colors"
                 >
                   <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-splash-purple to-splash-pink text-primary-foreground font-display text-[10px] font-bold flex items-center justify-center uppercase">
-                    {user.user_metadata?.["full_name"] ? String(user.user_metadata["full_name"])[0] : (user.email ? user.email[0] : "U")}
+                    {user.user_metadata?.["full_name"]
+                      ? String(user.user_metadata["full_name"])[0]
+                      : (user.email ? user.email[0] : "U")}
                   </div>
                   <span className="hidden md:inline text-xs font-display font-medium text-foreground max-w-[90px] truncate">
                     {String(user.user_metadata?.["full_name"] || user.email?.split("@")[0])}
@@ -171,10 +220,7 @@ export function Header() {
                     </div>
                     <button
                       type="button"
-                      onClick={() => {
-                        signOut();
-                        setUserMenuOpen(false);
-                      }}
+                      onClick={() => { signOut(); setUserMenuOpen(false); }}
                       className="w-full flex items-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider text-destructive hover:bg-destructive/10 rounded-xl transition-colors mt-1"
                     >
                       <LogOut size={13} /> Sign Out
@@ -184,7 +230,7 @@ export function Header() {
               </div>
             )}
 
-            {/* Direct WhatsApp CTA */}
+            {/* WhatsApp CTA */}
             <a
               href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Hello Aiel Studio, I want to discuss a custom design!")}`}
               target="_blank"
@@ -203,6 +249,7 @@ export function Header() {
             >
               {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
+
           </div>
         </div>
 
@@ -225,7 +272,6 @@ export function Header() {
             ))}
 
             <div className="pt-3 border-t border-border flex flex-col gap-2">
-              {/* Mobile Auth Actions */}
               {!user ? (
                 <div className="grid grid-cols-2 gap-2">
                   <button
@@ -247,7 +293,9 @@ export function Header() {
                 <div className="flex items-center justify-between p-2.5 rounded-2xl bg-secondary/60 border border-border">
                   <div className="flex items-center gap-2">
                     <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-splash-purple to-splash-pink text-primary-foreground font-display text-xs font-bold flex items-center justify-center uppercase">
-                      {user.user_metadata?.["full_name"] ? String(user.user_metadata["full_name"])[0] : (user.email ? user.email[0] : "U")}
+                      {user.user_metadata?.["full_name"]
+                        ? String(user.user_metadata["full_name"])[0]
+                        : (user.email ? user.email[0] : "U")}
                     </div>
                     <div className="flex flex-col text-left">
                       <span className="text-xs font-semibold text-foreground leading-tight">
@@ -260,10 +308,7 @@ export function Header() {
                   </div>
                   <button
                     type="button"
-                    onClick={() => {
-                      signOut();
-                      setMobileMenuOpen(false);
-                    }}
+                    onClick={() => { signOut(); setMobileMenuOpen(false); }}
                     className="text-[11px] font-display uppercase tracking-wider text-destructive font-semibold px-2 py-1 hover:bg-destructive/10 rounded-lg transition-colors"
                   >
                     Sign Out
@@ -276,7 +321,9 @@ export function Header() {
                 onClick={toggleTheme}
                 className="flex items-center justify-center gap-2 bg-secondary border border-border text-foreground font-display font-bold text-xs uppercase tracking-wider py-2.5 rounded-full"
               >
-                {theme === "light" ? <Moon size={15} className="text-splash-purple" /> : <Sun size={15} className="text-splash-orange" />}
+                {theme === "light"
+                  ? <Moon size={15} className="text-splash-purple" />
+                  : <Sun size={15} className="text-splash-orange" />}
                 <span>{theme === "light" ? "Switch to Dark Theme" : "Switch to Daylight Theme"}</span>
               </button>
 
