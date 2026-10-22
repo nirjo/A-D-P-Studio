@@ -229,6 +229,19 @@ html.light .mix-blend-screen {
   }
 }
 
+@keyframes aiel-carousel-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@utility animate-carousel-progress {
+  animation: aiel-carousel-progress linear forwards;
+}
+
 @utility animate-float {
   animation: aiel-float 7s ease-in-out infinite;
 }

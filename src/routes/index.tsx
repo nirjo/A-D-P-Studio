@@ -28,6 +28,7 @@ import workCorporate from "@/assets/work-corporate.jpg";
 // New e-commerce components
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer as SiteFooter } from "@/components/Footer";
 import { CategoryRow } from "@/components/CategoryRow";
 import { CombosSection } from "@/components/CombosSection";
@@ -770,6 +771,7 @@ function Index() {
       {/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Site-wide header (TopBar + Header with cart/search) ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */}
       <TopBar />
       <Header />
+      <HeroCarousel />
 
       {/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Hero ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */}
       <Hero />
