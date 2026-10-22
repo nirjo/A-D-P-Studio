@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon, User, LogOut, ChevronDown } from "lucide-react";
 import mascot from "@/assets/mascot.png";
@@ -33,21 +33,47 @@ const UV_SUB_LINKS = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileUvOpen, setMobileUvOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState<"signin" | "signup">("signin");
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [uvMenuOpen, setUvMenuOpen] = useState(false);
+  const uvDropdownRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
   const { totalItems, toggleDrawer } = useCart();
   const { theme, toggleTheme } = useTheme();
   const { user, signOut } = useAuth();
   const location = useLocation();
+
+  // Close menus on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (uvDropdownRef.current && !uvDropdownRef.current.contains(event.target as Node)) {
+        setUvMenuOpen(false);
+      }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close mobile menus on location change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setUvMenuOpen(false);
+  }, [location.pathname]);
 
   const openAuth = (tab: "signin" | "signup") => {
     setAuthModalTab(tab);
     setAuthModalOpen(true);
     setMobileMenuOpen(false);
   };
+
+  const isUvActive = UV_SUB_LINKS.some((link) => location.pathname === link.href);
 
   return (
     <>
@@ -95,28 +121,51 @@ export function Header() {
             })}
 
             {/* UV Printing Dropdown */}
-            <div className="relative" onMouseLeave={() => setUvMenuOpen(false)}>
+            <div ref={uvDropdownRef} className="relative">
               <button
                 type="button"
-                onClick={() => setUvMenuOpen(!uvMenuOpen)}
-                className="flex items-center gap-1 py-1 text-foreground/75 hover:text-foreground transition-colors"
+                onClick={() => setUvMenuOpen((prev) => !prev)}
+                className={`flex items-center gap-1 py-1 transition-colors ${
+                  isUvActive
+                    ? "text-splash-pink font-bold border-b border-splash-pink"
+                    : "text-foreground/75 hover:text-foreground"
+                }`}
                 aria-haspopup="true"
                 aria-expanded={uvMenuOpen}
               >
-                UV Printing <ChevronDown size={12} className="stroke-current" />
+                UV Printing & Gifts{" "}
+                <ChevronDown
+                  size={12}
+                  className={`stroke-current transition-transform duration-200 ${
+                    uvMenuOpen ? "rotate-180 text-splash-pink" : ""
+                  }`}
+                />
               </button>
+
               {uvMenuOpen && (
-                <div className="absolute left-0 mt-2 w-56 bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-xl z-50 animate-in fade-in zoom-in-95">
-                  {UV_SUB_LINKS.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-secondary/30 transition-colors"
-                      onClick={() => setUvMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <div className="absolute left-0 top-full mt-2 w-64 bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl p-2 z-50 animate-in fade-in zoom-in-95">
+                  <div className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-muted-foreground border-b border-border/60 mb-1">
+                    Specialty Prints & Gifts
+                  </div>
+                  <div className="max-h-[380px] overflow-y-auto space-y-0.5">
+                    {UV_SUB_LINKS.map((link) => {
+                      const active = location.pathname === link.href;
+                      return (
+                        <Link
+                          key={link.href}
+                          to={link.href}
+                          className={`block px-3 py-2 rounded-xl text-xs font-medium transition-colors ${
+                            active
+                              ? "bg-splash-pink/15 text-splash-pink font-semibold"
+                              : "text-foreground hover:bg-secondary/60 hover:text-splash-pink"
+                          }`}
+                          onClick={() => setUvMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
             </div>
@@ -193,7 +242,7 @@ export function Header() {
                 </button>
               </div>
             ) : (
-              <div className="relative">
+              <div ref={userMenuRef} className="relative">
                 <button
                   type="button"
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
@@ -255,7 +304,7 @@ export function Header() {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-card/95 backdrop-blur-2xl border-b border-border px-6 py-6 flex flex-col gap-3 shadow-2xl">
+          <div className="lg:hidden bg-card/95 backdrop-blur-2xl border-b border-border px-6 py-6 flex flex-col gap-3 shadow-2xl max-h-[85vh] overflow-y-auto">
             <span className="text-[11px] font-display uppercase tracking-widest text-muted-foreground pb-1 border-b border-border">
               Print Categories
             </span>
@@ -270,6 +319,42 @@ export function Header() {
                 <span className="text-xs text-muted-foreground">→</span>
               </Link>
             ))}
+
+            {/* Mobile UV Printing & Gifts Collapsible Accordion */}
+            <div className="py-2 border-t border-border/80">
+              <button
+                type="button"
+                onClick={() => setMobileUvOpen((prev) => !prev)}
+                className="w-full flex items-center justify-between font-display text-sm tracking-wider uppercase text-foreground/85 hover:text-splash-pink py-1.5 transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-splash-pink" />
+                  UV Printing & Gifts
+                </span>
+                <ChevronDown
+                  size={15}
+                  className={`stroke-current transition-transform duration-200 ${
+                    mobileUvOpen ? "rotate-180 text-splash-pink" : "text-muted-foreground"
+                  }`}
+                />
+              </button>
+
+              {mobileUvOpen && (
+                <div className="mt-2 ml-3.5 pl-3 border-l-2 border-splash-pink/40 flex flex-col gap-2 py-1">
+                  {UV_SUB_LINKS.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="font-display text-xs tracking-wider text-muted-foreground hover:text-splash-pink py-1 transition-colors flex items-center justify-between"
+                    >
+                      <span>{link.label}</span>
+                      <span className="text-[10px] text-muted-foreground">↗</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div className="pt-3 border-t border-border flex flex-col gap-2">
               {!user ? (
