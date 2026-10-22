@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon, User, LogOut } from "lucide-react";
 import mascot from "@/assets/mascot.png";
 import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
 import { useTheme } from "@/lib/theme";
+import { useAuth } from "@/lib/auth";
 import { SearchModal } from "@/components/SearchModal";
 import { CartDrawer } from "@/components/CartDrawer";
+import { AuthModal } from "@/components/AuthModal";
 
 const NAV_LINKS = [
   { label: "T-Shirts", href: "/tshirts" },
@@ -19,9 +21,19 @@ const NAV_LINKS = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authModalTab, setAuthModalTab] = useState<"signin" | "signup">("signin");
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { totalItems, toggleDrawer } = useCart();
   const { theme, toggleTheme } = useTheme();
+  const { user, signOut } = useAuth();
   const location = useLocation();
+
+  const openAuth = (tab: "signin" | "signup") => {
+    setAuthModalTab(tab);
+    setAuthModalOpen(true);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <>
@@ -104,6 +116,74 @@ export function Header() {
               )}
             </button>
 
+            {/* User Auth: Sign In & Sign Up or Profile Dropdown */}
+            {!user ? (
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => openAuth("signin")}
+                  className="hidden sm:inline-flex items-center gap-1 text-xs font-display uppercase tracking-wider font-semibold text-foreground/80 hover:text-splash-pink px-2.5 py-1.5 rounded-full hover:bg-secondary/60 transition-colors"
+                >
+                  <User size={13} />
+                  <span>Sign In</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openAuth("signup")}
+                  className="hidden sm:inline-flex items-center text-xs font-display uppercase tracking-wider font-bold text-foreground bg-secondary/80 border border-splash-pink/40 hover:border-splash-pink px-3 py-1.5 rounded-full shadow-sm hover:shadow-splash-pink/20 transition-all"
+                >
+                  Sign Up
+                </button>
+                {/* Mobile Icon Button */}
+                <button
+                  type="button"
+                  onClick={() => openAuth("signin")}
+                  aria-label="Sign In or Sign Up"
+                  title="Sign In / Sign Up"
+                  className="sm:hidden w-9 h-9 rounded-full bg-secondary border border-border flex items-center justify-center text-foreground/80 hover:text-splash-pink hover:border-splash-pink/40 transition-colors"
+                >
+                  <User size={16} />
+                </button>
+              </div>
+            ) : (
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  aria-label="User account menu"
+                  className="flex items-center gap-2 bg-secondary border border-border hover:border-splash-pink/40 rounded-full pl-1.5 pr-2.5 py-1 transition-colors"
+                >
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-splash-purple to-splash-pink text-primary-foreground font-display text-[10px] font-bold flex items-center justify-center uppercase">
+                    {user.user_metadata?.["full_name"] ? String(user.user_metadata["full_name"])[0] : (user.email ? user.email[0] : "U")}
+                  </div>
+                  <span className="hidden md:inline text-xs font-display font-medium text-foreground max-w-[90px] truncate">
+                    {String(user.user_metadata?.["full_name"] || user.email?.split("@")[0])}
+                  </span>
+                </button>
+
+                {userMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-xl p-2 z-50 animate-in fade-in zoom-in-95">
+                    <div className="px-3 py-2 border-b border-border/60">
+                      <p className="text-xs font-semibold text-foreground truncate">
+                        {String(user.user_metadata?.["full_name"] || "Member")}
+                      </p>
+                      <p className="text-[10px] text-muted-foreground truncate">{user.email}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        signOut();
+                        setUserMenuOpen(false);
+                      }}
+                      className="w-full flex items-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider text-destructive hover:bg-destructive/10 rounded-xl transition-colors mt-1"
+                    >
+                      <LogOut size={13} /> Sign Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Direct WhatsApp CTA */}
             <a
               href={`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Hello Aiel Studio, I want to discuss a custom design!")}`}
@@ -145,6 +225,52 @@ export function Header() {
             ))}
 
             <div className="pt-3 border-t border-border flex flex-col gap-2">
+              {/* Mobile Auth Actions */}
+              {!user ? (
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => openAuth("signin")}
+                    className="flex items-center justify-center gap-1.5 bg-secondary border border-border text-foreground font-display font-bold text-xs uppercase tracking-wider py-2.5 rounded-full hover:border-splash-pink/60 transition-colors"
+                  >
+                    <User size={14} /> Sign In
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => openAuth("signup")}
+                    className="flex items-center justify-center gap-1.5 bg-secondary border border-splash-pink/40 text-foreground font-display font-bold text-xs uppercase tracking-wider py-2.5 rounded-full hover:border-splash-pink transition-colors"
+                  >
+                    Sign Up
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center justify-between p-2.5 rounded-2xl bg-secondary/60 border border-border">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-splash-purple to-splash-pink text-primary-foreground font-display text-xs font-bold flex items-center justify-center uppercase">
+                      {user.user_metadata?.["full_name"] ? String(user.user_metadata["full_name"])[0] : (user.email ? user.email[0] : "U")}
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="text-xs font-semibold text-foreground leading-tight">
+                        {String(user.user_metadata?.["full_name"] || "Member")}
+                      </span>
+                      <span className="text-[10px] text-muted-foreground leading-tight truncate max-w-[150px]">
+                        {user.email}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      signOut();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="text-[11px] font-display uppercase tracking-wider text-destructive font-semibold px-2 py-1 hover:bg-destructive/10 rounded-lg transition-colors"
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              )}
+
               <button
                 type="button"
                 onClick={toggleTheme}
@@ -170,6 +296,7 @@ export function Header() {
       {/* Global Modals */}
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
       <CartDrawer />
+      <AuthModal isOpen={authModalOpen} onClose={() => setAuthModalOpen(false)} defaultTab={authModalTab} />
     </>
   );
 }

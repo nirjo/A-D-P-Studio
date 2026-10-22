@@ -11,6 +11,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { SplashCursor } from "@/components/SplashCursor";
+import { AuthProvider } from "@/lib/auth";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -426,12 +427,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NavigationProgressBar />
-      <ClientOnly fallback={null}>
-        <SplashCursor />
-      </ClientOnly>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <AuthProvider>
+        <NavigationProgressBar />
+        <ClientOnly fallback={null}>
+          <SplashCursor />
+        </ClientOnly>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
