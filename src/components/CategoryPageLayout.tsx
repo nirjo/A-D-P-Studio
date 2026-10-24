@@ -1,11 +1,12 @@
 import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, Filter, Sparkles, Zap, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Sparkles, Package, RotateCcw } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { WhyAielStrip } from "@/components/WhyAielStrip";
+import { useProducts, type DatabaseProduct } from "@/lib/products-service";
 import type { Product } from "@/data/products";
 
 interface CategoryPageLayoutProps {
@@ -16,27 +17,59 @@ interface CategoryPageLayoutProps {
   products: Product[];
 }
 
+const GSM_OPTIONS = ["All GSM", "180 GSM", "220 GSM", "240 GSM", "280 GSM"];
+
 export function CategoryPageLayout({
   categoryKey,
   categoryTitle,
   categorySubtitle,
   startingPrice,
-  products,
+  products: fallbackProducts,
 }: CategoryPageLayoutProps) {
+  // Pull live products from Supabase
+  const { data: allProducts = [] } = useProducts();
+
+  // Filter category products from live DB or fallback
+  const categoryProducts = useMemo(() => {
+    const liveMatching = allProducts.filter((p) => p.category === categoryKey);
+    return liveMatching.length > 0 ? liveMatching : fallbackProducts;
+  }, [allProducts, categoryKey, fallbackProducts]);
+
   const [selectedPrintType, setSelectedPrintType] = useState<string>("All");
+  const [selectedGsm, setSelectedGsm] = useState<string>("All GSM");
+  const [selectedStock, setSelectedStock] = useState<"all" | "in-stock">("all");
   const [sortBy, setSortBy] = useState<string>("featured");
 
   const printTypes = useMemo(() => {
     const set = new Set<string>();
-    products.forEach((p) => p.printTypes.forEach((pt) => set.add(pt)));
+    categoryProducts.forEach((p) => p.printTypes.forEach((pt) => set.add(pt)));
     return ["All", ...Array.from(set)];
-  }, [products]);
+  }, [categoryProducts]);
 
   const filteredProducts = useMemo(() => {
-    return products
-      .filter((p) => {
-        if (selectedPrintType === "All") return true;
-        return p.printTypes.includes(selectedPrintType);
+    return categoryProducts
+      .filter((p: DatabaseProduct) => {
+        // Print type filter
+        if (selectedPrintType !== "All" && !p.printTypes.includes(selectedPrintType)) {
+          return false;
+        }
+
+        // GSM filter (for T-shirts)
+        if (selectedGsm !== "All GSM") {
+          const gsmVal = selectedGsm.replace(" GSM", "");
+          const matchGsm =
+            (p.gsm && String(p.gsm).includes(gsmVal)) ||
+            p.name.includes(gsmVal) ||
+            p.description.includes(gsmVal);
+          if (!matchGsm) return false;
+        }
+
+        // Stock filter
+        if (selectedStock === "in-stock" && (p.isSoldOut || p.inStock === false)) {
+          return false;
+        }
+
+        return true;
       })
       .sort((a, b) => {
         if (sortBy === "price-asc") return a.price - b.price;
@@ -44,7 +77,11 @@ export function CategoryPageLayout({
         if (sortBy === "rating") return b.rating - a.rating;
         return 0;
       });
-  }, [products, selectedPrintType, sortBy]);
+  }, [categoryProducts, selectedPrintType, selectedGsm, selectedStock, sortBy]);
+
+  const isTshirtCategory = categoryKey === "tshirts";
+  const hasActiveFilters =
+    selectedPrintType !== "All" || selectedGsm !== "All GSM" || selectedStock !== "all";
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -59,44 +96,45 @@ export function CategoryPageLayout({
               to="/"
               className="inline-flex items-center gap-1.5 text-xs font-display uppercase tracking-widest text-muted-foreground hover:text-splash-pink mb-4 transition-colors"
             >
-              <ArrowLeft size={13} /> Back to Home
+              <ArrowLeft size={13} /> Back to Studio Home
             </Link>
 
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
-                <div className="flex items-center gap-2 text-splash-pink text-xs font-display uppercase tracking-widest font-bold mb-2">
-                  <Sparkles size={13} /> Custom Print Department
+                <div className="inline-flex items-center gap-2 bg-secondary/80 border border-splash-pink/30 rounded-full px-3 py-1 mb-3">
+                  <Sparkles size={11} className="text-splash-pink" />
+                  <span className="text-[11px] font-display uppercase tracking-widest text-splash-pink font-semibold">
+                    Custom Print Collection
+                  </span>
                 </div>
-                <h1 className="font-display text-3xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-                  Custom <span className="text-gradient">{categoryTitle}</span>
+                <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-foreground">
+                  {categoryTitle}
                 </h1>
-                <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl leading-relaxed">
+                <p className="text-muted-foreground font-sans text-xs sm:text-sm max-w-xl mt-2 leading-relaxed">
                   {categorySubtitle}
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 self-start md:self-auto">
-                <div className="bg-card border border-border px-4 py-2 rounded-2xl text-center">
-                  <span className="text-[10px] text-muted-foreground uppercase font-display block">Starting From</span>
-                  <span className="font-display font-extrabold text-lg text-gradient">₹{startingPrice}</span>
-                </div>
-                <div className="bg-card border border-border px-4 py-2 rounded-2xl text-center">
-                  <span className="text-[10px] text-muted-foreground uppercase font-display block">Turnaround</span>
-                  <span className="font-display font-extrabold text-sm text-splash-orange flex items-center justify-center gap-1 mt-0.5">
-                    <Zap size={12} /> 48 Hours
-                  </span>
-                </div>
+              <div className="bg-card/70 border border-border/80 backdrop-blur-md rounded-2xl p-4 flex flex-col gap-1 text-right flex-shrink-0">
+                <span className="text-[10px] font-display uppercase tracking-widest text-muted-foreground">
+                  Starting Price
+                </span>
+                <span className="text-gradient font-display text-2xl font-extrabold">
+                  ₹{startingPrice}
+                </span>
+                <span className="text-[10px] text-muted-foreground">48h Rush Turnaround</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Filter Bar */}
-        <section className="py-6 border-b border-border/40 bg-card/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Filter pills */}
-            <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none">
-              <span className="text-xs text-muted-foreground font-display uppercase tracking-wider hidden md:inline flex-shrink-0">
+        {/* Filter and Product Grid */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-10">
+          {/* Controls Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-8 bg-secondary/40 border border-border/70 p-3.5 rounded-2xl">
+            {/* Filter Pills */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-xs font-display uppercase tracking-wider text-muted-foreground mr-1">
                 Print Technique:
               </span>
               {printTypes.map((pt) => (
@@ -104,10 +142,10 @@ export function CategoryPageLayout({
                   key={pt}
                   type="button"
                   onClick={() => setSelectedPrintType(pt)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-display tracking-wider whitespace-nowrap transition-all ${
+                  className={`px-3 py-1 rounded-full text-xs font-display uppercase tracking-wider transition-colors border ${
                     selectedPrintType === pt
-                      ? "bg-brand-gradient gradient-pan text-primary-foreground font-bold shadow-md shadow-splash-pink/20"
-                      : "bg-secondary border border-border text-muted-foreground hover:text-foreground"
+                      ? "bg-splash-pink text-primary-foreground font-bold border-splash-pink shadow-sm"
+                      : "bg-secondary text-muted-foreground border-border hover:text-foreground"
                   }`}
                 >
                   {pt}
@@ -115,62 +153,94 @@ export function CategoryPageLayout({
               ))}
             </div>
 
-            {/* Sort Dropdown */}
-            <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
-              <span className="text-xs text-muted-foreground font-display uppercase tracking-wider">Sort:</span>
+            {/* Quick selectors: GSM, In-stock, Sorting */}
+            <div className="flex items-center gap-2 flex-wrap">
+              {/* Optional GSM Filter for T-shirts */}
+              {isTshirtCategory && (
+                <select
+                  value={selectedGsm}
+                  onChange={(e) => setSelectedGsm(e.target.value)}
+                  className="bg-secondary border border-border text-foreground font-display text-xs rounded-full px-3 py-1.5 focus:outline-none focus:border-splash-pink"
+                >
+                  {GSM_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt} className="bg-card text-foreground">
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+              )}
+
+              {/* Stock Toggle */}
+              <button
+                type="button"
+                onClick={() => setSelectedStock((prev) => (prev === "all" ? "in-stock" : "all"))}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-display uppercase tracking-wider border transition-colors ${
+                  selectedStock === "in-stock"
+                    ? "bg-splash-pink/15 border-splash-pink text-splash-pink font-bold"
+                    : "bg-secondary border-border text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Package size={12} />
+                <span>In Stock Only</span>
+              </button>
+
+              {/* Sort Dropdown */}
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-card border border-border rounded-xl px-3 py-1.5 text-xs text-foreground font-sans focus:outline-none focus:border-splash-pink cursor-pointer"
+                className="bg-secondary border border-border text-foreground font-display text-xs rounded-full px-3 py-1.5 focus:outline-none focus:border-splash-pink"
               >
-                <option value="featured">Featured</option>
-                <option value="price-asc">Price: Low to High</option>
-                <option value="price-desc">Price: High to Low</option>
-                <option value="rating">Highest Rated</option>
+                <option value="featured" className="bg-card text-foreground">Featured</option>
+                <option value="price-asc" className="bg-card text-foreground">Price: Low to High</option>
+                <option value="price-desc" className="bg-card text-foreground">Price: High to Low</option>
+                <option value="rating" className="bg-card text-foreground">Highest Rated</option>
               </select>
-            </div>
-          </div>
-        </section>
 
-        {/* Product Grid */}
-        <section className="py-12 sm:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-            <div className="flex items-center justify-between text-xs font-display text-muted-foreground uppercase tracking-widest mb-6">
-              <span>Showing {filteredProducts.length} custom products</span>
-              {selectedPrintType !== "All" && (
+              {hasActiveFilters && (
                 <button
                   type="button"
-                  onClick={() => setSelectedPrintType("All")}
-                  className="text-splash-pink hover:underline"
+                  onClick={() => {
+                    setSelectedPrintType("All");
+                    setSelectedGsm("All GSM");
+                    setSelectedStock("all");
+                  }}
+                  className="flex items-center gap-1 text-xs text-muted-foreground hover:text-splash-pink px-2"
                 >
-                  Reset technique filter
+                  <RotateCcw size={11} /> Reset
                 </button>
               )}
             </div>
-
-            {filteredProducts.length === 0 ? (
-              <div className="text-center py-20 bg-card rounded-3xl border border-border">
-                <span className="text-5xl mb-3 block">🎨</span>
-                <h3 className="font-display font-bold text-lg mb-1">No products found</h3>
-                <p className="text-xs text-muted-foreground max-w-sm mx-auto mb-6">
-                  No products matched the selected printing technique.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSelectedPrintType("All")}
-                  className="bg-brand-gradient text-primary-foreground font-display font-semibold text-xs uppercase px-6 py-2.5 rounded-full"
-                >
-                  Show All {categoryTitle}
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {filteredProducts.map((p) => (
-                  <ProductCard key={p.id} product={p} />
-                ))}
-              </div>
-            )}
           </div>
+
+          {/* Grid */}
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-20 bg-card/40 border border-border rounded-3xl p-8 max-w-md mx-auto">
+              <span className="text-4xl block mb-2">👕</span>
+              <h3 className="font-display font-bold text-base text-foreground mb-1">
+                No products match this filter
+              </h3>
+              <p className="text-xs text-muted-foreground mb-4">
+                Try resetting your GSM or print technique selection.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedPrintType("All");
+                  setSelectedGsm("All GSM");
+                  setSelectedStock("all");
+                }}
+                className="bg-secondary border border-border px-4 py-2 rounded-full text-xs font-display uppercase tracking-wider text-foreground hover:border-splash-pink"
+              >
+                Reset Filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {filteredProducts.map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
+          )}
         </section>
 
         <WhyAielStrip />
