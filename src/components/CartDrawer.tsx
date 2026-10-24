@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ShoppingBag, Plus, Minus, Trash2, ArrowRight, MessageCircle, Zap, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useCart, FREE_SHIPPING_THRESHOLD } from "@/lib/cart";
+import { CheckoutModal } from "@/components/CheckoutModal";
 
 export function CartDrawer() {
   const {
@@ -19,6 +20,7 @@ export function CartDrawer() {
   } = useCart();
 
   const [clientCity, setClientCity] = useState("Puducherry");
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   // Close on Escape key
   useEffect(() => {
@@ -32,6 +34,7 @@ export function CartDrawer() {
   const progress = Math.min(100, Math.round((subtotal / FREE_SHIPPING_THRESHOLD) * 100));
 
   return (
+    <>
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-[110] flex justify-end">
@@ -241,7 +244,7 @@ export function CartDrawer() {
 
                   <button
                     type="button"
-                    onClick={() => alert("Razorpay Online Checkout is structured and ready to connect. You can also complete your custom print order right now on WhatsApp!")}
+                    onClick={() => setCheckoutOpen(true)}
                     className="w-full flex items-center justify-center gap-2 bg-secondary border border-border text-foreground font-display font-bold text-xs uppercase tracking-wider py-3 rounded-full hover:border-splash-pink transition-colors"
                   >
                     Pay Online (Cards / UPI / NetBanking)
@@ -261,5 +264,7 @@ export function CartDrawer() {
         </div>
       )}
     </AnimatePresence>
+      <CheckoutModal isOpen={checkoutOpen} onClose={() => setCheckoutOpen(false)} clientCity={clientCity} />
+    </>
   );
 }
