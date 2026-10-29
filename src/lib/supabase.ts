@@ -7,7 +7,7 @@ import { createClient } from "@supabase/supabase-js";
  * - VITE_SUPABASE_ANON_KEY (publishable key only; never service_role)
  */
 export const SUPABASE_URL =
-  import.meta.env.VITE_SUPABASE_URL || "https://xophdtokbfdyifmmaipx.supabase.co";
+  import.meta.env.VITE_SUPABASE_URL || "https://cisbahsmzwqqrmmwgncp.supabase.co";
 
 export const SUPABASE_ANON_KEY =
   import.meta.env.VITE_SUPABASE_ANON_KEY || "";

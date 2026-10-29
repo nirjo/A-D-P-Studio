@@ -1,6 +1,6 @@
 -- ==============================================================================
 -- AIEL DESIGN & PRINTING STUDIO — SUPABASE SCHEMA & RLS POLICIES
--- Project URL: https://xophdtokbfdyifmmaipx.supabase.co
+-- Project URL: https://cisbahsmzwqqrmmwgncp.supabase.co
 -- Tables: products, variants, customers, orders, payment_status
 -- ==============================================================================
 
