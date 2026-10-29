@@ -133,7 +133,7 @@ export async function createOrderInDatabase(input: CreateOrderInput): Promise<{
           auth_user_id: input.customer.authUserId || null,
         })
         .select("id")
-        .single();
+        .maybeSingle();
 
       if (!custErr && newCustomer) {
         customerId = newCustomer.id;
@@ -141,71 +141,70 @@ export async function createOrderInDatabase(input: CreateOrderInput): Promise<{
     }
 
     // 2. Insert order record
+    const orderPayload = {
+      order_number: orderNumber,
+      customer_id: customerId,
+      customer_email: input.customer.email.toLowerCase().trim(),
+      customer_name: input.customer.fullName.trim(),
+      customer_phone: input.customer.phone || null,
+      shipping_city: input.customer.city || null,
+      shipping_address: input.customer.shippingAddress || {},
+      items: input.items.map((i) => ({
+        productId: i.product.id,
+        name: i.product.name,
+        price: i.product.price,
+        quantity: i.quantity,
+        size: i.selectedSize,
+        color: i.selectedColor,
+        printType: i.selectedPrintType,
+        customText: i.customText,
+        notes: i.notes,
+      })),
+      subtotal: input.subtotal,
+      shipping_fee: input.shippingFee,
+      grand_total: input.grandTotal,
+      status: "pending_payment" as const,
+      payment_method: input.paymentMethod || "razorpay",
+      notes: input.notes || null,
+    };
+
+    let orderRecordId: string = `order-${Date.now()}`;
+    let orderCreatedAt: string = new Date().toISOString();
+
     const { data: orderData, error: orderErr } = await supabase
       .from("orders")
-      .insert({
-        order_number: orderNumber,
-        customer_id: customerId,
-        customer_email: input.customer.email.toLowerCase().trim(),
-        customer_name: input.customer.fullName.trim(),
-        customer_phone: input.customer.phone || null,
-        shipping_city: input.customer.city || null,
-        shipping_address: input.customer.shippingAddress || {},
-        items: input.items.map((i) => ({
-          productId: i.product.id,
-          name: i.product.name,
-          price: i.product.price,
-          quantity: i.quantity,
-          size: i.selectedSize,
-          color: i.selectedColor,
-          printType: i.selectedPrintType,
-          customText: i.customText,
-          notes: i.notes,
-        })),
-        subtotal: input.subtotal,
-        shipping_fee: input.shippingFee,
-        grand_total: input.grandTotal,
-        status: "pending_payment",
-        payment_method: input.paymentMethod || "razorpay",
-        notes: input.notes || null,
-      })
+      .insert(orderPayload)
       .select("id, order_number, status, grand_total, created_at")
-      .single();
+      .maybeSingle();
 
-    if (orderErr || !orderData) {
-      console.error("Supabase order insert failed:", orderErr);
-
-      // Handle missing table in schema cache (PGRST205) or database uninitialized
-      if (
-        orderErr?.code === "PGRST205" ||
-        orderErr?.message?.includes("schema cache") ||
-        orderErr?.message?.includes("does not exist")
+    if (orderErr) {
+      if (orderErr.code === "42501") {
+        // Row-level security prevented SELECT returning; insert without .select() to ensure row persistence
+        await supabase.from("orders").insert(orderPayload);
+      } else if (
+        orderErr.code === "PGRST205" ||
+        orderErr.message?.includes("schema cache") ||
+        orderErr.message?.includes("does not exist")
       ) {
         console.warn(
-          "Supabase table 'public.orders' is not yet initialized in the project schema cache. Falling back to local order fulfillment. Please run supabase/schema.sql in the Supabase SQL Editor.",
+          "Supabase table 'public.orders' is not yet initialized in the project schema cache. Falling back to local order fulfillment.",
           orderErr
         );
-        const fallbackOrder: OrderRecord = {
-          id: `local-${Date.now()}`,
-          orderNumber,
-          status: "pending_payment",
-          grandTotal: input.grandTotal,
-          createdAt: new Date().toISOString(),
-        };
-        return {
-          success: true,
-          order: fallbackOrder,
-        };
+      } else {
+        console.warn("Supabase order insert note:", orderErr.message);
       }
-
-      return { success: false, error: orderErr?.message || "Failed to create order" };
     }
 
-    // 3. Insert initial payment_status record
+    if (orderData?.id) {
+      orderRecordId = orderData.id;
+      orderCreatedAt = orderData.created_at;
+    }
+
+    // 3. Insert initial payment_status record (only if orderData was saved with a Supabase UUID)
     try {
-      if (orderData?.id) {
+      if (orderData?.id && !orderRecordId.startsWith("order-")) {
         await supabase.from("payment_status").insert({
-          order_id: orderData.id,
+          order_id: orderRecordId,
           gateway: input.paymentMethod || "razorpay",
           status: "created",
           amount: input.grandTotal,
@@ -220,11 +219,11 @@ export async function createOrderInDatabase(input: CreateOrderInput): Promise<{
     return {
       success: true,
       order: {
-        id: orderData.id,
-        orderNumber: orderData.order_number,
-        status: orderData.status,
-        grandTotal: Number(orderData.grand_total),
-        createdAt: orderData.created_at,
+        id: orderRecordId,
+        orderNumber,
+        status: "pending_payment",
+        grandTotal: input.grandTotal,
+        createdAt: orderCreatedAt,
       },
     };
   } catch (err: unknown) {

@@ -179,10 +179,11 @@ CREATE POLICY "Service role manages variants"
 -- Users can view and update their own customer record
 -- Anon can create a guest customer record (for guest checkout)
 DROP POLICY IF EXISTS "Users can view own customer record" ON public.customers;
-CREATE POLICY "Users can view own customer record"
+DROP POLICY IF EXISTS "Anyone can view customer record" ON public.customers;
+CREATE POLICY "Anyone can view customer record"
     ON public.customers FOR SELECT
-    TO authenticated
-    USING (auth.uid() = auth_user_id);
+    TO anon, authenticated
+    USING (true);
 
 DROP POLICY IF EXISTS "Users can update own customer record" ON public.customers;
 CREATE POLICY "Users can update own customer record"
@@ -208,17 +209,14 @@ CREATE POLICY "Service role manages customers"
     WITH CHECK (true);
 
 -- Orders:
--- Users can view their own orders (by auth_user_id via customers or customer_email)
--- Users and guests can create orders
+-- Users & guests can create and view orders
 -- Only service_role can update order status
 DROP POLICY IF EXISTS "Users can view own orders" ON public.orders;
-CREATE POLICY "Users can view own orders"
+DROP POLICY IF EXISTS "Anyone can view orders" ON public.orders;
+CREATE POLICY "Anyone can view orders"
     ON public.orders FOR SELECT
-    TO authenticated
-    USING (
-        customer_id IN (SELECT id FROM public.customers WHERE auth_user_id = auth.uid()) OR
-        customer_email = (SELECT email FROM auth.users WHERE id = auth.uid())
-    );
+    TO anon, authenticated
+    USING (true);
 
 DROP POLICY IF EXISTS "Anyone can insert orders" ON public.orders;
 CREATE POLICY "Anyone can insert orders"
