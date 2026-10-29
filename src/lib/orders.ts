@@ -5,10 +5,10 @@ import type { CartItem } from "@/lib/cart";
 export interface CustomerInput {
   email: string;
   fullName: string;
-  phone?: string;
-  city?: string;
-  shippingAddress?: Record<string, unknown>;
-  authUserId?: string;
+  phone?: string | undefined;
+  city?: string | undefined;
+  shippingAddress?: Record<string, unknown> | undefined;
+  authUserId?: string | undefined;
 }
 
 export interface CreateOrderInput {
@@ -17,8 +17,8 @@ export interface CreateOrderInput {
   subtotal: number;
   shippingFee: number;
   grandTotal: number;
-  notes?: string;
-  paymentMethod?: "razorpay" | "whatsapp_upi" | "cod";
+  notes?: string | undefined;
+  paymentMethod?: "razorpay" | "whatsapp_upi" | "cod" | undefined;
 }
 
 export interface OrderRecord {

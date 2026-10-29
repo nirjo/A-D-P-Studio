@@ -1,4 +1,6 @@
 /**
+ * @deprecated Use `@/lib/email/send-order-confirmation` and `@/emails/order-confirmation` instead.
+ * Kept for backwards compatibility.
  * Resend Email Service for Aiel Design & Printing Studio
  * Note: Resend API requires a server secret (`RESEND_API_KEY`).
  * This module is designed to be called securely from server endpoints or server actions.

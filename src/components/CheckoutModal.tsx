@@ -18,6 +18,7 @@ import {
 import { useCart } from "@/lib/cart";
 import { useAuth } from "@/lib/auth";
 import { createOrderInDatabase } from "@/lib/orders";
+import { triggerOrderConfirmationEmail } from "@/lib/email-server";
 import {
   initiateRazorpayPayment,
   generateUpiUrl,
@@ -104,12 +105,23 @@ export function CheckoutModal({ isOpen, onClose, clientCity = "Puducherry" }: Ch
       }
 
       const orderNumber = result.order.orderNumber;
+      const dbOrderId = result.order.id;
+
+      // Fire-and-forget email for non-Razorpay methods (webhook handles Razorpay)
+      const fireEmail = (oid: string) => {
+        if (!oid.startsWith("local-") && !oid.startsWith("order-")) {
+          triggerOrderConfirmationEmail({ data: { orderId: oid } }).catch((err: unknown) =>
+            console.warn("[checkout] Email trigger failed (non-critical):", err)
+          );
+        }
+      };
 
       // 2. Route by payment method
       if (paymentMethod === "whatsapp") {
         setLoading(false);
         setSuccessOrderNumber(orderNumber);
         clearCart();
+        fireEmail(dbOrderId);
         const itemsList = items.map((i) => `• ${i.quantity}x ${i.product.name} (${i.selectedSize || "Standard"})`).join("\n");
         const msg = encodeURIComponent(
           `Hi Aiel Studio! I placed Order #${orderNumber} on your website.\n\nTotal: ₹${grandTotal}\nName: ${fullName}\nPhone: ${phone}\nAddress: ${address}, ${city} - ${pincode}\n\nItems:\n${itemsList}\n\nPlease share the payment QR & pre-print mockup proof!`
@@ -122,6 +134,7 @@ export function CheckoutModal({ isOpen, onClose, clientCity = "Puducherry" }: Ch
         setLoading(false);
         setSuccessOrderNumber(orderNumber);
         clearCart();
+        fireEmail(dbOrderId);
         const upiUrl = generateUpiUrl(grandTotal, orderNumber);
         window.location.href = upiUrl;
         return;
@@ -138,6 +151,7 @@ export function CheckoutModal({ isOpen, onClose, clientCity = "Puducherry" }: Ch
           setLoading(false);
           setSuccessOrderNumber(orderNumber);
           clearCart();
+          fireEmail(dbOrderId); // Belt-and-suspenders: webhook is primary, claim prevents duplicates
         },
         onDismiss: () => {
           setLoading(false);
