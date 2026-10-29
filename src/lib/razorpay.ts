@@ -69,15 +69,24 @@ export function loadRazorpayScript(): Promise<boolean> {
  * Build pre-filled verified Razorpay payment link
  */
 export function getPrefilledPaymentLink(amount: number, orderNumber?: string): string {
+  // Razorpay payment links expect amount in paise (smallest currency unit)
+  // and a currency parameter. Convert rupees → paise and URL‑encode the comment.
   try {
     const url = new URL(RAZORPAY_PAYMENT_LINK);
-    url.searchParams.set("amount", String(amount));
+    const amountPaise = Math.round(amount * 100);
+    url.searchParams.set("amount", String(amountPaise));
+    url.searchParams.set("currency", "INR");
     if (orderNumber) {
       url.searchParams.set("comment", `Order #${orderNumber}`);
     }
     return url.toString();
   } catch {
-    return `${RAZORPAY_PAYMENT_LINK}?amount=${amount}`;
+    const amountPaise = Math.round(amount * 100);
+    let link = `${RAZORPAY_PAYMENT_LINK}?amount=${amountPaise}&currency=INR`;
+    if (orderNumber) {
+      link += `&comment=Order%20%23${encodeURIComponent(orderNumber)}`;
+    }
+    return link;
   }
 }
 
