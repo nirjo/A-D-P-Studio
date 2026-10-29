@@ -122,7 +122,7 @@ export async function initiateRazorpayPayment(options: RazorpayCheckoutOptions):
 
   // 2. If no server orderId and no configured key, or standard checkout not available:
   // Fallback to pre-filled payment link
-  if (!serverOrderId && !effectiveKeyId) {
+  if (!serverOrderId || !effectiveKeyId) {
     const paymentUrl = getPrefilledPaymentLink(options.amount, options.orderNumber);
     window.open(paymentUrl, "_blank", "noopener,noreferrer");
     options.onSuccess("payment-link-opened");
