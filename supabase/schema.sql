@@ -289,3 +289,24 @@ DROP TRIGGER IF EXISTS trigger_payment_status_updated_at ON public.payment_statu
 CREATE TRIGGER trigger_payment_status_updated_at
     BEFORE UPDATE ON public.payment_status
     FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+-- 11. PERMISSIONS & SCHEMA CACHE RELOAD
+GRANT USAGE ON SCHEMA public TO anon, authenticated, service_role;
+
+GRANT ALL ON TABLE public.products TO postgres, service_role;
+GRANT SELECT ON TABLE public.products TO anon, authenticated;
+
+GRANT ALL ON TABLE public.variants TO postgres, service_role;
+GRANT SELECT ON TABLE public.variants TO anon, authenticated;
+
+GRANT ALL ON TABLE public.customers TO postgres, service_role;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.customers TO anon, authenticated;
+
+GRANT ALL ON TABLE public.orders TO postgres, service_role;
+GRANT SELECT, INSERT ON TABLE public.orders TO anon, authenticated;
+
+GRANT ALL ON TABLE public.payment_status TO postgres, service_role;
+GRANT SELECT, INSERT ON TABLE public.payment_status TO anon, authenticated;
+
+-- Force PostgREST schema cache reload immediately
+NOTIFY pgrst, 'reload schema';
