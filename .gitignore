@@ -36,3 +36,8 @@ dist-ssr
 
 .vercel
 vercel.json
+
+# Local agent artifacts
+.agents/
+.claude/
+skills-lock.json
