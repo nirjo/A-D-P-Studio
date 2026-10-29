@@ -69,20 +69,22 @@ export function loadRazorpayScript(): Promise<boolean> {
  * Build pre-filled verified Razorpay payment link
  */
 export function getPrefilledPaymentLink(amount: number, orderNumber?: string): string {
-  // Razorpay.me links expect amount in Rupees (e.g. 319 for ₹319)
+  // NOTE: Razorpay.me handle URLs strictly reject the `?amount=` query parameter with
+  // BAD_REQUEST_ERROR ("Amount not valid").
+  // We pass the order reference and payable amount in the `comment` field which Razorpay.me accepts.
   try {
     const url = new URL(RAZORPAY_PAYMENT_LINK);
-    url.searchParams.set("amount", String(Math.round(amount)));
+    url.searchParams.delete("amount");
+    url.searchParams.delete("currency");
     if (orderNumber) {
-      url.searchParams.set("comment", `Order #${orderNumber}`);
+      url.searchParams.set("comment", `Order #${orderNumber} (Pay ₹${Math.round(amount)})`);
     }
     return url.toString();
   } catch {
-    let link = `${RAZORPAY_PAYMENT_LINK}?amount=${Math.round(amount)}`;
     if (orderNumber) {
-      link += `&comment=Order%20%23${encodeURIComponent(orderNumber)}`;
+      return `${RAZORPAY_PAYMENT_LINK}?comment=${encodeURIComponent(`Order #${orderNumber} (Pay ₹${Math.round(amount)})`)}`;
     }
-    return link;
+    return RAZORPAY_PAYMENT_LINK;
   }
 }
 

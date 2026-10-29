@@ -252,7 +252,7 @@ export function CheckoutModal({ isOpen, onClose, clientCity = "Puducherry" }: Ch
                           Pay ₹{grandTotal} via Razorpay Link
                           <ExternalLink size={12} className="opacity-70 group-hover:opacity-100" />
                         </div>
-                        <span className="text-[10px] text-muted-foreground">Cards, NetBanking, UPI, Wallets</span>
+                        <span className="text-[10px] text-muted-foreground">Cards, NetBanking, UPI, Wallets · Enter ₹{grandTotal}</span>
                       </div>
                     </div>
                     <span className="font-bold text-blue-400 text-xs">Open ↗</span>
