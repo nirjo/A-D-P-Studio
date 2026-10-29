@@ -69,20 +69,16 @@ export function loadRazorpayScript(): Promise<boolean> {
  * Build pre-filled verified Razorpay payment link
  */
 export function getPrefilledPaymentLink(amount: number, orderNumber?: string): string {
-  // Razorpay payment links expect amount in paise (smallest currency unit)
-  // and a currency parameter. Convert rupees → paise and URL‑encode the comment.
+  // Razorpay.me links expect amount in Rupees (e.g. 319 for ₹319)
   try {
     const url = new URL(RAZORPAY_PAYMENT_LINK);
-    const amountPaise = Math.round(amount * 100);
-    url.searchParams.set("amount", String(amountPaise));
-    url.searchParams.set("currency", "INR");
+    url.searchParams.set("amount", String(Math.round(amount)));
     if (orderNumber) {
       url.searchParams.set("comment", `Order #${orderNumber}`);
     }
     return url.toString();
   } catch {
-    const amountPaise = Math.round(amount * 100);
-    let link = `${RAZORPAY_PAYMENT_LINK}?amount=${amountPaise}&currency=INR`;
+    let link = `${RAZORPAY_PAYMENT_LINK}?amount=${Math.round(amount)}`;
     if (orderNumber) {
       link += `&comment=Order%20%23${encodeURIComponent(orderNumber)}`;
     }
@@ -124,7 +120,10 @@ export async function initiateRazorpayPayment(options: RazorpayCheckoutOptions):
   // Fallback to pre-filled payment link
   if (!serverOrderId || !effectiveKeyId) {
     const paymentUrl = getPrefilledPaymentLink(options.amount, options.orderNumber);
-    window.open(paymentUrl, "_blank", "noopener,noreferrer");
+    const popup = window.open(paymentUrl, "_blank", "noopener,noreferrer");
+    if (!popup || popup.closed || typeof popup.closed === "undefined") {
+      window.location.href = paymentUrl;
+    }
     options.onSuccess("payment-link-opened");
     return;
   }
@@ -132,7 +131,10 @@ export async function initiateRazorpayPayment(options: RazorpayCheckoutOptions):
   const loaded = await loadRazorpayScript();
   if (!loaded) {
     const paymentUrl = getPrefilledPaymentLink(options.amount, options.orderNumber);
-    window.open(paymentUrl, "_blank", "noopener,noreferrer");
+    const popup = window.open(paymentUrl, "_blank", "noopener,noreferrer");
+    if (!popup || popup.closed || typeof popup.closed === "undefined") {
+      window.location.href = paymentUrl;
+    }
     options.onSuccess("fallback-link-opened");
     return;
   }
@@ -194,7 +196,10 @@ export async function initiateRazorpayPayment(options: RazorpayCheckoutOptions):
       console.warn("Razorpay payment modal failed:", err);
       // If modal payment fails, fallback to verified link
       const fallbackUrl = getPrefilledPaymentLink(options.amount, options.orderNumber);
-      window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+      const popup = window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+      if (!popup || popup.closed || typeof popup.closed === "undefined") {
+        window.location.href = fallbackUrl;
+      }
       options.onError?.(err);
     });
 
@@ -202,7 +207,10 @@ export async function initiateRazorpayPayment(options: RazorpayCheckoutOptions):
   } catch (err) {
     console.error("Razorpay instance initialization failed:", err);
     const fallbackUrl = getPrefilledPaymentLink(options.amount, options.orderNumber);
-    window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+    const popup = window.open(fallbackUrl, "_blank", "noopener,noreferrer");
+    if (!popup || popup.closed || typeof popup.closed === "undefined") {
+      window.location.href = fallbackUrl;
+    }
     options.onSuccess("fallback-link-opened");
   }
 }
