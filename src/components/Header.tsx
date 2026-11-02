@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon, User, LogOut, ChevronDown } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, MessageCircle, Sun, Moon, User, LogOut, ChevronDown, Sliders } from "lucide-react";
 import mascot from "@/assets/mascot.png";
 import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
 import { useTheme } from "@/lib/theme";
@@ -267,6 +267,13 @@ export function Header() {
                       </p>
                       <p className="text-[10px] text-muted-foreground truncate">{user.email}</p>
                     </div>
+                    <Link
+                      to="/admin"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="w-full flex items-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider text-foreground hover:bg-secondary/70 rounded-xl transition-colors mt-1"
+                    >
+                      <Sliders size={13} className="text-splash-pink" /> Admin Management
+                    </Link>
                     <button
                       type="button"
                       onClick={() => { signOut(); setUserMenuOpen(false); }}
@@ -391,13 +398,22 @@ export function Header() {
                       </span>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => { signOut(); setMobileMenuOpen(false); }}
-                    className="text-[11px] font-display uppercase tracking-wider text-destructive font-semibold px-2 py-1 hover:bg-destructive/10 rounded-lg transition-colors"
-                  >
-                    Sign Out
-                  </button>
+                  <div className="flex items-center gap-1">
+                    <Link
+                      to="/admin"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[11px] font-display uppercase tracking-wider text-splash-pink font-semibold px-2 py-1 hover:bg-secondary rounded-lg transition-colors"
+                    >
+                      Admin
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => { signOut(); setMobileMenuOpen(false); }}
+                      className="text-[11px] font-display uppercase tracking-wider text-destructive font-semibold px-2 py-1 hover:bg-destructive/10 rounded-lg transition-colors"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
                 </div>
               )}
 
