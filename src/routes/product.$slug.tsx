@@ -143,8 +143,10 @@ function ProductDetailPage() {
   }, [matchedVariant, selectedSize]);
 
   const activeUnitPrice = product.price + sizeUpcharge;
-  const isAvailable = matchedVariant ? matchedVariant.isAvailable : !product.isSoldOut;
-  const stockCount = matchedVariant?.stockQuantity || 120;
+  const isAvailable = matchedVariant
+    ? matchedVariant.isAvailable !== false && (matchedVariant.stockQuantity ?? 1) > 0
+    : !product.isSoldOut;
+  const stockCount = matchedVariant?.stockQuantity ?? (product.inStock ? 120 : 0);
 
   // View switch handler (front vs back)
   const handleViewSwitch = (view: "front" | "back") => {
@@ -543,7 +545,7 @@ Hi Aiel Studio, I want to order this product and discuss artwork mockups!`;
                     type="button"
                     disabled={!isAvailable}
                     onClick={handleAddToCart}
-                    className="flex-1 flex items-center justify-center gap-2 bg-brand-gradient gradient-pan text-primary-foreground font-display font-bold text-xs uppercase tracking-wider py-3.5 rounded-full shadow-lg shadow-splash-pink/20 hover:opacity-95 transition-all disabled:opacity-40"
+                    className="flex-1 flex items-center justify-center gap-2 bg-brand-gradient gradient-pan text-primary-foreground font-display font-bold text-xs uppercase tracking-wider py-3.5 rounded-full shadow-lg shadow-splash-pink/20 hover:opacity-95 transition-all disabled:opacity-40 cursor-pointer"
                   >
                     {added ? (
                       <>

@@ -19,79 +19,107 @@ export const STANDARD_SHIPPING_FEE = 70;
 
 const STORAGE_KEY = "aiel-studio-cart";
 
-let cartListeners: Array<() => void> = [];
-let cartState: { items: CartItem[]; isDrawerOpen: boolean } = {
-  items: [],
-  isDrawerOpen: false,
-};
-
-// Initialize from localStorage in browser
-if (typeof window !== "undefined") {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      cartState.items = JSON.parse(saved);
-    }
-  } catch (_) {}
+interface InternalCartState {
+  items: CartItem[];
+  isDrawerOpen: boolean;
 }
+
+// Global browser singleton so chunk boundaries never desynchronize the cart state
+function getGlobalCartState(): InternalCartState {
+  if (typeof window !== "undefined") {
+    const win = window as any;
+    if (!win.__AIEL_CART__) {
+      let initialItems: CartItem[] = [];
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          initialItems = JSON.parse(saved);
+        }
+      } catch (_) {}
+      win.__AIEL_CART__ = {
+        items: initialItems,
+        isDrawerOpen: false,
+      };
+    }
+    return win.__AIEL_CART__;
+  }
+  return { items: [], isDrawerOpen: false };
+}
+
+let cartListeners: Array<() => void> = [];
 
 function notify() {
   if (typeof window !== "undefined") {
+    const state = getGlobalCartState();
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(cartState.items));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.items));
     } catch (_) {}
+    // Dispatch custom event for instantaneous cross-component & cross-chunk updates
+    window.dispatchEvent(new CustomEvent("aiel:cart-change", { detail: state }));
   }
-  cartListeners.forEach((fn) => fn());
+  cartListeners.forEach((fn) => {
+    try {
+      fn();
+    } catch (_) {}
+  });
 }
 
 export const cart = {
-  getItems: () => cartState.items,
-  isOpen: () => cartState.isDrawerOpen,
+  getItems: () => getGlobalCartState().items,
+  isOpen: () => getGlobalCartState().isDrawerOpen,
 
   openDrawer: () => {
-    cartState.isDrawerOpen = true;
+    const state = getGlobalCartState();
+    state.isDrawerOpen = true;
     notify();
   },
 
   closeDrawer: () => {
-    cartState.isDrawerOpen = false;
+    const state = getGlobalCartState();
+    state.isDrawerOpen = false;
     notify();
   },
 
   toggleDrawer: () => {
-    cartState.isDrawerOpen = !cartState.isDrawerOpen;
+    const state = getGlobalCartState();
+    state.isDrawerOpen = !state.isDrawerOpen;
     notify();
   },
 
   addItem: (item: Omit<CartItem, "id">) => {
+    const state = getGlobalCartState();
     const id = `${item.product.id}-${item.selectedSize || "default"}-${item.selectedColor || "default"}-${item.selectedPrintType || "default"}`;
-    const existingIndex = cartState.items.findIndex((i) => i.id === id);
+    const existingIndex = state.items.findIndex((i) => i.id === id);
 
     if (existingIndex > -1) {
-      const existing = cartState.items[existingIndex];
+      const existing = state.items[existingIndex];
       if (existing) {
         existing.quantity += item.quantity;
         if (item.customText) existing.customText = item.customText;
         if (item.notes) existing.notes = item.notes;
+        if (item.artworkName) existing.artworkName = item.artworkName;
       }
     } else {
-      cartState.items.push({ ...item, id });
+      state.items.push({ ...item, id });
     }
 
-    cartState.isDrawerOpen = true;
+    // Always immediately activate and show the cart drawer
+    state.isDrawerOpen = true;
     notify();
   },
 
   removeItem: (id: string) => {
-    cartState.items = cartState.items.filter((i) => i.id !== id);
+    const state = getGlobalCartState();
+    state.items = state.items.filter((i) => i.id !== id);
     notify();
   },
 
   updateQuantity: (id: string, qty: number) => {
+    const state = getGlobalCartState();
     if (qty <= 0) {
       cart.removeItem(id);
     } else {
-      const item = cartState.items.find((i) => i.id === id);
+      const item = state.items.find((i) => i.id === id);
       if (item) {
         item.quantity = qty;
         notify();
@@ -100,13 +128,15 @@ export const cart = {
   },
 
   clearCart: () => {
-    cartState.items = [];
+    const state = getGlobalCartState();
+    state.items = [];
     notify();
   },
 
-  getTotalItems: () => cartState.items.reduce((acc, i) => acc + i.quantity, 0),
+  getTotalItems: () => getGlobalCartState().items.reduce((acc, i) => acc + i.quantity, 0),
 
-  getSubtotal: () => cartState.items.reduce((acc, i) => acc + i.product.price * i.quantity, 0),
+  getSubtotal: () =>
+    getGlobalCartState().items.reduce((acc, i) => acc + i.product.price * i.quantity, 0),
 
   getShippingFee: () => {
     const sub = cart.getSubtotal();
@@ -117,8 +147,9 @@ export const cart = {
   getGrandTotal: () => cart.getSubtotal() + cart.getShippingFee(),
 
   generateWhatsAppOrderUrl: (clientName?: string, clientCity?: string) => {
-    const items = cartState.items;
-    if (items.length === 0) return `https://wa.me/${WHATSAPP_PHONE}?text=Hi%20Aiel%20Studio%2C%20I%20have%20an%20inquiry%20about%20custom%20prints!`;
+    const items = getGlobalCartState().items;
+    if (items.length === 0)
+      return `https://wa.me/${WHATSAPP_PHONE}?text=Hi%20Aiel%20Studio%2C%20I%20have%20an%20inquiry%20about%20custom%20prints!`;
 
     const subtotal = cart.getSubtotal();
     const shipping = cart.getShippingFee();
@@ -157,14 +188,18 @@ export function useCart() {
   useEffect(() => {
     const handleUpdate = () => setTick((t) => t + 1);
     cartListeners.push(handleUpdate);
+    window.addEventListener("aiel:cart-change", handleUpdate);
     return () => {
       cartListeners = cartListeners.filter((fn) => fn !== handleUpdate);
+      window.removeEventListener("aiel:cart-change", handleUpdate);
     };
   }, []);
 
+  const state = getGlobalCartState();
+
   return {
-    items: cartState.items,
-    isOpen: cartState.isDrawerOpen,
+    items: state.items,
+    isOpen: state.isDrawerOpen,
     openDrawer: cart.openDrawer,
     closeDrawer: cart.closeDrawer,
     toggleDrawer: cart.toggleDrawer,
