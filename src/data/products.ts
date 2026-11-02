@@ -1,4 +1,3 @@
-import { APPAREL_SEED_PRODUCTS } from "@/data/apparel-seed";
 import workTee from "@/assets/work-tee.jpg";
 import workMug from "@/assets/work-mug.jpg";
 import workCap from "@/assets/work-cap.jpg";
@@ -21,8 +20,6 @@ export interface BulkPriceTier {
 export interface ProductColor {
   name: string;
   hex: string;
-  frontImage?: string;
-  backImage?: string;
 }
 
 export interface Product {
@@ -31,12 +28,10 @@ export interface Product {
   name: string;
   category: "tshirts" | "mugs" | "keychains" | "tote-bags" | "phone-cases" | "combos";
   categoryLabel: string;
-  subcategory?: string | undefined;
   price: number;
   originalPrice: number;
-  badge?: "Best Seller" | "Made to order" | "48h Rush" | "Hot Deal" | "New" | "Bulk Fav" | "Combo Deal" | undefined;
-  isSoldOut?: boolean | undefined;
-  inStock?: boolean | undefined;
+  badge?: "Best Seller" | "Made to order" | "48h Rush" | "Hot Deal" | "New" | "Bulk Fav" | "Combo Deal";
+  isSoldOut?: boolean;
   image: string;
   gallery: string[];
   description: string;
@@ -48,13 +43,6 @@ export interface Product {
   turnaround: string;
   rating: number;
   reviewsCount: number;
-  gsm?: number | string | undefined;
-  material?: string | undefined;
-  fit?: string | undefined;
-  fabric?: string | undefined;
-  sku?: string | undefined;
-  careInstructions?: string | undefined;
-  printingCompatibility?: string[] | undefined;
 }
 
 export const CATEGORY_DEFAULT_COLORS: Record<"tshirts" | "mugs" | "keychains" | "tote-bags" | "phone-cases" | "combos", ProductColor[]> = {
@@ -158,7 +146,7 @@ export const CATEGORIES_META = [
   },
 ] as const;
 
-export const BASE_PRODUCTS: Product[] = [
+export const PRODUCTS: Product[] = [
   // ==================== 1. T-SHIRTS ====================
   {
     id: "ts-01",
@@ -793,41 +781,6 @@ export const BASE_PRODUCTS: Product[] = [
     rating: 4.9,
     reviewsCount: 94,
   },
-];
-
-export const PRODUCTS: Product[] = [
-  ...APPAREL_SEED_PRODUCTS.map((p) => ({
-    id: p.id,
-    slug: p.slug,
-    name: p.name,
-    category: p.category,
-    categoryLabel: p.category_label,
-    subcategory: p.subcategory,
-    price: p.price,
-    originalPrice: p.original_price,
-    badge: p.badge,
-    isSoldOut: p.is_sold_out,
-    inStock: p.in_stock,
-    image: p.image,
-    gallery: p.gallery,
-    description: p.description,
-    sizes: p.sizes,
-    colors: p.colors,
-    printTypes: p.print_types,
-    bulkPricing: p.bulk_pricing,
-    minOrder: p.min_order,
-    turnaround: p.turnaround,
-    rating: p.rating,
-    reviewsCount: p.reviews_count,
-    gsm: p.gsm,
-    material: p.material,
-    fit: p.fit,
-    fabric: p.fabric,
-    sku: p.sku,
-    careInstructions: p.care_instructions,
-    printingCompatibility: p.printing_compatibility,
-  })),
-  ...BASE_PRODUCTS,
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

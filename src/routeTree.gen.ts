@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AcrylicGiftsRouteImport } from './routes/acrylic-gifts'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CombosRouteImport } from './routes/combos'
 import { Route as CustomGiftsRouteImport } from './routes/custom-gifts'
 import { Route as FridgeMagnetsRouteImport } from './routes/fridge-magnets'
@@ -43,11 +42,6 @@ const AboutRoute = AboutRouteImport.update({
 const AcrylicGiftsRoute = AcrylicGiftsRouteImport.update({
   id: '/acrylic-gifts',
   path: '/acrylic-gifts',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CombosRoute = CombosRouteImport.update({
@@ -135,7 +129,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/acrylic-gifts': typeof AcrylicGiftsRoute
-  '/admin': typeof AdminRoute
   '/combos': typeof CombosRoute
   '/custom-gifts': typeof CustomGiftsRoute
   '/fridge-magnets': typeof FridgeMagnetsRoute
@@ -157,7 +150,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/acrylic-gifts': typeof AcrylicGiftsRoute
-  '/admin': typeof AdminRoute
   '/combos': typeof CombosRoute
   '/custom-gifts': typeof CustomGiftsRoute
   '/fridge-magnets': typeof FridgeMagnetsRoute
@@ -180,7 +172,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/acrylic-gifts': typeof AcrylicGiftsRoute
-  '/admin': typeof AdminRoute
   '/combos': typeof CombosRoute
   '/custom-gifts': typeof CustomGiftsRoute
   '/fridge-magnets': typeof FridgeMagnetsRoute
@@ -204,7 +195,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/acrylic-gifts'
-    | '/admin'
     | '/combos'
     | '/custom-gifts'
     | '/fridge-magnets'
@@ -226,7 +216,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/acrylic-gifts'
-    | '/admin'
     | '/combos'
     | '/custom-gifts'
     | '/fridge-magnets'
@@ -248,7 +237,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/acrylic-gifts'
-    | '/admin'
     | '/combos'
     | '/custom-gifts'
     | '/fridge-magnets'
@@ -271,7 +259,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AcrylicGiftsRoute: typeof AcrylicGiftsRoute
-  AdminRoute: typeof AdminRoute
   CombosRoute: typeof CombosRoute
   CustomGiftsRoute: typeof CustomGiftsRoute
   FridgeMagnetsRoute: typeof FridgeMagnetsRoute
@@ -311,13 +298,6 @@ declare module '@tanstack/react-router' {
       path: '/acrylic-gifts'
       fullPath: '/acrylic-gifts'
       preLoaderRoute: typeof AcrylicGiftsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/combos': {
@@ -439,7 +419,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AcrylicGiftsRoute: AcrylicGiftsRoute,
-  AdminRoute: AdminRoute,
   CombosRoute: CombosRoute,
   CustomGiftsRoute: CustomGiftsRoute,
   FridgeMagnetsRoute: FridgeMagnetsRoute,

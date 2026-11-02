@@ -253,10 +253,10 @@ export function SplashCursor() {
         className="pointer-events-none absolute top-0 left-0 w-8 h-8 rounded-full border border-splash-pink/60 transition-[border-color,background-color,box-shadow] duration-150 will-change-transform"
       />
 
-      {/* Center Vivid CMYK Laser Dot (hidden so native cursor is clean & visible) */}
+      {/* Center Vivid CMYK Laser Dot */}
       <div
         ref={dotRef}
-        className="hidden pointer-events-none absolute top-0 left-0 w-3 h-3 rounded-full bg-gradient-to-tr from-[#00e5ff] via-[#ff2a85] to-[#ffe600] shadow-[0_0_12px_#00e5ff,0_0_20px_#ff2a85] will-change-transform"
+        className="pointer-events-none absolute top-0 left-0 w-3 h-3 rounded-full bg-gradient-to-tr from-[#00e5ff] via-[#ff2a85] to-[#ffe600] shadow-[0_0_12px_#00e5ff,0_0_20px_#ff2a85] will-change-transform"
       />
     </div>
   );

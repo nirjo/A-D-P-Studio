@@ -151,6 +151,13 @@ html.light .mix-blend-screen {
   ::selection {
     background: color-mix(in oklab, var(--splash-pink) 45%, transparent);
   }
+
+  @media (pointer: fine) {
+    body,
+    body * {
+      cursor: none;
+    }
+  }
 }
 
 @utility text-gradient {
