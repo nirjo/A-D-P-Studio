@@ -14,7 +14,6 @@ import {
   Palette,
   Package,
   Printer,
-  Upload,
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
@@ -122,16 +121,9 @@ function ProductDetailPage() {
   const [qty, setQty] = useState<number>(1);
   const [customText, setCustomText] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
-  const [artworkFile, setArtworkFile] = useState<File | null>(null);
   const [added, setAdded] = useState<boolean>(false);
   const [sizeChartOpen, setSizeChartOpen] = useState<boolean>(false);
   const [activeView, setActiveView] = useState<"front" | "back">("front");
-
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setArtworkFile(e.target.files[0]);
-    }
-  };
 
   // Variant matching
   const matchedVariant = useMemo(() => {
@@ -151,10 +143,8 @@ function ProductDetailPage() {
   }, [matchedVariant, selectedSize]);
 
   const activeUnitPrice = product.price + sizeUpcharge;
-  const isAvailable = matchedVariant
-    ? matchedVariant.isAvailable !== false && (matchedVariant.stockQuantity ?? 1) > 0
-    : !product.isSoldOut;
-  const stockCount = matchedVariant?.stockQuantity ?? (product.inStock ? 120 : 0);
+  const isAvailable = matchedVariant ? matchedVariant.isAvailable : !product.isSoldOut;
+  const stockCount = matchedVariant?.stockQuantity || 120;
 
   // View switch handler (front vs back)
   const handleViewSwitch = (view: "front" | "back") => {
@@ -178,7 +168,6 @@ function ProductDetailPage() {
       selectedPrintType,
       customText: customText.trim() || undefined,
       notes: notes.trim() || undefined,
-      artworkName: artworkFile?.name || undefined,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
@@ -515,53 +504,17 @@ Hi Aiel Studio, I want to order this product and discuss artwork mockups!`;
                 </div>
               )}
 
-              {/* Custom Logo / Artwork File Upload */}
+              {/* Optional Quick Text Customization Input */}
               <div className="border-t border-border/80 pt-4 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-display uppercase tracking-wider text-muted-foreground font-semibold">
-                    Upload Artwork / Logo (Optional)
-                  </span>
-                  <span className="text-[10px] text-splash-teal">PNG, SVG, PDF, PSD (Max 25MB)</span>
-                </div>
-                <label className="flex items-center justify-center gap-2 w-full py-3 px-4 border border-dashed border-border hover:border-splash-pink rounded-2xl bg-secondary/40 cursor-pointer transition-colors text-center text-xs text-muted-foreground hover:text-foreground">
-                  <Upload size={14} className="text-splash-pink flex-shrink-0" />
-                  <span className="truncate max-w-[240px]">
-                    {artworkFile ? artworkFile.name : "Click to Upload Design or Logo"}
-                  </span>
-                  <input
-                    type="file"
-                    accept="image/*,.svg,.pdf,.ai,.psd"
-                    onChange={handleFileUpload}
-                    className="hidden"
-                  />
-                </label>
-              </div>
-
-              {/* Custom Name / Text Embroidery / Print */}
-              <div className="border-t border-border/80 pt-4 space-y-2">
-                <span className="text-xs font-display uppercase tracking-wider text-muted-foreground font-semibold block">
-                  Custom Text / Name / Monogram (Optional)
+                <span className="text-xs font-display uppercase tracking-wider text-muted-foreground block">
+                  Quick Name / Text Embroidery (Optional)
                 </span>
                 <input
                   type="text"
                   value={customText}
                   onChange={(e) => setCustomText(e.target.value)}
-                  placeholder="e.g. Employee Name, 'PUDUCHERRY 2026', or Jersey Squad #07"
-                  className="w-full bg-secondary/60 border border-border rounded-xl px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-splash-pink transition-colors"
-                />
-              </div>
-
-              {/* Special Instructions & Placement Notes */}
-              <div className="border-t border-border/80 pt-4 space-y-2">
-                <span className="text-xs font-display uppercase tracking-wider text-muted-foreground font-semibold block">
-                  Placement &amp; Instructions (Optional)
-                </span>
-                <textarea
-                  rows={2}
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  placeholder="e.g. Center chest print 10 inches, left sleeve small crest logo..."
-                  className="w-full bg-secondary/60 border border-border rounded-xl p-3 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-splash-pink resize-none"
+                  placeholder="Enter name, monogram initials, or team squad number..."
+                  className="w-full bg-secondary/60 border border-border rounded-xl px-3.5 py-2 text-xs text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-splash-pink"
                 />
               </div>
 
@@ -590,7 +543,7 @@ Hi Aiel Studio, I want to order this product and discuss artwork mockups!`;
                     type="button"
                     disabled={!isAvailable}
                     onClick={handleAddToCart}
-                    className="flex-1 flex items-center justify-center gap-2 bg-brand-gradient gradient-pan text-primary-foreground font-display font-bold text-xs uppercase tracking-wider py-3.5 rounded-full shadow-lg shadow-splash-pink/20 hover:opacity-95 transition-all disabled:opacity-40 cursor-pointer"
+                    className="flex-1 flex items-center justify-center gap-2 bg-brand-gradient gradient-pan text-primary-foreground font-display font-bold text-xs uppercase tracking-wider py-3.5 rounded-full shadow-lg shadow-splash-pink/20 hover:opacity-95 transition-all disabled:opacity-40"
                   >
                     {added ? (
                       <>

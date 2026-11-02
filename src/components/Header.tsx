@@ -268,16 +268,9 @@ export function Header() {
                       <p className="text-[10px] text-muted-foreground truncate">{user.email}</p>
                     </div>
                     <Link
-                      to="/account"
-                      onClick={() => setUserMenuOpen(false)}
-                      className="w-full flex items-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider text-foreground hover:bg-secondary/70 rounded-xl transition-colors mt-1"
-                    >
-                      <User size={13} className="text-splash-teal" /> My Account &amp; Orders
-                    </Link>
-                    <Link
                       to="/admin"
                       onClick={() => setUserMenuOpen(false)}
-                      className="w-full flex items-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider text-foreground hover:bg-secondary/70 rounded-xl transition-colors"
+                      className="w-full flex items-center gap-2 px-3 py-2 text-xs font-display uppercase tracking-wider text-foreground hover:bg-secondary/70 rounded-xl transition-colors mt-1"
                     >
                       <Sliders size={13} className="text-splash-pink" /> Admin Management
                     </Link>
@@ -406,13 +399,6 @@ export function Header() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Link
-                      to="/account"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-[11px] font-display uppercase tracking-wider text-splash-teal font-semibold px-2 py-1 hover:bg-secondary rounded-lg transition-colors"
-                    >
-                      Account
-                    </Link>
                     <Link
                       to="/admin"
                       onClick={() => setMobileMenuOpen(false)}

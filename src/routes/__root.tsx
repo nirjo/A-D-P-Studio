@@ -121,21 +121,21 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
-        {/* Synchronous Theme Initialization before first paint (Default: Daylight / Light mode) */}
+        {/* Synchronous Theme Initialization before first paint */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){
               try {
                 var t = localStorage.getItem('aiel_theme');
-                var isDark = t === 'dark';
-                if (isDark) {
-                  document.documentElement.classList.remove('light');
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                  document.documentElement.style.colorScheme = 'dark';
-                } else {
+                var isL = t === 'light' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+                if (isL) {
                   document.documentElement.classList.add('light');
                   document.documentElement.setAttribute('data-theme', 'light');
                   document.documentElement.style.colorScheme = 'light';
+                } else {
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.style.colorScheme = 'dark';
                 }
               } catch(e){}
             })();`,

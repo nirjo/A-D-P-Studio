@@ -1,23 +1,14 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { User, Session } from "@supabase/supabase-js";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
-import { syncCustomerProfile, getCustomerProfile, type CustomerProfile } from "@/lib/customer-service";
 
 interface AuthContextType {
   user: User | null;
   session: Session | null;
-  customerProfile: CustomerProfile | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
-  signUp: (
-    email: string,
-    password: string,
-    fullName?: string
-  ) => Promise<{ error: Error | null; needsEmailVerification?: boolean }>;
-  signInWithGoogle: () => Promise<{ error: Error | null }>;
-  resetPassword: (email: string) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, fullName?: string) => Promise<{ error: Error | null; needsEmailVerification?: boolean }>;
   signOut: () => Promise<void>;
-  reloadProfile: () => Promise<void>;
   isConfigured: boolean;
 }
 
@@ -28,18 +19,8 @@ const LOCAL_STORAGE_USER_KEY = "aiel_mock_user";
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
-  const [customerProfile, setCustomerProfile] = useState<CustomerProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const isConfigured = isSupabaseConfigured();
-
-  const loadProfile = async (currentUser: User) => {
-    try {
-      const profile = await getCustomerProfile(currentUser);
-      if (profile) setCustomerProfile(profile);
-    } catch (e) {
-      console.warn("Could not load customer profile:", e);
-    }
-  };
 
   useEffect(() => {
     // If Supabase is configured with a valid key, use live Supabase Auth
@@ -47,24 +28,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         setSession(session);
         setUser(session?.user ?? null);
-        if (session?.user) {
-          loadProfile(session.user);
-        }
         setLoading(false);
       });
 
       const {
         data: { subscription },
-      } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      } = supabase.auth.onAuthStateChange((_event, session) => {
         setSession(session);
-        const currentUser = session?.user ?? null;
-        setUser(currentUser);
-        if (currentUser) {
-          await syncCustomerProfile(currentUser);
-          await loadProfile(currentUser);
-        } else {
-          setCustomerProfile(null);
-        }
+        setUser(session?.user ?? null);
         setLoading(false);
       });
 
@@ -87,17 +58,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     if (isConfigured) {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
         password,
       });
-      if (!error && data.user) {
-        await syncCustomerProfile(data.user);
-        await loadProfile(data.user);
-      }
       return { error };
     } else {
-      // Mock sign-in for preview fallback
+      // Mock sign-in for seamless preview when API keys are being set up
       const mockUser = {
         id: "mock-" + Date.now(),
         email,
@@ -115,24 +82,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signUp = async (email: string, password: string, fullName?: string) => {
     if (isConfigured) {
-      const redirectUrl =
-        typeof window !== "undefined" ? `${window.location.origin}/auth/callback` : undefined;
-
       const { data, error } = await supabase.auth.signUp({
-        email: email.trim(),
+        email,
         password,
         options: {
           data: {
             full_name: fullName || email.split("@")[0],
           },
-          emailRedirectTo: redirectUrl,
         },
       });
       const needsEmailVerification = !data.session;
-      if (!error && data.user) {
-        await syncCustomerProfile(data.user);
-        await loadProfile(data.user);
-      }
       return { error, needsEmailVerification };
     } else {
       // Mock sign-up
@@ -151,39 +110,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const signInWithGoogle = async () => {
-    if (isConfigured) {
-      const redirectUrl =
-        typeof window !== "undefined" ? `${window.location.origin}/auth/callback` : undefined;
-
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: redirectUrl,
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
-        },
-      });
-      return { error };
-    }
-    return { error: null };
-  };
-
-  const resetPassword = async (email: string) => {
-    if (isConfigured) {
-      const redirectUrl =
-        typeof window !== "undefined" ? `${window.location.origin}/account` : undefined;
-
-      const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-        redirectTo: redirectUrl,
-      });
-      return { error };
-    }
-    return { error: null };
-  };
-
   const signOut = async () => {
     if (isConfigured) {
       await supabase.auth.signOut();
@@ -191,13 +117,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
       setUser(null);
       setSession(null);
-      setCustomerProfile(null);
-    }
-  };
-
-  const reloadProfile = async () => {
-    if (user) {
-      await loadProfile(user);
     }
   };
 
@@ -206,14 +125,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         session,
-        customerProfile,
         loading,
         signIn,
         signUp,
-        signInWithGoogle,
-        resetPassword,
         signOut,
-        reloadProfile,
         isConfigured,
       }}
     >

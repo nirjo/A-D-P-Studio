@@ -3,14 +3,13 @@ import { useState, useEffect, useCallback } from "react";
 export type Theme = "dark" | "light";
 
 export function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   try {
     const saved = localStorage.getItem("aiel_theme") as Theme | null;
-    if (saved === "dark") return "dark";
-    if (saved === "light") return "light";
+    if (saved === "light" || saved === "dark") return saved;
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
   } catch (_) {}
-  // Default to daylight mode as primary theme
-  return "light";
+  return "dark";
 }
 
 export function applyTheme(theme: Theme) {
@@ -32,10 +31,9 @@ export function applyTheme(theme: Theme) {
 }
 
 export function useTheme() {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
-    // Read current theme from DOM
     const current = document.documentElement.classList.contains("light") ? "light" : "dark";
     setThemeState(current);
 

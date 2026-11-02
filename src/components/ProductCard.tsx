@@ -23,9 +23,9 @@ export function ProductCard({ product }: ProductCardProps) {
     addItem({
       product,
       quantity: 1,
-      selectedSize: product.sizes[0] || "M",
-      selectedColor: selectedColor.name || "Standard",
-      selectedPrintType: product.printTypes[0] || "DTF",
+      selectedSize: product.sizes[0],
+      selectedColor: selectedColor.name,
+      selectedPrintType: product.printTypes[0],
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 1600);
@@ -135,7 +135,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <button
             type="button"
             onClick={handleQuickAdd}
-            className={`flex items-center justify-center gap-1 py-2 px-3 rounded-full text-[11px] font-display font-bold uppercase tracking-wider transition-all cursor-pointer ${
+            className={`flex items-center justify-center gap-1 py-2 px-3 rounded-full text-[11px] font-display font-bold uppercase tracking-wider transition-all ${
               added
                 ? "bg-splash-orange text-primary-foreground"
                 : "bg-brand-gradient gradient-pan text-primary-foreground hover:opacity-95 shadow-md shadow-splash-pink/20"

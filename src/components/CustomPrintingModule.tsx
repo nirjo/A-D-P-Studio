@@ -9,9 +9,8 @@ import {
   HelpCircle,
   Check,
   CheckCircle2,
-  ShoppingBag,
 } from "lucide-react";
-import { useCart, WHATSAPP_PHONE } from "@/lib/cart";
+import { WHATSAPP_PHONE } from "@/lib/cart";
 import { submitCustomizationRequest } from "@/lib/apparel-service";
 import type { Product, ProductColor } from "@/data/products";
 
@@ -72,8 +71,6 @@ export function CustomPrintingModule({
   const [customerPhone, setCustomerPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [addedToCart, setAddedToCart] = useState(false);
-  const { addItem, openDrawer } = useCart();
 
   // Pricing calculation
   const garmentUnitRate = product.price;
@@ -81,25 +78,6 @@ export function CustomPrintingModule({
   const totalPrintUnitCharge = costPerPlacement * selectedPlacements.length;
   const combinedUnitPrice = garmentUnitRate + totalPrintUnitCharge;
   const grandTotal = combinedUnitPrice * quantity;
-
-  const handleAddToCartWithCustomPrint = () => {
-    addItem({
-      product: {
-        ...product,
-        price: combinedUnitPrice,
-      },
-      quantity,
-      selectedSize: selectedSize || product.sizes[0] || "M",
-      selectedColor: selectedColor?.name || product.colors[0]?.name || "Standard",
-      selectedPrintType: `${selectedMethod} (${selectedPlacements.join(", ")})`,
-      customText: customInstructions.trim() || undefined,
-      notes: `Method: ${selectedMethod} | Placements: ${selectedPlacements.join(", ")} | Size: ${selectedPrintSize}${artworkFile ? ` | Artwork: ${artworkFile.name}` : ""}`,
-      artworkName: artworkFile ? artworkFile.name : undefined,
-    });
-    setAddedToCart(true);
-    openDrawer();
-    setTimeout(() => setAddedToCart(false), 2200);
-  };
 
   const togglePlacement = (placement: PrintPlacement) => {
     if (selectedPlacements.includes(placement)) {
@@ -423,25 +401,6 @@ Hi Aiel Studio, I have uploaded my artwork and would like to review digital mock
               <HelpCircle size={11} className="flex-shrink-0" /> Bulk quantities (10+, 25+, 50+ pcs)
               automatically qualify for 15% to 35% wholesale discounts.
             </p>
-          </div>
-
-          {/* Instant Add to Cart with Custom Print */}
-          <div className="pt-1">
-            <button
-              type="button"
-              onClick={handleAddToCartWithCustomPrint}
-              className="w-full flex items-center justify-center gap-2.5 bg-brand-gradient gradient-pan text-primary-foreground font-display font-bold text-xs uppercase tracking-wider py-4 rounded-full shadow-lg shadow-splash-pink/25 hover:opacity-95 transition-all cursor-pointer"
-            >
-              {addedToCart ? (
-                <>
-                  <Check size={16} /> Added to Cart with Custom Printing!
-                </>
-              ) : (
-                <>
-                  <ShoppingBag size={16} /> Add to Cart with Custom Print • ₹{grandTotal}
-                </>
-              )}
-            </button>
           </div>
 
           {/* Quotation Request Form & WhatsApp Trigger */}
