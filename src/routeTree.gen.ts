@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as AcrylicGiftsRouteImport } from './routes/acrylic-gifts'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as CombosRouteImport } from './routes/combos'
@@ -28,6 +29,7 @@ import { Route as TshirtsRouteImport } from './routes/tshirts'
 import { Route as UvAcrylicPhotoFrameRouteImport } from './routes/uv-acrylic-photo-frame'
 import { Route as UvAllRouteImport } from './routes/uv-all'
 import { Route as UvTransferStickerRouteImport } from './routes/uv-transfer-sticker'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
 import { Route as ProductSlugRouteImport } from './routes/product.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -38,6 +40,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AcrylicGiftsRoute = AcrylicGiftsRouteImport.update({
@@ -125,6 +132,11 @@ const UvTransferStickerRoute = UvTransferStickerRouteImport.update({
   path: '/uv-transfer-sticker',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/auth/callback',
+  path: '/auth/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductSlugRoute = ProductSlugRouteImport.update({
   id: '/product/$slug',
   path: '/product/$slug',
@@ -134,6 +146,7 @@ const ProductSlugRoute = ProductSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/acrylic-gifts': typeof AcrylicGiftsRoute
   '/admin': typeof AdminRoute
   '/combos': typeof CombosRoute
@@ -151,11 +164,13 @@ export interface FileRoutesByFullPath {
   '/uv-acrylic-photo-frame': typeof UvAcrylicPhotoFrameRoute
   '/uv-all': typeof UvAllRoute
   '/uv-transfer-sticker': typeof UvTransferStickerRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/acrylic-gifts': typeof AcrylicGiftsRoute
   '/admin': typeof AdminRoute
   '/combos': typeof CombosRoute
@@ -173,12 +188,14 @@ export interface FileRoutesByTo {
   '/uv-acrylic-photo-frame': typeof UvAcrylicPhotoFrameRoute
   '/uv-all': typeof UvAllRoute
   '/uv-transfer-sticker': typeof UvTransferStickerRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/acrylic-gifts': typeof AcrylicGiftsRoute
   '/admin': typeof AdminRoute
   '/combos': typeof CombosRoute
@@ -196,6 +213,7 @@ export interface FileRoutesById {
   '/uv-acrylic-photo-frame': typeof UvAcrylicPhotoFrameRoute
   '/uv-all': typeof UvAllRoute
   '/uv-transfer-sticker': typeof UvTransferStickerRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/product/$slug': typeof ProductSlugRoute
 }
 export interface FileRouteTypes {
@@ -203,6 +221,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/account'
     | '/acrylic-gifts'
     | '/admin'
     | '/combos'
@@ -220,11 +239,13 @@ export interface FileRouteTypes {
     | '/uv-acrylic-photo-frame'
     | '/uv-all'
     | '/uv-transfer-sticker'
+    | '/auth/callback'
     | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/account'
     | '/acrylic-gifts'
     | '/admin'
     | '/combos'
@@ -242,11 +263,13 @@ export interface FileRouteTypes {
     | '/uv-acrylic-photo-frame'
     | '/uv-all'
     | '/uv-transfer-sticker'
+    | '/auth/callback'
     | '/product/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/account'
     | '/acrylic-gifts'
     | '/admin'
     | '/combos'
@@ -264,12 +287,14 @@ export interface FileRouteTypes {
     | '/uv-acrylic-photo-frame'
     | '/uv-all'
     | '/uv-transfer-sticker'
+    | '/auth/callback'
     | '/product/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
   AcrylicGiftsRoute: typeof AcrylicGiftsRoute
   AdminRoute: typeof AdminRoute
   CombosRoute: typeof CombosRoute
@@ -287,6 +312,7 @@ export interface RootRouteChildren {
   UvAcrylicPhotoFrameRoute: typeof UvAcrylicPhotoFrameRoute
   UvAllRoute: typeof UvAllRoute
   UvTransferStickerRoute: typeof UvTransferStickerRoute
+  AuthCallbackRoute: typeof AuthCallbackRoute
   ProductSlugRoute: typeof ProductSlugRoute
 }
 
@@ -304,6 +330,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/acrylic-gifts': {
@@ -425,6 +458,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UvTransferStickerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/auth/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product/$slug': {
       id: '/product/$slug'
       path: '/product/$slug'
@@ -438,6 +478,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
   AcrylicGiftsRoute: AcrylicGiftsRoute,
   AdminRoute: AdminRoute,
   CombosRoute: CombosRoute,
@@ -455,6 +496,7 @@ const rootRouteChildren: RootRouteChildren = {
   UvAcrylicPhotoFrameRoute: UvAcrylicPhotoFrameRoute,
   UvAllRoute: UvAllRoute,
   UvTransferStickerRoute: UvTransferStickerRoute,
+  AuthCallbackRoute: AuthCallbackRoute,
   ProductSlugRoute: ProductSlugRoute,
 }
 export const routeTree = rootRouteImport

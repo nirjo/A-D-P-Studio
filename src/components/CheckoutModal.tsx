@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
@@ -14,6 +15,7 @@ import {
   Copy,
   Check,
   ExternalLink,
+  Package,
 } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import { useAuth } from "@/lib/auth";
@@ -38,18 +40,32 @@ type PaymentMethodType = "razorpay" | "upi" | "whatsapp";
 
 export function CheckoutModal({ isOpen, onClose, clientCity = "Puducherry" }: CheckoutModalProps) {
   const { items, subtotal, shippingFee, grandTotal, clearCart } = useCart();
-  const { user } = useAuth();
+  const { user, customerProfile } = useAuth();
 
   const [fullName, setFullName] = useState(
-    (user?.user_metadata?.["full_name"] as string) || ""
+    customerProfile?.fullName || (user?.user_metadata?.["full_name"] as string) || ""
   );
-  const [email, setEmail] = useState(user?.email || "");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState(clientCity);
-  const [pincode, setPincode] = useState("");
+  const [email, setEmail] = useState(customerProfile?.email || user?.email || "");
+  const [phone, setPhone] = useState(customerProfile?.phone || "");
+  const [address, setAddress] = useState(customerProfile?.shippingAddress?.address || "");
+  const [city, setCity] = useState(
+    customerProfile?.shippingAddress?.city || customerProfile?.city || clientCity
+  );
+  const [pincode, setPincode] = useState(customerProfile?.shippingAddress?.pincode || "");
   const [notes, setNotes] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethodType>("razorpay");
+
+  useEffect(() => {
+    if (customerProfile) {
+      if (customerProfile.fullName) setFullName(customerProfile.fullName);
+      if (customerProfile.email) setEmail(customerProfile.email);
+      if (customerProfile.phone) setPhone(customerProfile.phone);
+      if (customerProfile.shippingAddress?.address) setAddress(customerProfile.shippingAddress.address);
+      if (customerProfile.shippingAddress?.city || customerProfile.city)
+        setCity(customerProfile.shippingAddress?.city || customerProfile.city || clientCity);
+      if (customerProfile.shippingAddress?.pincode) setPincode(customerProfile.shippingAddress.pincode);
+    }
+  }, [customerProfile, clientCity]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -322,10 +338,17 @@ export function CheckoutModal({ isOpen, onClose, clientCity = "Puducherry" }: Ch
                   >
                     <MessageCircle size={15} /> Confirm Proof &amp; Receipt on WhatsApp
                   </a>
+                  <Link
+                    to="/account"
+                    onClick={onClose}
+                    className="w-full flex items-center justify-center gap-2 bg-secondary border border-border hover:border-splash-pink text-foreground font-display font-bold text-xs uppercase tracking-wider py-3 rounded-full transition-colors text-center"
+                  >
+                    <Package size={14} className="text-splash-teal" /> Track Order in Customer Dashboard
+                  </Link>
                   <button
                     type="button"
                     onClick={onClose}
-                    className="w-full py-2.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    className="w-full py-2 text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   >
                     Done &amp; Close
                   </button>

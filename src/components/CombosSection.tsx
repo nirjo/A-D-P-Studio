@@ -21,9 +21,9 @@ function ComboCardItem({ combo }: { combo: Product }) {
     addItem({
       product: combo,
       quantity: 1,
-      selectedSize: combo.sizes[0],
-      selectedColor: selectedColor.name,
-      selectedPrintType: combo.printTypes[0],
+      selectedSize: combo.sizes[0] || "Standard",
+      selectedColor: selectedColor.name || "Standard",
+      selectedPrintType: combo.printTypes[0] || "Standard",
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
