@@ -1,0 +1,5187 @@
+[
+  {
+    "id": "tee-sample-french-terry-oversized-t-shirt",
+    "slug": "sample-french-terry-oversized-t-shirt",
+    "name": "Sample French Terry Oversized T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 349,
+    "original_price": 471,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/terry-oversized-t-shirts-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/terry-oversized-t-shirts-plain-tshirts-india.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get sample plain french terry oversized t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "2XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Cool Blue",
+        "hex": "#B3E2EF"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 332
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 307
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 279
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 251
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 32,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/sample-french-terry-oversized-t-shirt/",
+    "source_id": 2897,
+    "variations": [
+      {
+        "id": "3571",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-M-beige",
+        "size": "M",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3572",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-L-beige",
+        "size": "L",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3573",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-XL-beige",
+        "size": "XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3574",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-2XL-beige",
+        "size": "2XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3575",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-S-black",
+        "size": "S",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3576",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-M-black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3577",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-L-black",
+        "size": "L",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3578",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-XL-black",
+        "size": "XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3579",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-2XL-black",
+        "size": "2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3580",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-S-cool-blue",
+        "size": "S",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3581",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-M-cool-blue",
+        "size": "M",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3582",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-L-cool-blue",
+        "size": "L",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3583",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-XL-cool-blue",
+        "size": "XL",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3584",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-2XL-cool-blue",
+        "size": "2XL",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3585",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-S-lavender",
+        "size": "S",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3586",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-M-lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3587",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-L-lavender",
+        "size": "L",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3588",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-XL-lavender",
+        "size": "XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3589",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-2XL-lavender",
+        "size": "2XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3590",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-S-white",
+        "size": "S",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3591",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-M-white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3592",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-L-white",
+        "size": "L",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3593",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-XL-white",
+        "size": "XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "3594",
+        "product_id": "tee-sample-french-terry-oversized-t-shirt",
+        "sku": "SAMPLE-FRENCH-TERRY-OVERSIZED-T-SHIRT-2XL-white",
+        "size": "2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-round-neck-french-terry-t-shirt",
+    "slug": "sample-round-neck-french-terry-t-shirt",
+    "name": "Sample Round Neck French Terry T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 299,
+    "original_price": 404,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/round-neck-french-terry-t-shirt-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/round-neck-french-terry-t-shirt-plain-tshirts-india.webp",
+      "/images/products/unisex-cotton-t-shirts.webp",
+      "/images/products/unisex-round-neck-t-shirts.webp",
+      "/images/products/unisex-t-shirts-cotton.webp"
+    ],
+    "description": "Get sample round neck french terry t-shirt 240 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Mustard Yellow",
+        "hex": "#D8B217"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 284
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 263
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 239
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 215
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 23,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-round-neck-french-terry-t-shirt/",
+    "source_id": 2888,
+    "variations": [
+      {
+        "id": "2889",
+        "product_id": "tee-sample-round-neck-french-terry-t-shirt",
+        "sku": "SAMPLE-ROUND-NECK-FRENCH-TERRY-T-SHIRT--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2890",
+        "product_id": "tee-sample-round-neck-french-terry-t-shirt",
+        "sku": "SAMPLE-ROUND-NECK-FRENCH-TERRY-T-SHIRT--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2891",
+        "product_id": "tee-sample-round-neck-french-terry-t-shirt",
+        "sku": "SAMPLE-ROUND-NECK-FRENCH-TERRY-T-SHIRT--mustard-yellow",
+        "size": "M",
+        "color_name": "Mustard Yellow",
+        "color_hex": "#D8B217",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2892",
+        "product_id": "tee-sample-round-neck-french-terry-t-shirt",
+        "sku": "SAMPLE-ROUND-NECK-FRENCH-TERRY-T-SHIRT--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2893",
+        "product_id": "tee-sample-round-neck-french-terry-t-shirt",
+        "sku": "SAMPLE-ROUND-NECK-FRENCH-TERRY-T-SHIRT--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-round-neck-t-shirt-240-gsm",
+    "slug": "sample-round-neck-t-shirt-240-gsm",
+    "name": "Sample Round Neck T-Shirt – 240 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 249,
+    "original_price": 336,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/round-neck-t-shirt-240-gsm-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/round-neck-t-shirt-240-gsm-plain-tshirts-india.webp",
+      "/images/products/unisex-cotton-t-shirts.webp",
+      "/images/products/unisex-round-neck-t-shirts.webp",
+      "/images/products/unisex-t-shirts-cotton.webp"
+    ],
+    "description": "Get sample plain round neck t-shirt 240 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Emerald Green",
+        "hex": "#27822B"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Mustard Yellow",
+        "hex": "#D8B217"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 237
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 219
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 199
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 179
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 11,
+    "gsm": 240,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-round-neck-t-shirt-240-gsm/",
+    "source_id": 2876,
+    "variations": [
+      {
+        "id": "2877",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--beige",
+        "size": "M",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2878",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2879",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--coffee-brown",
+        "size": "M",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2880",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--emerald-green",
+        "size": "M",
+        "color_name": "Emerald Green",
+        "color_hex": "#27822B",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2881",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2882",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2883",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--mustard-yellow",
+        "size": "M",
+        "color_name": "Mustard Yellow",
+        "color_hex": "#D8B217",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2884",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2885",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--royal-blue",
+        "size": "M",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2886",
+        "product_id": "tee-sample-round-neck-t-shirt-240-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-240-GSM--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-sweatshirts",
+    "slug": "sample-sweatshirts",
+    "name": "Sample Sweatshirts",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 499,
+    "original_price": 674,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/plain-sweatshirts-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/plain-sweatshirts-plain-tshirts-india.webp",
+      "/images/products/sweatshirts-plain-tshirts-india.webp",
+      "/images/products/cotton-sweatshirts-plain-tshirts-india.webp",
+      "/images/products/unisex-sweatshirts-plain-tshirts-india.webp"
+    ],
+    "description": "Get sample cotton plain sweatshirts for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff",
+      "Precision Embroidery"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 474
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 439
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 399
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 359
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 29,
+    "gsm": 320,
+    "fabric": "Cotton-Rich Heavyweight Fleece",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-sweatshirts/",
+    "source_id": 2869,
+    "variations": [
+      {
+        "id": "2870",
+        "product_id": "tee-sample-sweatshirts",
+        "sku": "SAMPLE-SWEATSHIRTS--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2871",
+        "product_id": "tee-sample-sweatshirts",
+        "sku": "SAMPLE-SWEATSHIRTS--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2872",
+        "product_id": "tee-sample-sweatshirts",
+        "sku": "SAMPLE-SWEATSHIRTS--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2873",
+        "product_id": "tee-sample-sweatshirts",
+        "sku": "SAMPLE-SWEATSHIRTS--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2874",
+        "product_id": "tee-sample-sweatshirts",
+        "sku": "SAMPLE-SWEATSHIRTS--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-oversized-t-shirt-180-gsm",
+    "slug": "sample-oversized-t-shirt-180-gsm",
+    "name": "Sample Oversized T-Shirt 180 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 249,
+    "original_price": 336,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/oversized-t-shirt-180-gsm-plain-t-shirts-india.webp",
+    "gallery": [
+      "/images/products/oversized-t-shirt-180-gsm-plain-t-shirts-india.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get sample plain oversized t-shirt 180 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Brick Red",
+        "hex": "#C90000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Dusky Pink",
+        "hex": "#18181B"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 237
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 219
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 199
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 179
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 17,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/sample-oversized-t-shirt-180-gsm/",
+    "source_id": 2857,
+    "variations": [
+      {
+        "id": "2858",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--beige",
+        "size": "M",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2859",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2860",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--brick-red",
+        "size": "M",
+        "color_name": "Brick Red",
+        "color_hex": "#C90000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2861",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--coffee-brown",
+        "size": "M",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2862",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--emerald-green",
+        "size": "M",
+        "color_name": "emerald-green",
+        "color_hex": "#18181B",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2863",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2864",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2865",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2866",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--royal-blue",
+        "size": "M",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2867",
+        "product_id": "tee-sample-oversized-t-shirt-180-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-180-GSM--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-french-terry-crop-top",
+    "slug": "sample-french-terry-crop-top",
+    "name": "Sample French Terry Crop Top",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 299,
+    "original_price": 404,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/cotton-crop-top-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp",
+      "/images/products/crop-top-plain-tshirts-india.webp",
+      "/images/products/custom-crop-top-plain-tshirts-india.webp",
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp"
+    ],
+    "description": "Get sample women french terry crop top for online clothing brands, custom printing, and dropshipping. no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 284
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 263
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 239
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 215
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 11,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-french-terry-crop-top/",
+    "source_id": 2851,
+    "variations": [
+      {
+        "id": "2852",
+        "product_id": "tee-sample-french-terry-crop-top",
+        "sku": "SAMPLE-FRENCH-TERRY-CROP-TOP--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2853",
+        "product_id": "tee-sample-french-terry-crop-top",
+        "sku": "SAMPLE-FRENCH-TERRY-CROP-TOP--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2854",
+        "product_id": "tee-sample-french-terry-crop-top",
+        "sku": "SAMPLE-FRENCH-TERRY-CROP-TOP--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2855",
+        "product_id": "tee-sample-french-terry-crop-top",
+        "sku": "SAMPLE-FRENCH-TERRY-CROP-TOP--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-crop-top-240-gsm",
+    "slug": "sample-crop-top-240-gsm",
+    "name": "Sample Crop Top – 240 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 249,
+    "original_price": 336,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/women-crop-top-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/women-crop-top-plain-tshirts-india.webp",
+      "/images/products/crop-top-plain-tshirts-india.webp",
+      "/images/products/custom-crop-top-plain-tshirts-india.webp",
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp"
+    ],
+    "description": "Get women sample plain crop top 240 gsm for online clothing brands, custom printing, and dropshipping. no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 237
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 219
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 199
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 179
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 30,
+    "gsm": 240,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-crop-top-240-gsm/",
+    "source_id": 2845,
+    "variations": [
+      {
+        "id": "2846",
+        "product_id": "tee-sample-crop-top-240-gsm",
+        "sku": "SAMPLE-CROP-TOP-240-GSM--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2847",
+        "product_id": "tee-sample-crop-top-240-gsm",
+        "sku": "SAMPLE-CROP-TOP-240-GSM--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2848",
+        "product_id": "tee-sample-crop-top-240-gsm",
+        "sku": "SAMPLE-CROP-TOP-240-GSM--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2849",
+        "product_id": "tee-sample-crop-top-240-gsm",
+        "sku": "SAMPLE-CROP-TOP-240-GSM--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-hoodies",
+    "slug": "sample-hoodies",
+    "name": "Sample – Hoodies",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 499,
+    "original_price": 674,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/cotton-hoodie-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/cotton-hoodie-plain-tshirts-india.webp",
+      "/images/products/300gsm-hoodie-plain-tshirts-india.webp",
+      "/images/products/plain-hoodie-plain-tshirts-india.webp",
+      "/images/products/unisex-hoodie-plain-tshirts-india.webp"
+    ],
+    "description": "Get cotton sample plain hoodies for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff",
+      "Precision Embroidery"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 474
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 439
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 399
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 359
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 23,
+    "gsm": 300,
+    "fabric": "Cotton-Rich Heavyweight Fleece",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-hoodies/",
+    "source_id": 2838,
+    "variations": [
+      {
+        "id": "2839",
+        "product_id": "tee-sample-hoodies",
+        "sku": "SAMPLE-HOODIES--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2840",
+        "product_id": "tee-sample-hoodies",
+        "sku": "SAMPLE-HOODIES--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2841",
+        "product_id": "tee-sample-hoodies",
+        "sku": "SAMPLE-HOODIES--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2842",
+        "product_id": "tee-sample-hoodies",
+        "sku": "SAMPLE-HOODIES--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2843",
+        "product_id": "tee-sample-hoodies",
+        "sku": "SAMPLE-HOODIES--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-crop-top",
+    "slug": "sample-crop-top",
+    "name": "Sample – Crop Top",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 199,
+    "original_price": 269,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/crop-top-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/crop-top-plain-tshirts-india.webp",
+      "/images/products/custom-crop-top-plain-tshirts-india.webp",
+      "/images/products/women-crop-top-plain-tshirts-india.webp",
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp"
+    ],
+    "description": "Get sample plain crop top for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 189
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 175
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 159
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 143
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 17,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-crop-top/",
+    "source_id": 2832,
+    "variations": [
+      {
+        "id": "2833",
+        "product_id": "tee-sample-crop-top",
+        "sku": "SAMPLE-CROP-TOP--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2834",
+        "product_id": "tee-sample-crop-top",
+        "sku": "SAMPLE-CROP-TOP--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2835",
+        "product_id": "tee-sample-crop-top",
+        "sku": "SAMPLE-CROP-TOP--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2836",
+        "product_id": "tee-sample-crop-top",
+        "sku": "SAMPLE-CROP-TOP--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-polyester-polo-t-shirt",
+    "slug": "sample-polyester-polo-t-shirt",
+    "name": "Sample Polyester Polo T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 349,
+    "original_price": 471,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/polo-t-shirts-men-collar.webp",
+    "gallery": [
+      "/images/products/polo-t-shirts-men-collar.webp",
+      "/images/products/polo-t-shirts-white.webp",
+      "/images/products/cotton-polo-t-shirts-1.webp",
+      "/images/products/polo-t-shirts-back.webp"
+    ],
+    "description": "Get sample polyester polo t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "Sublimation",
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 332
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 307
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 279
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 251
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 28,
+    "gsm": 180,
+    "fabric": "100% Moisture-Wicking Performance Polyester",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/sample-polyester-polo-t-shirt/",
+    "source_id": 2818,
+    "variations": [
+      {
+        "id": "2819",
+        "product_id": "tee-sample-polyester-polo-t-shirt",
+        "sku": "SAMPLE-POLYESTER-POLO-T-SHIRT--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-cotton-polo-t-shirt",
+    "slug": "sample-cotton-polo-t-shirt",
+    "name": "Sample Cotton Polo T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 349,
+    "original_price": 471,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/cotton-polo-t-shirts.webp",
+    "gallery": [
+      "/images/products/cotton-polo-t-shirts.webp",
+      "/images/products/polo-t-shirts-back.webp",
+      "/images/products/polo-t-shirts-pocket.webp",
+      "/images/products/polo-t-shirts-collar-button-cuff.webp"
+    ],
+    "description": "Get sample cotton polo t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Petrol Blue",
+        "hex": "#1A6568"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff",
+      "Precision Embroidery"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 332
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 307
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 279
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 251
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 20,
+    "gsm": 180,
+    "fabric": "100% Premium Cotton Pique Knit",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/sample-cotton-polo-t-shirt/",
+    "source_id": 2810,
+    "variations": [
+      {
+        "id": "2811",
+        "product_id": "tee-sample-cotton-polo-t-shirt",
+        "sku": "SAMPLE-COTTON-POLO-T-SHIRT--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2812",
+        "product_id": "tee-sample-cotton-polo-t-shirt",
+        "sku": "SAMPLE-COTTON-POLO-T-SHIRT--coffee-brown",
+        "size": "M",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2813",
+        "product_id": "tee-sample-cotton-polo-t-shirt",
+        "sku": "SAMPLE-COTTON-POLO-T-SHIRT--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2814",
+        "product_id": "tee-sample-cotton-polo-t-shirt",
+        "sku": "SAMPLE-COTTON-POLO-T-SHIRT--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2815",
+        "product_id": "tee-sample-cotton-polo-t-shirt",
+        "sku": "SAMPLE-COTTON-POLO-T-SHIRT--petrol-blue",
+        "size": "M",
+        "color_name": "Petrol Blue",
+        "color_hex": "#1A6568",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2816",
+        "product_id": "tee-sample-cotton-polo-t-shirt",
+        "sku": "SAMPLE-COTTON-POLO-T-SHIRT--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-oversized-t-shirt-240-gsm",
+    "slug": "sample-oversized-t-shirt-240-gsm",
+    "name": "Sample – Oversized T-Shirt – 240 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 299,
+    "original_price": 404,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/oversized-t-shirts-plain.webp",
+    "gallery": [
+      "/images/products/oversized-t-shirts-plain.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get sample plain oversized t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Brick Red",
+        "hex": "#C90000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Emerald Green",
+        "hex": "#27822B"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 284
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 263
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 239
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 215
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 33,
+    "gsm": 240,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/sample-oversized-t-shirt-240-gsm/",
+    "source_id": 2798,
+    "variations": [
+      {
+        "id": "2799",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--beige",
+        "size": "M",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2800",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2801",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--brick-red",
+        "size": "M",
+        "color_name": "Brick Red",
+        "color_hex": "#C90000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2802",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--coffee-brown",
+        "size": "M",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2803",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--emerald-green",
+        "size": "M",
+        "color_name": "Emerald Green",
+        "color_hex": "#27822B",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2804",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2805",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2806",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2807",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--royal-blue",
+        "size": "M",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2808",
+        "product_id": "tee-sample-oversized-t-shirt-240-gsm",
+        "sku": "SAMPLE-OVERSIZED-T-SHIRT-240-GSM--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-sample-round-neck-t-shirt-180-gsm",
+    "slug": "sample-round-neck-t-shirt-180-gsm",
+    "name": "Sample – Round Neck T-Shirt – 180 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 199,
+    "original_price": 269,
+    "badge": "Sample",
+    "is_sold_out": false,
+    "image": "/images/products/round-neck-t-shirts.webp",
+    "gallery": [
+      "/images/products/round-neck-t-shirts.webp",
+      "/images/products/unisex-cotton-t-shirts.webp",
+      "/images/products/unisex-round-neck-t-shirts.webp",
+      "/images/products/unisex-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain round neck t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Brick Red",
+        "hex": "#C90000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Dusky Pink",
+        "hex": "#EA8AAA"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 189
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 175
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 159
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 143
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 19,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Sample"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/sample-round-neck-t-shirt-180-gsm/",
+    "source_id": 2784,
+    "variations": [
+      {
+        "id": "2785",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--beige",
+        "size": "M",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2786",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--black",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2787",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--brick-red",
+        "size": "M",
+        "color_name": "Brick Red",
+        "color_hex": "#C90000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2788",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--coffee-brown",
+        "size": "M",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2789",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--dusky-pink",
+        "size": "M",
+        "color_name": "Dusky Pink",
+        "color_hex": "#EA8AAA",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2790",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--lavender",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2791",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--maroon",
+        "size": "M",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2792",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2793",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--royal-blue",
+        "size": "M",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2794",
+        "product_id": "tee-sample-round-neck-t-shirt-180-gsm",
+        "sku": "SAMPLE-ROUND-NECK-T-SHIRT-180-GSM--white",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-french-terry-crop-top",
+    "slug": "french-terry-crop-top",
+    "name": "French Terry Crop Top",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 205,
+    "original_price": 277,
+    "is_sold_out": false,
+    "image": "/images/products/cotton-crop-top-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp",
+      "/images/products/crop-top-plain-tshirts-india.webp",
+      "/images/products/custom-crop-top-plain-tshirts-india.webp",
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp"
+    ],
+    "description": "Get women french terry crop top for online clothing brands, custom printing, and dropshipping. no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 195
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 180
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 164
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 148
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 19,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [
+      "Women's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/french-terry-crop-top/",
+    "source_id": 2659,
+    "variations": [
+      {
+        "id": "2660",
+        "product_id": "tee-french-terry-crop-top",
+        "sku": "FRENCH-TERRY-CROP-TOP-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2661",
+        "product_id": "tee-french-terry-crop-top",
+        "sku": "FRENCH-TERRY-CROP-TOP-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2662",
+        "product_id": "tee-french-terry-crop-top",
+        "sku": "FRENCH-TERRY-CROP-TOP-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2663",
+        "product_id": "tee-french-terry-crop-top",
+        "sku": "FRENCH-TERRY-CROP-TOP-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-crop-top-240-gsm",
+    "slug": "crop-top-240-gsm",
+    "name": "Crop Top – 240 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 180,
+    "original_price": 243,
+    "is_sold_out": false,
+    "image": "/images/products/women-crop-top-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/women-crop-top-plain-tshirts-india.webp",
+      "/images/products/crop-top-plain-tshirts-india.webp",
+      "/images/products/custom-crop-top-plain-tshirts-india.webp",
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp"
+    ],
+    "description": "Get women plain crop top 240 gsm for online clothing brands, custom printing, and dropshipping. no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 171
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 158
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 144
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 130
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 13,
+    "gsm": 240,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Women's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/crop-top-240-gsm/",
+    "source_id": 2653,
+    "variations": [
+      {
+        "id": "2654",
+        "product_id": "tee-crop-top-240-gsm",
+        "sku": "CROP-TOP-240-GSM-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2655",
+        "product_id": "tee-crop-top-240-gsm",
+        "sku": "CROP-TOP-240-GSM-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2656",
+        "product_id": "tee-crop-top-240-gsm",
+        "sku": "CROP-TOP-240-GSM-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2657",
+        "product_id": "tee-crop-top-240-gsm",
+        "sku": "CROP-TOP-240-GSM-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-oversized-french-terry-t-shirt",
+    "slug": "custom-oversized-french-terry-t-shirt",
+    "name": "Round Neck T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 434,
+    "original_price": 586,
+    "is_sold_out": false,
+    "image": "/images/products/oversized-t-shirts-plain.webp",
+    "gallery": [
+      "/images/products/oversized-t-shirts-plain.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain oversized french terry t-shirt 240 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "2XL",
+      "L",
+      "M",
+      "S",
+      "XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#111827"
+      },
+      {
+        "name": "Cool Blue",
+        "hex": "#B3E2EF"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 412
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 382
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 347
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 312
+      }
+    ],
+    "min_order": 1,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 19,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [],
+    "raw_tags": [
+      "testing"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-oversized-french-terry-t-shirt/",
+    "source_id": 2559,
+    "variations": [
+      {
+        "id": "2559-2XL-beige",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-2XL-BEIGE",
+        "size": "2XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-2XL-black",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-2XL-BLACK",
+        "size": "2XL",
+        "color_name": "Black",
+        "color_hex": "#111827",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-2XL-cool-blue",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-2XL-COOLBLUE",
+        "size": "2XL",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-2XL-lavender",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-2XL-LAVENDER",
+        "size": "2XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-2XL-white",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-2XL-WHITE",
+        "size": "2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-L-beige",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-L-BEIGE",
+        "size": "L",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-L-black",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-L-BLACK",
+        "size": "L",
+        "color_name": "Black",
+        "color_hex": "#111827",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-L-cool-blue",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-L-COOLBLUE",
+        "size": "L",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-L-lavender",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-L-LAVENDER",
+        "size": "L",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-L-white",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-L-WHITE",
+        "size": "L",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-M-beige",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-M-BEIGE",
+        "size": "M",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-M-black",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-M-BLACK",
+        "size": "M",
+        "color_name": "Black",
+        "color_hex": "#111827",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-M-cool-blue",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-M-COOLBLUE",
+        "size": "M",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-M-lavender",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-M-LAVENDER",
+        "size": "M",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-M-white",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-M-WHITE",
+        "size": "M",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-S-beige",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-S-BEIGE",
+        "size": "S",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-S-black",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-S-BLACK",
+        "size": "S",
+        "color_name": "Black",
+        "color_hex": "#111827",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-S-cool-blue",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-S-COOLBLUE",
+        "size": "S",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-S-lavender",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-S-LAVENDER",
+        "size": "S",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-S-white",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-S-WHITE",
+        "size": "S",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-XL-beige",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-XL-BEIGE",
+        "size": "XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-XL-black",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-XL-BLACK",
+        "size": "XL",
+        "color_name": "Black",
+        "color_hex": "#111827",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-XL-cool-blue",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-XL-COOLBLUE",
+        "size": "XL",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-XL-lavender",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-XL-LAVENDER",
+        "size": "XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2559-XL-white",
+        "product_id": "tee-custom-oversized-french-terry-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-FRENCH-TERRY-T-SHIRT-XL-WHITE",
+        "size": "XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-oversized-t-shirt-180-gsm",
+    "slug": "custom-oversized-t-shirt-180-gsm",
+    "name": "Oversized T-Shirt 180 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 215,
+    "original_price": 290,
+    "badge": "Bulk Fav",
+    "is_sold_out": false,
+    "image": "/images/products/oversized-t-shirt-180-gsm-plain-t-shirts-india.webp",
+    "gallery": [
+      "/images/products/oversized-t-shirt-180-gsm-plain-t-shirts-india.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain oversized t-shirt 180 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Brick Red",
+        "hex": "#C90000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Dusky Pink",
+        "hex": "#18181B"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 204
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 189
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 172
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 155
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 22,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/custom-oversized-t-shirt-180-gsm/",
+    "source_id": 2537,
+    "variations": [
+      {
+        "id": "2548",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-beige",
+        "size": "S-TO-2XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2549",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-black",
+        "size": "S-TO-2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2550",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-brick-red",
+        "size": "S-TO-2XL",
+        "color_name": "Brick Red",
+        "color_hex": "#C90000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2551",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-coffee-brown",
+        "size": "S-TO-2XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2552",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-emerald-green",
+        "size": "S-TO-2XL",
+        "color_name": "emerald-green",
+        "color_hex": "#18181B",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2553",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-lavender",
+        "size": "S-TO-2XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2554",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-maroon",
+        "size": "S-TO-2XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2555",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-navy-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2556",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-royal-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2557",
+        "product_id": "tee-custom-oversized-t-shirt-180-gsm",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-180-GSM-S-TO-2XL-white",
+        "size": "S-TO-2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-round-neck-french-terry-t-shirt",
+    "slug": "round-neck-french-terry-t-shirt",
+    "name": "Round Neck French Terry T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 250,
+    "original_price": 338,
+    "is_sold_out": false,
+    "image": "/images/products/round-neck-french-terry-t-shirt-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/round-neck-french-terry-t-shirt-plain-tshirts-india.webp",
+      "/images/products/unisex-cotton-t-shirts.webp",
+      "/images/products/unisex-round-neck-t-shirts.webp",
+      "/images/products/unisex-t-shirts-cotton.webp"
+    ],
+    "description": "Get round neck french terry t-shirt 240 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Mustard Yellow",
+        "hex": "#D8B217"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 238
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 220
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 200
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 180
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 30,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/round-neck-french-terry-t-shirt/",
+    "source_id": 2520,
+    "variations": [
+      {
+        "id": "2532",
+        "product_id": "tee-round-neck-french-terry-t-shirt",
+        "sku": "ROUND-NECK-FRENCH-TERRY-T-SHIRT-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2533",
+        "product_id": "tee-round-neck-french-terry-t-shirt",
+        "sku": "ROUND-NECK-FRENCH-TERRY-T-SHIRT-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2534",
+        "product_id": "tee-round-neck-french-terry-t-shirt",
+        "sku": "ROUND-NECK-FRENCH-TERRY-T-SHIRT-S-TO-4XL-mustard-yellow",
+        "size": "S-TO-4XL",
+        "color_name": "Mustard Yellow",
+        "color_hex": "#D8B217",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2535",
+        "product_id": "tee-round-neck-french-terry-t-shirt",
+        "sku": "ROUND-NECK-FRENCH-TERRY-T-SHIRT-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2536",
+        "product_id": "tee-round-neck-french-terry-t-shirt",
+        "sku": "ROUND-NECK-FRENCH-TERRY-T-SHIRT-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-round-neck-t-shirt-240-gsm",
+    "slug": "custom-round-neck-t-shirt-240-gsm",
+    "name": "Round Neck T-Shirt – 240 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 215,
+    "original_price": 290,
+    "is_sold_out": false,
+    "image": "/images/products/round-neck-t-shirt-240-gsm-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/round-neck-t-shirt-240-gsm-plain-tshirts-india.webp",
+      "/images/products/unisex-cotton-t-shirts.webp",
+      "/images/products/unisex-round-neck-t-shirts.webp",
+      "/images/products/unisex-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain round neck t-shirt 240 gsm ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Emerald Green",
+        "hex": "#27822B"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Mustard Yellow",
+        "hex": "#D8B217"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 204
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 189
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 172
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 155
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 18,
+    "gsm": 240,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-round-neck-t-shirt-240-gsm/",
+    "source_id": 2508,
+    "variations": [
+      {
+        "id": "2509",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-beige",
+        "size": "S-TO-4XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2510",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2512",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-coffee-brown",
+        "size": "S-TO-4XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2511",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-emerald-green",
+        "size": "S-TO-4XL",
+        "color_name": "Emerald Green",
+        "color_hex": "#27822B",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2513",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2514",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-maroon",
+        "size": "S-TO-4XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2515",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-mustard-yellow",
+        "size": "S-TO-4XL",
+        "color_name": "Mustard Yellow",
+        "color_hex": "#D8B217",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2516",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2517",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-royal-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2518",
+        "product_id": "tee-custom-round-neck-t-shirt-240-gsm",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-240-GSM-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-sweatshirt",
+    "slug": "custom-sweatshirt",
+    "name": "Sweatshirts",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 380,
+    "original_price": 513,
+    "is_sold_out": false,
+    "image": "/images/products/plain-sweatshirts-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/plain-sweatshirts-plain-tshirts-india.webp",
+      "/images/products/sweatshirts-plain-tshirts-india.webp",
+      "/images/products/cotton-sweatshirts-plain-tshirts-india.webp",
+      "/images/products/unisex-sweatshirts-plain-tshirts-india.webp"
+    ],
+    "description": "Get cotton plain sweatshirts for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff",
+      "Precision Embroidery"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 361
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 334
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 304
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 274
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 16,
+    "gsm": 320,
+    "fabric": "Cotton-Rich Heavyweight Fleece",
+    "raw_categories": [
+      "Men's Clothing",
+      "Women's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-sweatshirt/",
+    "source_id": 1806,
+    "variations": [
+      {
+        "id": "1808",
+        "product_id": "tee-custom-sweatshirt",
+        "sku": "CUSTOM-SWEATSHIRT-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1825",
+        "product_id": "tee-custom-sweatshirt",
+        "sku": "CUSTOM-SWEATSHIRT-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1827",
+        "product_id": "tee-custom-sweatshirt",
+        "sku": "CUSTOM-SWEATSHIRT-S-TO-4XL-maroon",
+        "size": "S-TO-4XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1815",
+        "product_id": "tee-custom-sweatshirt",
+        "sku": "CUSTOM-SWEATSHIRT-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1816",
+        "product_id": "tee-custom-sweatshirt",
+        "sku": "CUSTOM-SWEATSHIRT-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-terry-oversized-t-shirt",
+    "slug": "custom-terry-oversized-t-shirt",
+    "name": "French Terry Oversized T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 275,
+    "original_price": 371,
+    "badge": "Bulk Fav",
+    "is_sold_out": false,
+    "image": "/images/products/terry-oversized-t-shirts-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/terry-oversized-t-shirts-plain-tshirts-india.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain oversized t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Cool Blue",
+        "hex": "#B3E2EF"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 261
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 242
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 220
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 198
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 28,
+    "gsm": 240,
+    "fabric": "100% French Terry Cotton",
+    "raw_categories": [
+      "Men's Clothing",
+      "Women's Clothing"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/custom-terry-oversized-t-shirt/",
+    "source_id": 1793,
+    "variations": [
+      {
+        "id": "1797",
+        "product_id": "tee-custom-terry-oversized-t-shirt",
+        "sku": "CUSTOM-TERRY-OVERSIZED-T-SHIRT-S-TO-2XL-beige",
+        "size": "S-TO-2XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1794",
+        "product_id": "tee-custom-terry-oversized-t-shirt",
+        "sku": "CUSTOM-TERRY-OVERSIZED-T-SHIRT-S-TO-2XL-black",
+        "size": "S-TO-2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1800",
+        "product_id": "tee-custom-terry-oversized-t-shirt",
+        "sku": "CUSTOM-TERRY-OVERSIZED-T-SHIRT-S-TO-2XL-cool-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Cool Blue",
+        "color_hex": "#B3E2EF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1796",
+        "product_id": "tee-custom-terry-oversized-t-shirt",
+        "sku": "CUSTOM-TERRY-OVERSIZED-T-SHIRT-S-TO-2XL-lavender",
+        "size": "S-TO-2XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1798",
+        "product_id": "tee-custom-terry-oversized-t-shirt",
+        "sku": "CUSTOM-TERRY-OVERSIZED-T-SHIRT-S-TO-2XL-white",
+        "size": "S-TO-2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-hoodie",
+    "slug": "custom-hoodie",
+    "name": "Hoodies",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 480,
+    "original_price": 648,
+    "is_sold_out": false,
+    "image": "/images/products/cotton-hoodie-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/cotton-hoodie-plain-tshirts-india.webp",
+      "/images/products/300gsm-hoodie-plain-tshirts-india.webp",
+      "/images/products/plain-hoodie-plain-tshirts-india.webp",
+      "/images/products/unisex-hoodie-plain-tshirts-india.webp"
+    ],
+    "description": "Get cotton plain hoodies for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff",
+      "Precision Embroidery"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 456
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 422
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 384
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 346
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 17,
+    "gsm": 300,
+    "fabric": "Cotton-Rich Heavyweight Fleece",
+    "raw_categories": [
+      "Men's Clothing",
+      "Women's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-hoodie/",
+    "source_id": 1782,
+    "variations": [
+      {
+        "id": "1817",
+        "product_id": "tee-custom-hoodie",
+        "sku": "CUSTOM-HOODIE-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1821",
+        "product_id": "tee-custom-hoodie",
+        "sku": "CUSTOM-HOODIE-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1818",
+        "product_id": "tee-custom-hoodie",
+        "sku": "CUSTOM-HOODIE-S-TO-4XL-maroon",
+        "size": "S-TO-4XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1819",
+        "product_id": "tee-custom-hoodie",
+        "sku": "CUSTOM-HOODIE-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1820",
+        "product_id": "tee-custom-hoodie",
+        "sku": "CUSTOM-HOODIE-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-crop-top",
+    "slug": "custom-crop-top",
+    "name": "Crop Top",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 145,
+    "original_price": 196,
+    "is_sold_out": false,
+    "image": "/images/products/crop-top-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/crop-top-plain-tshirts-india.webp",
+      "/images/products/custom-crop-top-plain-tshirts-india.webp",
+      "/images/products/women-crop-top-plain-tshirts-india.webp",
+      "/images/products/cotton-crop-top-plain-tshirts-india.webp"
+    ],
+    "description": "Get plain crop top for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 138
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 128
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 116
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 104
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 27,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Women's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-crop-top/",
+    "source_id": 1717,
+    "variations": [
+      {
+        "id": "2581",
+        "product_id": "tee-custom-crop-top",
+        "sku": "CUSTOM-CROP-TOP-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2582",
+        "product_id": "tee-custom-crop-top",
+        "sku": "CUSTOM-CROP-TOP-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2583",
+        "product_id": "tee-custom-crop-top",
+        "sku": "CUSTOM-CROP-TOP-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2584",
+        "product_id": "tee-custom-crop-top",
+        "sku": "CUSTOM-CROP-TOP-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-full-sleeve-t-shirt",
+    "slug": "custom-full-sleeve-t-shirt",
+    "name": "Full Sleeve T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 195,
+    "original_price": 263,
+    "is_sold_out": false,
+    "image": "/images/products/full-sleeve-t-shirt-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/full-sleeve-t-shirt-plain-tshirts-india.webp",
+      "/images/products/full-hand-t-shirts-plain.webp",
+      "/images/products/mens-full-sleeve-t-shirts.webp",
+      "/images/products/long-sleeve-plain-tshirts-india.webp"
+    ],
+    "description": "Get plain full sleeve t-shirt for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 2XL"
+    ],
+    "colors": [
+      {
+        "name": "Air Force",
+        "hex": "#1A6568"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Charcoal Melange",
+        "hex": "#999999"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Dusky Pink",
+        "hex": "#EA8AAA"
+      },
+      {
+        "name": "Golden Yellow",
+        "hex": "#E0B300"
+      },
+      {
+        "name": "Grey Melange",
+        "hex": "#CECECE"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 185
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 172
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 156
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 140
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 21,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-full-sleeve-t-shirt/",
+    "source_id": 1711,
+    "variations": [
+      {
+        "id": "1754",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-air-force",
+        "size": "S-TO-2XL",
+        "color_name": "Air Force",
+        "color_hex": "#1A6568",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1755",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-black",
+        "size": "S-TO-2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1756",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-charcoal-melange",
+        "size": "S-TO-2XL",
+        "color_name": "Charcoal Melange",
+        "color_hex": "#999999",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1757",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-coffee-brown",
+        "size": "S-TO-2XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1758",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-dusky-pink",
+        "size": "S-TO-2XL",
+        "color_name": "Dusky Pink",
+        "color_hex": "#EA8AAA",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1759",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-golden-yellow",
+        "size": "S-TO-2XL",
+        "color_name": "Golden Yellow",
+        "color_hex": "#E0B300",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1760",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-grey-melange",
+        "size": "S-TO-2XL",
+        "color_name": "Grey Melange",
+        "color_hex": "#CECECE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1761",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-maroon",
+        "size": "S-TO-2XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1762",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-navy-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1763",
+        "product_id": "tee-custom-full-sleeve-t-shirt",
+        "sku": "CUSTOM-FULL-SLEEVE-T-SHIRT-S-TO-2XL-white",
+        "size": "S-TO-2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-sleeveless-vest",
+    "slug": "custom-sleeveless-vest",
+    "name": "Sleeveless Vest",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 145,
+    "original_price": 196,
+    "badge": "Bulk Fav",
+    "is_sold_out": false,
+    "image": "/images/products/sleeveless-t-shirts-plain-tshirts-india.webp",
+    "gallery": [
+      "/images/products/sleeveless-t-shirts-plain-tshirts-india.webp",
+      "/images/products/mens-vest-plain-tshirts-india.webp",
+      "/images/products/sleeveless-vest-plain-tshirts-india.webp",
+      "/images/products/vests-plain-tshirts-india.webp"
+    ],
+    "description": "Get plain sleeveless vest for online clothing brands, custom printing, and dropshipping no minimum order quantity. 1 day express disptach.",
+    "sizes": [
+      "S TO 2XL"
+    ],
+    "colors": [
+      {
+        "name": "Air Force",
+        "hex": "#1A6568"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Charcoal Melange",
+        "hex": "#999999"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Dusky Pink",
+        "hex": "#EA8AAA"
+      },
+      {
+        "name": "Golden Yellow",
+        "hex": "#E0B300"
+      },
+      {
+        "name": "Grey Melange",
+        "hex": "#CECECE"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 138
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 128
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 116
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 104
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 33,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-sleeveless-vest/",
+    "source_id": 1698,
+    "variations": [
+      {
+        "id": "1764",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-air-force",
+        "size": "S-TO-2XL",
+        "color_name": "Air Force",
+        "color_hex": "#1A6568",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1765",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-black",
+        "size": "S-TO-2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1766",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-charcoal-melange",
+        "size": "S-TO-2XL",
+        "color_name": "Charcoal Melange",
+        "color_hex": "#999999",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1767",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-coffee-brown",
+        "size": "S-TO-2XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1768",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-dusky-pink",
+        "size": "S-TO-2XL",
+        "color_name": "Dusky Pink",
+        "color_hex": "#EA8AAA",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1769",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-golden-yellow",
+        "size": "S-TO-2XL",
+        "color_name": "Golden Yellow",
+        "color_hex": "#E0B300",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1770",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-grey-melange",
+        "size": "S-TO-2XL",
+        "color_name": "Grey Melange",
+        "color_hex": "#CECECE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1771",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-maroon",
+        "size": "S-TO-2XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1772",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-navy-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1773",
+        "product_id": "tee-custom-sleeveless-vest",
+        "sku": "CUSTOM-SLEEVELESS-VEST-S-TO-2XL-white",
+        "size": "S-TO-2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-cotton-polo-t-shirt",
+    "slug": "custom-cotton-polo-t-shirt",
+    "name": "Cotton Polo T-Shirt",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 305,
+    "original_price": 412,
+    "is_sold_out": false,
+    "image": "/images/products/cotton-polo-t-shirts.webp",
+    "gallery": [
+      "/images/products/cotton-polo-t-shirts.webp",
+      "/images/products/polo-t-shirts-back.webp",
+      "/images/products/polo-t-shirts-pocket.webp",
+      "/images/products/polo-t-shirts-collar-button-cuff.webp"
+    ],
+    "description": "Get cotton polo t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 2XL"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Petrol Blue",
+        "hex": "#1A6568"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff",
+      "Precision Embroidery"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 290
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 268
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 244
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 220
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 18,
+    "gsm": 180,
+    "fabric": "100% Premium Cotton Pique Knit",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/custom-cotton-polo-t-shirt/",
+    "source_id": 383,
+    "variations": [
+      {
+        "id": "2480",
+        "product_id": "tee-custom-cotton-polo-t-shirt",
+        "sku": "CUSTOM-COTTON-POLO-T-SHIRT-S-TO-2XL-black",
+        "size": "S-TO-2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2484",
+        "product_id": "tee-custom-cotton-polo-t-shirt",
+        "sku": "CUSTOM-COTTON-POLO-T-SHIRT-S-TO-2XL-coffee-brown",
+        "size": "S-TO-2XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2481",
+        "product_id": "tee-custom-cotton-polo-t-shirt",
+        "sku": "CUSTOM-COTTON-POLO-T-SHIRT-S-TO-2XL-maroon",
+        "size": "S-TO-2XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2578",
+        "product_id": "tee-custom-cotton-polo-t-shirt",
+        "sku": "CUSTOM-COTTON-POLO-T-SHIRT--navy-blue",
+        "size": "M",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2579",
+        "product_id": "tee-custom-cotton-polo-t-shirt",
+        "sku": "CUSTOM-COTTON-POLO-T-SHIRT--petrol-blue",
+        "size": "M",
+        "color_name": "Petrol Blue",
+        "color_hex": "#1A6568",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1498",
+        "product_id": "tee-custom-cotton-polo-t-shirt",
+        "sku": "CUSTOM-COTTON-POLO-T-SHIRT-S-TO-2XL-white",
+        "size": "S-TO-2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-oversized-t-shirt",
+    "slug": "custom-oversized-t-shirt",
+    "name": "Oversized T-Shirt – 240 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 255,
+    "original_price": 344,
+    "is_sold_out": false,
+    "image": "/images/products/oversized-t-shirts-plain.webp",
+    "gallery": [
+      "/images/products/oversized-t-shirts-plain.webp",
+      "/images/products/unisex-oversized-t-shirts.webp",
+      "/images/products/oversized-t-shirts-plain-white.webp",
+      "/images/products/oversized-t-shirts-cotton.webp",
+      "/images/products/white-premium-oversized-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain oversized t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 2XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Brick Red",
+        "hex": "#C90000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Emerald Green",
+        "hex": "#27822B"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 242
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 224
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 204
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 184
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 17,
+    "gsm": 240,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [],
+    "permalink": "https://plaintshirtsindia.com/product/custom-oversized-t-shirt/",
+    "source_id": 382,
+    "variations": [
+      {
+        "id": "2495",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-beige",
+        "size": "S-TO-2XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1469",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-black",
+        "size": "S-TO-2XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1470",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-brick-red",
+        "size": "S-TO-2XL",
+        "color_name": "Brick Red",
+        "color_hex": "#C90000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2496",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-coffee-brown",
+        "size": "S-TO-2XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2498",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-emerald-green",
+        "size": "S-TO-2XL",
+        "color_name": "Emerald Green",
+        "color_hex": "#27822B",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1471",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-lavender",
+        "size": "S-TO-2XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2497",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-maroon",
+        "size": "S-TO-2XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1472",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-navy-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2499",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-royal-blue",
+        "size": "S-TO-2XL",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1473",
+        "product_id": "tee-custom-oversized-t-shirt",
+        "sku": "CUSTOM-OVERSIZED-T-SHIRT-S-TO-2XL-white",
+        "size": "S-TO-2XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  },
+  {
+    "id": "tee-custom-round-neck-t-shirt",
+    "slug": "custom-round-neck-t-shirt",
+    "name": "Round Neck T-Shirt – 180 GSM",
+    "category": "tshirts",
+    "category_label": "T-Shirts & Apparel",
+    "price": 175,
+    "original_price": 236,
+    "is_sold_out": false,
+    "image": "/images/products/round-neck-t-shirts.webp",
+    "gallery": [
+      "/images/products/round-neck-t-shirts.webp",
+      "/images/products/unisex-cotton-t-shirts.webp",
+      "/images/products/unisex-round-neck-t-shirts.webp",
+      "/images/products/unisex-t-shirts-cotton.webp"
+    ],
+    "description": "Get plain round neck t-shirt ideal for online clothing brands, custom printing, and corporate events at no minimum order quantity.",
+    "sizes": [
+      "S TO 4XL"
+    ],
+    "colors": [
+      {
+        "name": "Beige",
+        "hex": "#E8DDCC"
+      },
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Brick Red",
+        "hex": "#C90000"
+      },
+      {
+        "name": "Coffee Brown",
+        "hex": "#6F4E37"
+      },
+      {
+        "name": "Dusky Pink",
+        "hex": "#EA8AAA"
+      },
+      {
+        "name": "Lavender",
+        "hex": "#D6D6F9"
+      },
+      {
+        "name": "Maroon",
+        "hex": "#800000"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#004A66"
+      },
+      {
+        "name": "Royal Blue",
+        "hex": "#1E73BE"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "print_types": [
+      "DTF Printing",
+      "Screen Printing",
+      "High-Density Puff"
+    ],
+    "bulk_pricing": [
+      {
+        "qty": "10-49 pcs",
+        "price": 166
+      },
+      {
+        "qty": "50-99 pcs",
+        "price": 154
+      },
+      {
+        "qty": "100-499 pcs",
+        "price": 140
+      },
+      {
+        "qty": "500+ pcs",
+        "price": 126
+      }
+    ],
+    "min_order": 10,
+    "turnaround": "48h",
+    "rating": 0,
+    "reviews_count": 16,
+    "gsm": 180,
+    "fabric": "100% Super Combed Cotton",
+    "raw_categories": [
+      "Men's Clothing"
+    ],
+    "raw_tags": [
+      "round neck"
+    ],
+    "permalink": "https://plaintshirtsindia.com/product/custom-round-neck-t-shirt/",
+    "source_id": 381,
+    "variations": [
+      {
+        "id": "1459",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-beige",
+        "size": "S-TO-4XL",
+        "color_name": "Beige",
+        "color_hex": "#E8DDCC",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1460",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-black",
+        "size": "S-TO-4XL",
+        "color_name": "Black",
+        "color_hex": "#000000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1465",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-brick-red",
+        "size": "S-TO-4XL",
+        "color_name": "Brick Red",
+        "color_hex": "#C90000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1461",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-coffee-brown",
+        "size": "S-TO-4XL",
+        "color_name": "Coffee Brown",
+        "color_hex": "#6F4E37",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1462",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-dusky-pink",
+        "size": "S-TO-4XL",
+        "color_name": "Dusky Pink",
+        "color_hex": "#EA8AAA",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1463",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-lavender",
+        "size": "S-TO-4XL",
+        "color_name": "Lavender",
+        "color_hex": "#D6D6F9",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1464",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-maroon",
+        "size": "S-TO-4XL",
+        "color_name": "Maroon",
+        "color_hex": "#800000",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1466",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-navy-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Navy Blue",
+        "color_hex": "#004A66",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "2503",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-royal-blue",
+        "size": "S-TO-4XL",
+        "color_name": "Royal Blue",
+        "color_hex": "#1E73BE",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      },
+      {
+        "id": "1467",
+        "product_id": "tee-custom-round-neck-t-shirt",
+        "sku": "CUSTOM-ROUND-NECK-T-SHIRT-S-TO-4XL-white",
+        "size": "S-TO-4XL",
+        "color_name": "White",
+        "color_hex": "#FFFFFF",
+        "print_type": "DTF Printing",
+        "additional_price": 0,
+        "stock_quantity": 100,
+        "is_available": true
+      }
+    ]
+  }
+]
